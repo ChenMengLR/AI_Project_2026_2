@@ -1,0 +1,8 @@
+﻿filename,status,label,model,request_id,response_id,prompt_tokens,completion_tokens,total_tokens,sha256
+new-01-apples.jpg,success,food,qwen3.8-flash,faa1d00f-cab0-9341-b85c-980c4ac9caa7,chatcmpl-faa1d00f-cab0-9341-b85c-980c4ac9caa7,2580,2,2582,1cbbb9b96b91e28e63263c757b3c9f40712826c0c004a89f36b56a0c4583af78
+new-02-keyboard.jpg,success,device,qwen3.8-flash,daba7beb-f6ec-97d9-a8b5-550d4e47bb27,chatcmpl-daba7beb-f6ec-97d9-a8b5-550d4e47bb27,2554,2,2556,a022cf70e99c32fa73a7e5ade49bf0118f7cfd0f60b215c11848029d75e5502b
+sample-01.jpg,success,person,qwen3.8-flash,ebf2f6a4-b7a4-9924-89d4-cafb3af07baa,chatcmpl-ebf2f6a4-b7a4-9924-89d4-cafb3af07baa,2560,2,2562,678d0f8428d814e4301249bc2c0cdb2af190794ad8184912bffdfded3cba2e2f
+sample-02.jpg,success,document,qwen3.8-flash,2719de2d-110f-90bb-a27d-074e8dfbd263,chatcmpl-2719de2d-110f-90bb-a27d-074e8dfbd263,2602,2,2604,a9b9b461abbf1c4bb57e2f5fa212f8e5f54b4ecd8e110b4d02c09a84b026039d
+sample-03.jpg,success,food,qwen3.8-flash,856aaafb-c5a8-92ba-bac4-4bddd178fd59,chatcmpl-856aaafb-c5a8-92ba-bac4-4bddd178fd59,2561,2,2563,a562c4ea116e9dab0b0cb29983665c6f4c162988e0894b612a9e608e5184afbc
+sample-04.jpg,success,device,qwen3.8-flash,0d688f15-69e7-9359-b7f7-7f457f6347ed,chatcmpl-0d688f15-69e7-9359-b7f7-7f457f6347ed,2561,2,2563,48c218eb3287cb1ae9c071419eab5da3bb6411cddfd035c54facbff8d497ee5f
+sample-05.jpg,success,other,qwen3.8-flash,09ddfea1-c066-9ee9-93b2-0ce1f92998e8,chatcmpl-09ddfea1-c066-9ee9-93b2-0ce1f92998e8,2561,2,2563,ed6f3a0158a2883e2ca30816f774be0203f9911620e350af26f36ec103072b47

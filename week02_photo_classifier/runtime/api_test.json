@@ -1,0 +1,14 @@
+{
+  "tested_utc": "2026-09-17T07:58:29.547145+00:00",
+  "requested_model": "qwen3.8-flash",
+  "test": "text-only",
+  "passed": true,
+  "model": "qwen3.8-flash",
+  "response_id": "chatcmpl-346ce175-f284-9842-92a4-3d2ac98c8f1f",
+  "request_id": "346ce175-f284-9842-92a4-3d2ac98c8f1f",
+  "usage": {
+    "prompt_tokens": 30,
+    "completion_tokens": 1,
+    "total_tokens": 31
+  }
+}

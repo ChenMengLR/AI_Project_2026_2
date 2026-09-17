@@ -4,14 +4,19 @@ from __future__ import annotations
 
 import argparse
 import base64
+import csv
 from dataclasses import dataclass, field
+from datetime import datetime, timezone
+import hashlib
 import importlib.metadata
 import importlib.util
+import json
 import os
 from pathlib import Path
 import re
 import shutil
 import sys
+import time
 from typing import Callable
 from urllib.parse import urlsplit
 
@@ -41,6 +46,10 @@ class ProjectPaths:
     @property
     def env_file(self) -> Path:
         return self.root / ".env"
+
+    @property
+    def runtime_dir(self) -> Path:
+        return self.root / "runtime"
 
 
 @dataclass(frozen=True)
@@ -193,7 +202,35 @@ def check_environment(paths: ProjectPaths) -> int:
     return 0 if ready else 1
 
 
-def classify_image(client: object, path: Path) -> str:
+def response_metadata(response: object) -> dict:
+    """Retain evidence fields only, never headers, prompts, images or credentials."""
+    usage = getattr(response, "usage", None)
+    return {
+        "model": getattr(response, "model", None),
+        "response_id": getattr(response, "id", None),
+        "request_id": getattr(response, "_request_id", None),
+        "usage": {
+            key: getattr(usage, key, None)
+            for key in ("prompt_tokens", "completion_tokens", "total_tokens")
+        },
+    }
+
+
+def safe_error_metadata(error: Exception) -> dict:
+    """Return identifiers only; provider error text can expose request details."""
+    result = {"error_type": type(error).__name__}
+    status = getattr(error, "status_code", None)
+    if isinstance(status, int):
+        result["http_status"] = status
+    return result
+
+
+def write_json(path: Path, value: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def classify_image(client: object, path: Path, metadata: dict | None = None) -> str:
     response = client.chat.completions.create(
         model=MODEL,
         temperature=0,
@@ -211,38 +248,78 @@ def classify_image(client: object, path: Path) -> str:
             ]},
         ],
     )
+    if metadata is not None:
+        metadata.update(response_metadata(response))
     return parse_label(response.choices[0].message.content)
 
 
-def run_batch(paths: ProjectPaths, classify: Callable[[Path], str]) -> int:
+def run_batch(paths: ProjectPaths, classify: Callable[[Path], str],
+              response_records: dict[str, dict] | None = None) -> int:
     images = find_images(paths)
     if not images:
         print(f"没有可处理的图片，请把 JPG/JPEG/PNG/WebP 放入 {paths.input_dir}。")
         return 1
     succeeded = 0
     failed = 0
+    started = datetime.now(timezone.utc)
+    run_id = started.strftime("%Y%m%dT%H%M%S%fZ")
+    rows = []
     for path in images:
+        row = {"filename": path.name, "status": "failed", "label": None}
+        timer = time.monotonic()
         try:
+            row["sha256"] = hashlib.sha256(path.read_bytes()).hexdigest()
             label = parse_label(classify(path))
             destination = paths.output_dir / label
             destination.mkdir(parents=True, exist_ok=True)
             shutil.copy2(path, destination / path.name)
-        except InvalidLabelError:
+        except InvalidLabelError as error:
             failed += 1
+            row.update(safe_error_metadata(error))
             print(f"[失败] {path.name}：模型回答不符合五种分类标签，已跳过。")
-        except Exception:
+        except Exception as error:
             # API errors can contain request metadata; never echo raw exceptions.
             failed += 1
+            row.update(safe_error_metadata(error))
             print(f"[失败] {path.name}：请求或文件处理失败，已跳过；请检查网络、API 权限/额度和文件权限。")
         else:
             succeeded += 1
+            row.update(status="success", label=label,
+                       output=f"sorted/{label}/{path.name}")
             print(f"[成功] {path.name} -> {label}")
+        finally:
+            row["duration_seconds"] = round(time.monotonic() - timer, 3)
+            if response_records is not None:
+                row.update(response_records.get(path.name, {}))
+            rows.append(row)
+    report = {
+        "run_id": run_id, "started_utc": started.isoformat(),
+        "finished_utc": datetime.now(timezone.utc).isoformat(),
+        "requested_model": MODEL, "success_count": succeeded,
+        "failure_count": failed, "images": rows,
+        "note": "API metadata contains no request headers, credentials or image payloads.",
+    }
+    write_json(paths.runtime_dir / "runs" / f"{run_id}.json", report)
+    write_json(paths.runtime_dir / "last_run.json", report)
+    with (paths.runtime_dir / "classification_results.csv").open(
+            "w", encoding="utf-8-sig", newline="") as csv_file:
+        fields = ("filename", "status", "label", "model", "request_id", "response_id",
+                  "prompt_tokens", "completion_tokens", "total_tokens", "sha256")
+        writer = csv.DictWriter(csv_file, fieldnames=fields)
+        writer.writeheader()
+        for row in rows:
+            flat = {key: row.get(key) for key in fields}
+            flat.update(row.get("usage", {}))
+            writer.writerow(flat)
     print(f"处理结束：成功 {succeeded} 张，失败 {failed} 张；input 中的原图保留。")
+    print(f"运行记录：{paths.runtime_dir / 'last_run.json'}")
     return 1 if failed else 0
 
 
-def test_api(client: object) -> int:
+def test_api(client: object, evidence_path: Path | None = None) -> int:
     print("发送一条文本测试请求，可能消耗 API 额度；不会读取或上传图片。")
+    evidence = {"tested_utc": datetime.now(timezone.utc).isoformat(),
+                "requested_model": MODEL, "test": "text-only", "passed": False}
     try:
         response = client.chat.completions.create(
             model=MODEL,
@@ -250,13 +327,19 @@ def test_api(client: object) -> int:
             extra_body={"enable_thinking": False},
             messages=[{"role": "user", "content": "Reply with exactly OK."}],
         )
+        evidence.update(response_metadata(response))
         reply = response.choices[0].message.content
         if not isinstance(reply, str) or reply.strip().upper() != "OK":
             print("API 已返回，但测试回复格式不符；尚不能判定测试通过。")
             return 1
-    except Exception:
+        evidence["passed"] = True
+    except Exception as error:
+        evidence.update(safe_error_metadata(error))
         print("API 文本测试失败。请核对密钥、模型权限、区域、额度和网络；原始错误已隐藏以保护凭据。")
         return 1
+    finally:
+        if evidence_path is not None:
+            write_json(evidence_path, evidence)
     print("API 文本连接测试通过；尚未验证图片分类。")
     return 0
 
@@ -289,8 +372,14 @@ def main(argv: list[str] | None = None) -> int:
         with OpenAI(api_key=config.api_key, base_url=config.base_url,
                     timeout=60.0, max_retries=1) as client:
             if args.test_api:
-                return test_api(client)
-            return run_batch(paths, lambda path: classify_image(client, path))
+                return test_api(client, paths.runtime_dir / "api_test.json")
+            records: dict[str, dict] = {}
+
+            def classify_with_evidence(path: Path) -> str:
+                records[path.name] = {}
+                return classify_image(client, path, records[path.name])
+
+            return run_batch(paths, classify_with_evidence, records)
     except Exception:
         print("无法初始化 API 客户端；请检查依赖和本地配置。原始错误已隐藏。")
         return 1

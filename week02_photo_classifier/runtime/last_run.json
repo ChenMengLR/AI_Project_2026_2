@@ -1,0 +1,123 @@
+{
+  "run_id": "20260917T080810042251Z",
+  "started_utc": "2026-09-17T08:08:10.042251+00:00",
+  "finished_utc": "2026-09-17T08:08:55.586155+00:00",
+  "requested_model": "qwen3.8-flash",
+  "success_count": 7,
+  "failure_count": 0,
+  "images": [
+    {
+      "filename": "new-01-apples.jpg",
+      "status": "success",
+      "label": "food",
+      "sha256": "1cbbb9b96b91e28e63263c757b3c9f40712826c0c004a89f36b56a0c4583af78",
+      "output": "sorted/food/new-01-apples.jpg",
+      "duration_seconds": 4.319,
+      "model": "qwen3.8-flash",
+      "response_id": "chatcmpl-faa1d00f-cab0-9341-b85c-980c4ac9caa7",
+      "request_id": "faa1d00f-cab0-9341-b85c-980c4ac9caa7",
+      "usage": {
+        "prompt_tokens": 2580,
+        "completion_tokens": 2,
+        "total_tokens": 2582
+      }
+    },
+    {
+      "filename": "new-02-keyboard.jpg",
+      "status": "success",
+      "label": "device",
+      "sha256": "a022cf70e99c32fa73a7e5ade49bf0118f7cfd0f60b215c11848029d75e5502b",
+      "output": "sorted/device/new-02-keyboard.jpg",
+      "duration_seconds": 6.311,
+      "model": "qwen3.8-flash",
+      "response_id": "chatcmpl-daba7beb-f6ec-97d9-a8b5-550d4e47bb27",
+      "request_id": "daba7beb-f6ec-97d9-a8b5-550d4e47bb27",
+      "usage": {
+        "prompt_tokens": 2554,
+        "completion_tokens": 2,
+        "total_tokens": 2556
+      }
+    },
+    {
+      "filename": "sample-01.jpg",
+      "status": "success",
+      "label": "person",
+      "sha256": "678d0f8428d814e4301249bc2c0cdb2af190794ad8184912bffdfded3cba2e2f",
+      "output": "sorted/person/sample-01.jpg",
+      "duration_seconds": 10.35,
+      "model": "qwen3.8-flash",
+      "response_id": "chatcmpl-ebf2f6a4-b7a4-9924-89d4-cafb3af07baa",
+      "request_id": "ebf2f6a4-b7a4-9924-89d4-cafb3af07baa",
+      "usage": {
+        "prompt_tokens": 2560,
+        "completion_tokens": 2,
+        "total_tokens": 2562
+      }
+    },
+    {
+      "filename": "sample-02.jpg",
+      "status": "success",
+      "label": "document",
+      "sha256": "a9b9b461abbf1c4bb57e2f5fa212f8e5f54b4ecd8e110b4d02c09a84b026039d",
+      "output": "sorted/document/sample-02.jpg",
+      "duration_seconds": 3.857,
+      "model": "qwen3.8-flash",
+      "response_id": "chatcmpl-2719de2d-110f-90bb-a27d-074e8dfbd263",
+      "request_id": "2719de2d-110f-90bb-a27d-074e8dfbd263",
+      "usage": {
+        "prompt_tokens": 2602,
+        "completion_tokens": 2,
+        "total_tokens": 2604
+      }
+    },
+    {
+      "filename": "sample-03.jpg",
+      "status": "success",
+      "label": "food",
+      "sha256": "a562c4ea116e9dab0b0cb29983665c6f4c162988e0894b612a9e608e5184afbc",
+      "output": "sorted/food/sample-03.jpg",
+      "duration_seconds": 4.023,
+      "model": "qwen3.8-flash",
+      "response_id": "chatcmpl-856aaafb-c5a8-92ba-bac4-4bddd178fd59",
+      "request_id": "856aaafb-c5a8-92ba-bac4-4bddd178fd59",
+      "usage": {
+        "prompt_tokens": 2561,
+        "completion_tokens": 2,
+        "total_tokens": 2563
+      }
+    },
+    {
+      "filename": "sample-04.jpg",
+      "status": "success",
+      "label": "device",
+      "sha256": "48c218eb3287cb1ae9c071419eab5da3bb6411cddfd035c54facbff8d497ee5f",
+      "output": "sorted/device/sample-04.jpg",
+      "duration_seconds": 7.596,
+      "model": "qwen3.8-flash",
+      "response_id": "chatcmpl-0d688f15-69e7-9359-b7f7-7f457f6347ed",
+      "request_id": "0d688f15-69e7-9359-b7f7-7f457f6347ed",
+      "usage": {
+        "prompt_tokens": 2561,
+        "completion_tokens": 2,
+        "total_tokens": 2563
+      }
+    },
+    {
+      "filename": "sample-05.jpg",
+      "status": "success",
+      "label": "other",
+      "sha256": "ed6f3a0158a2883e2ca30816f774be0203f9911620e350af26f36ec103072b47",
+      "output": "sorted/other/sample-05.jpg",
+      "duration_seconds": 9.089,
+      "model": "qwen3.8-flash",
+      "response_id": "chatcmpl-09ddfea1-c066-9ee9-93b2-0ce1f92998e8",
+      "request_id": "09ddfea1-c066-9ee9-93b2-0ce1f92998e8",
+      "usage": {
+        "prompt_tokens": 2561,
+        "completion_tokens": 2,
+        "total_tokens": 2563
+      }
+    }
+  ],
+  "note": "API metadata contains no request headers, credentials or image payloads."
+}
