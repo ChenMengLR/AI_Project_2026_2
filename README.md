@@ -2,7 +2,15 @@
 
 项目位置：`C:\Users\31797\Desktop\AI_Project_2026_2`
 
-本地 Python 环境、依赖和启动入口已部署。Qwen 密钥、接口地址和真实图片尚需补充；没有进行真实 Qwen 调用，也没有上传图片。
+本地 Python 环境、依赖、启动入口和 GitHub 仓库已部署，5 张课堂示例图片已准备好；仍需填写 Qwen 密钥与接口地址，并自行补充 2–3 张新图片。尚未进行真实 Qwen 调用，也未完成真实分类、录屏或课程作业提交。
+
+## 课程说明与作业模板
+
+- [完整课程操作说明](COURSE_GUIDE.md)：软件安装、课堂流程、API 配置、GitHub 提交上传、作业提交及常见问题。
+- [Word 版课程说明](docs/第2周QwenVision课程操作说明.docx)：共 8 页，首页为上课速查。
+- [作业与录屏模板](week02_photo_classifier/SUBMISSION.md)：个人提交、团队方案和第 3 周汇报准备。
+- [分类结果记录表](week02_photo_classifier/results.csv)：样例预期类别已填写，实际结果等待真实运行。
+- [五张课堂样例来源](week02_photo_classifier/SAMPLE_SOURCES.md)。
 
 ## 已安装与配置
 
@@ -24,7 +32,7 @@
    ```
 
    端点使用 HTTPS 并以 `/compatible-mode/v1` 结尾。不要把密钥发送到聊天、上传 GitHub 或展示在录屏中。
-3. 把 5 张课堂示例图片和 2–3 张新图片放入 `week02_photo_classifier/input/`。
+3. `week02_photo_classifier/input/` 已准备好 5 张课堂示例图片；再自行放入 2–3 张新图片，共 7–8 张。
 4. 双击根目录的 `Open-Course.cmd`，会打开已激活虚拟环境、已进入本周目录的 PowerShell。
 5. 在该窗口运行本地检查（不联网）：
 
@@ -70,6 +78,7 @@ python app.py --check
 本课程仓库使用 `main` 分支。每次完成一部分实践后，先保存文件、检查修改与暂存清单，再创建提交并上传。`git remote -v` 可查看本机连接的远程仓库。
 
 ```powershell
+cd C:\Users\31797\Desktop\AI_Project_2026_2
 git status
 git add .
 git diff --cached --name-only
