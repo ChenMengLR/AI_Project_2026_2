@@ -4,7 +4,7 @@
 
 新窗口请先打开本项目根目录并阅读 [HANDOFF.md](HANDOFF.md)。第 3 周规则问答机器人的课程总结在 [docs/Week03_Rule_QA_Summary.md](docs/Week03_Rule_QA_Summary.md)，状态记录在 [docs/status/Week03_STATUS.md](docs/status/Week03_STATUS.md)，总结图在 [docs/Week03_Rule_QA_Summary.png](docs/Week03_Rule_QA_Summary.png)。
 
-第 3 周个人代码位于 `week03_rule_chatbot/`，共用根目录 `.venv`。当前代码和离线测试已经建立；真实 Qwen 调用需要在本机 `.env` 中配置自己的密钥和同地域 Base URL。`.env` 不上传 GitHub。
+第 3 周个人代码位于 `week03_rule_chatbot/`，共用根目录 `.venv`。第 2、3 周可以共用 AI 项目根目录 `.env`；真实 Qwen 调用需要在本机配置自己的密钥和同地域 Base URL。`.env` 不上传 GitHub。提交规范与自动检查见“作业 3”容器中的 `docs/COMMIT_POLICY.md`。
 
 项目位置：`C:\Users\31797\Documents\ChatGPT\作业 3\AI_Project_2026_2`
 
