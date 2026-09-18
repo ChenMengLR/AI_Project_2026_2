@@ -1,5 +1,11 @@
 # AI_Project_2026_2 课程环境
 
+## 当前交接入口
+
+新窗口请先打开本项目根目录并阅读 [HANDOFF.md](HANDOFF.md)。第 3 周规则问答机器人的课程总结在 [docs/Week03_Rule_QA_Summary.md](docs/Week03_Rule_QA_Summary.md)，状态记录在 [docs/status/Week03_STATUS.md](docs/status/Week03_STATUS.md)，总结图在 [docs/Week03_Rule_QA_Summary.png](docs/Week03_Rule_QA_Summary.png)。
+
+第 3 周个人代码位于 `week03_rule_chatbot/`，共用根目录 `.venv`。当前代码和离线测试已经建立；真实 Qwen 调用需要在本机 `.env` 中配置自己的密钥和同地域 Base URL。`.env` 不上传 GitHub。
+
 项目位置：`C:\Users\31797\Desktop\AI_Project_2026_2`
 
 2026-09-17 已真实调用 `qwen3.8-flash`，完成 5 张课堂样例和 2 张新增公开授权图片的分类：7 张成功、0 张失败，全部与预期标签一致。输入原图保留，分类副本已核对 SHA-256。仓库已公开，教师无需登录即可访问；本次使用一次性进程环境变量提供密钥，未将密钥写入项目。
