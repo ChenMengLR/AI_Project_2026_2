@@ -1,0 +1,14 @@
+---
+description: Shared course workspace handoff and safe weekly-folder conventions
+alwaysApply: true
+---
+
+# Shared course workspace
+
+- Treat `C:\Users\31797\Desktop\AI_Project_2026_2` as the only project root.
+- Read `HANDOFF.md`, `README.md`, and `docs/status/` before making changes.
+- Keep each week in a sibling `weekNN_topic` folder and reuse the root `.venv`.
+- Do not overwrite previous weeks or create a second repository.
+- Never expose or commit `.env` files or API keys.
+- Check `git status` and the staged file list before every commit.
+- Update the matching `docs/status/WeekNN_STATUS.md` after a milestone.
