@@ -9,6 +9,6 @@ alwaysApply: true
 - Read `HANDOFF.md`, `README.md`, and `docs/status/` before making changes.
 - Keep each week in a sibling `weekNN_topic` folder and reuse the root `.venv`.
 - Do not overwrite previous weeks or create a second repository.
-- Never expose or commit `.env` files or API keys.
+- Keep shared AI credentials only in the ignored project-root `.env`; never expose or commit `.env` files or API keys.
 - Check `git status` and the staged file list before every commit.
 - Update the matching `docs/status/WeekNN_STATUS.md` after a milestone.

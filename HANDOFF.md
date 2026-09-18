@@ -54,7 +54,7 @@ AI_Project_2026_2/
    └─ status/                         # 每周状态和交接记录
 ```
 
-每周课程使用一个同级目录 `weekNN_<topic>`，不要覆盖上一周目录，也不要在周目录中再建 `.venv`。所有周目录共用根目录 `.venv`。每个周目录可以有自己的 `.env`，但 `.env` 永远不进入 GitHub。
+每周课程使用一个同级目录 `weekNN_<topic>`，不要覆盖上一周目录，也不要在周目录中再建 `.venv`。所有周目录共用根目录 `.venv`。推荐在 AI 项目根目录放一份 `.env`，由第 2 周和第 3 周共同读取；周目录中的 `.env` 可以作为覆盖配置，但 `.env` 永远不进入 GitHub。
 
 ## 多个任务如何互相读取
 
@@ -67,7 +67,7 @@ AI_Project_2026_2/
 
 ## 凭据和安全边界
 
-`DASHSCOPE_API_KEY` 只能放在本机的周目录 `.env` 或一次性进程环境变量中。不要把 API Key 放入聊天、截图、Notion、GitHub、日志或总结图。提交前必须确认：
+`DASHSCOPE_API_KEY` 只能放在本机的 AI 项目根 `.env`、周目录覆盖 `.env` 或一次性进程环境变量中。不要把 API Key 放入聊天、截图、Notion、GitHub、日志或总结图。提交前必须确认：
 
 ```powershell
 git status --short

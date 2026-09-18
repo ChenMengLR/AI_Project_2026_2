@@ -16,8 +16,10 @@ from openai import OpenAI
 
 MODEL = os.getenv("QWEN_MODEL", "qwen3.8-flash")
 BASE_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = BASE_DIR.parent
 RULES_PATH = BASE_DIR / "rules.txt"
 ENV_PATH = BASE_DIR / ".env"
+SHARED_ENV_PATH = PROJECT_ROOT / ".env"
 
 SYSTEM_INSTRUCTIONS = """You are an evidence-grounded rules Q&A chatbot.
 Use only the supplied rules document. Never use outside knowledge or guesses.
@@ -45,7 +47,11 @@ def read_rules(path: Path = RULES_PATH) -> str:
 
 def load_settings(env_path: Path = ENV_PATH) -> tuple[str, str, str]:
     """Load credentials without printing either the key or its value."""
-    load_dotenv(env_path)
+    # The project-root .env is shared by all weeks. Process environment
+    # variables still have highest precedence; a week-local file fills gaps.
+    if env_path == ENV_PATH and SHARED_ENV_PATH != env_path:
+        load_dotenv(SHARED_ENV_PATH, override=False)
+    load_dotenv(env_path, override=False)
     key = os.getenv("DASHSCOPE_API_KEY", "").strip()
     base_url = os.getenv("DASHSCOPE_BASE_URL", "").strip()
     model = os.getenv("QWEN_MODEL", "qwen3.8-flash").strip() or "qwen3.8-flash"

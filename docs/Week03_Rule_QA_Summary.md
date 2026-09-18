@@ -12,7 +12,7 @@
 | --- | --- |
 | 与 `week02_photo_classifier` 同级创建 `week03_rule_chatbot` | 已创建，未覆盖第 2 周目录 |
 | 继续使用根目录 `.venv` | 已保留根 `.venv`，周目录没有重复创建环境 |
-| 复制第 2 周 API 配置；不公开密钥 | `.env` 只在本机；仓库只保留 `.env.example`，当前本机配置为空模板 |
+| 复制第 2 周 API 配置；不公开密钥 | 推荐在 AI 项目根 `.env` 共用一次；仓库只保留 `.env.example`，当前本机配置为空模板 |
 | 保存东亚大学翰林生活馆规则摘要 | `week03_rule_chatbot/rules.txt`，包含来源 URL 和确认日期 |
 | 连续提问、同语言回答、显示证据、`exit` 退出 | `week03_rule_chatbot/app.py` 已实现 |
 | 三类验收题 | 电热水壶、访客进房、打印机位置；测试说明已写入周目录 README |

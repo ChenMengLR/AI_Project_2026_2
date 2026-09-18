@@ -48,6 +48,11 @@ class ProjectPaths:
         return self.root / ".env"
 
     @property
+    def shared_env_file(self) -> Path:
+        """The project-root shared config used by all AI course weeks."""
+        return self.root.parent / ".env"
+
+    @property
     def runtime_dir(self) -> Path:
         return self.root / "runtime"
 
@@ -147,6 +152,9 @@ def load_configuration(paths: ProjectPaths) -> tuple[ApiConfig | None, list[str]
     else:
         try:
             # Existing process variables take precedence over .env values.
+            # The project-root file is shared; the week-local file fills gaps.
+            if paths.shared_env_file != paths.env_file:
+                load_dotenv(paths.shared_env_file, override=False, interpolate=False)
             load_dotenv(paths.env_file, override=False, interpolate=False)
         except (OSError, UnicodeError):
             errors.append("无法读取 .env，请检查文件权限和 UTF-8 编码。")

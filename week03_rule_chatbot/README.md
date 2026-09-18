@@ -28,7 +28,7 @@ python week03_rule_chatbot\app.py --question "我可以在房间里使用电热�
 2. `朋友可以来我的房间吗？`：应根据第 17 条说明会客时间、地点及不能进入住宿生房间。
 3. `宿舍的打印机在哪里？`：规则中没有该信息，应回答无法从提供的规则确认，并输出 `Evidence: Not found`。
 
-真实 API 测试需要本机配置 `DASHSCOPE_API_KEY` 与同地域的 `DASHSCOPE_BASE_URL`。不要把 `.env`、密钥、运行截图或包含密钥的日志提交到 GitHub。
+真实 API 测试需要本机配置 `DASHSCOPE_API_KEY` 与同地域的 `DASHSCOPE_BASE_URL`。推荐只在 AI 项目根目录的 `.env` 配置一次；本周目录的 `.env` 仍可覆盖它。不要把 `.env`、密钥、运行截图或包含密钥的日志提交到 GitHub。
 
 离线测试：
 
