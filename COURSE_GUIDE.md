@@ -101,7 +101,7 @@ py -3.14 -m venv .venv
 ### 先认清文件的位置
 
 ```powershell
-C:\Users\31797\Desktop\AI_Project_2026_2\
+C:\Users\31797\Documents\ChatGPT\作业 3\AI_Project_2026_2\
   .venv\                      # 本学期共享环境
   .gitignore                   # 上传排除规则
   README.md                    # 项目使用说明
@@ -212,7 +212,7 @@ HTTPS 地址可在仓库首页 Code → HTTPS 复制，也可用 git remote -v �
 先按 Ctrl+S 保存文件，再回到课程根目录。以下示例选择代码和作业记录；需要上传其他文件时，按实际文件名补充 git add。
 
 ```powershell
-cd C:\Users\31797\Desktop\AI_Project_2026_2
+cd C:\Users\31797\Documents\ChatGPT\作业 3\AI_Project_2026_2
 git status
 git add README.md week02_photo_classifier/app.py
 git add week02_photo_classifier/results.csv
@@ -334,7 +334,7 @@ Week 3 Goal: 一个下次课可执行且可验收的目标
 - Activate.ps1 被策略阻止：无需修改全局策略，直接使用虚拟环境中的解释器运行。
 
 ```powershell
-cd C:\Users\31797\Desktop\AI_Project_2026_2
+cd C:\Users\31797\Documents\ChatGPT\作业 3\AI_Project_2026_2
 .\.venv\Scripts\python.exe .\week02_photo_classifier\app.py --check
 ```
 

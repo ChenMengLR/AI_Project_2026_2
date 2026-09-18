@@ -7,7 +7,7 @@
 从项目根目录使用根 `.venv`：
 
 ```powershell
-cd C:\Users\31797\Desktop\AI_Project_2026_2
+cd C:\Users\31797\Documents\ChatGPT\作业 3\AI_Project_2026_2
 .\.venv\Scripts\Activate.ps1
 python week03_rule_chatbot\app.py --check
 python week03_rule_chatbot\app.py --test-api

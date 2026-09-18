@@ -1,7 +1,7 @@
 # AI_Project_2026_2 workspace rules
 
 This is the single shared local workspace for the course:
-`C:\Users\31797\Desktop\AI_Project_2026_2`.
+`C:\Users\31797\Documents\ChatGPT\作业 3\AI_Project_2026_2`.
 
 Before changing anything:
 

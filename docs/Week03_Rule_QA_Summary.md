@@ -41,7 +41,7 @@ Mission A 需要从官方来源选 8–15 条与项目相关的规则，设计 3
 ## 参考命令
 
 ```powershell
-cd C:\Users\31797\Desktop\AI_Project_2026_2
+cd C:\Users\31797\Documents\ChatGPT\作业 3\AI_Project_2026_2
 .\.venv\Scripts\Activate.ps1
 python -m unittest discover -s tests -p "test_week03_chatbot.py" -v
 python week03_rule_chatbot\app.py --check

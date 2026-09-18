@@ -85,6 +85,6 @@ draw_box(draw, (820, 705, 710, 300), "继续操作", [
     "确认 git status 没有 .env 后再提交",
 ], "#9b51e0")
 
-draw.text((72, 1050), "项目根目录：C:\\Users\\31797\\Desktop\\AI_Project_2026_2  ·  详见 HANDOFF.md 与 docs/status/Week03_STATUS.md", font=font(20), fill="#486581")
+draw.text((72, 1050), "项目根目录：C:\\Users\\31797\\Documents\\ChatGPT\\作业 3\\AI_Project_2026_2  ·  详见 HANDOFF.md 与 docs/status/Week03_STATUS.md", font=font(20), fill="#486581")
 img.save(OUT, format="PNG", optimize=True)
 print(OUT)

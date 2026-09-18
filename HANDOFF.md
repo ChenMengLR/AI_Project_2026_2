@@ -3,14 +3,14 @@
 这是本课程项目的唯一共享工作区。新建 Codex 窗口、VS Code 窗口或终端都应打开同一个绝对路径：
 
 ```text
-C:\Users\31797\Desktop\AI_Project_2026_2
+C:\Users\31797\Documents\ChatGPT\作业 3\AI_Project_2026_2
 ```
 
 截图中出现“空 Git 仓库、没有 Week 2 项目”的原因，是新窗口的当前目录不是上面这个路径。不要在 `C:\Users\31797\Documents\Codex` 下面另建一个同名空目录来继续。
 
 ## 新窗口的启动步骤
 
-1. 在 Codex 的项目/工作区选择中打开 `C:\Users\31797\Desktop\AI_Project_2026_2`。
+1. 在 Codex 的项目/工作区选择中打开 `C:\Users\31797\Documents\ChatGPT\作业 3\AI_Project_2026_2`。
 2. 如果窗口已经打开了错误目录，先关闭该项目，再用上面的绝对路径重新打开。
 3. 在新窗口的第一个消息中要求它先执行并读取：
 
@@ -78,5 +78,5 @@ git status --short
 ## 新窗口继续第 3 周的建议提示词
 
 ```text
-请在 C:\Users\31797\Desktop\AI_Project_2026_2 继续 Week 3 规则问答机器人。先读 HANDOFF.md、README.md、docs/status/，检查 git status，保留 week02_photo_classifier 不变。检查 week03_rule_chatbot/app.py、rules.txt 和 tests/test_week03_chatbot.py；先运行离线测试和 --check。API 配置若为空，只报告缺少配置，不要让我把密钥发到聊天里。完成后写入 docs/status/Week03_STATUS.md，确认 git diff，再提交和推送。
+请在 C:\Users\31797\Documents\ChatGPT\作业 3\AI_Project_2026_2 继续 Week 3 规则问答机器人。先读 HANDOFF.md、README.md、docs/status/，检查 git status，保留 week02_photo_classifier 不变。检查 week03_rule_chatbot/app.py、rules.txt 和 tests/test_week03_chatbot.py；先运行离线测试和 --check。API 配置若为空，只报告缺少配置，不要让我把密钥发到聊天里。完成后写入 docs/status/Week03_STATUS.md，确认 git diff，再提交和推送。
 ```

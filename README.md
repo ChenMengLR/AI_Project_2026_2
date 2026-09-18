@@ -6,7 +6,7 @@
 
 第 3 周个人代码位于 `week03_rule_chatbot/`，共用根目录 `.venv`。当前代码和离线测试已经建立；真实 Qwen 调用需要在本机 `.env` 中配置自己的密钥和同地域 Base URL。`.env` 不上传 GitHub。
 
-项目位置：`C:\Users\31797\Desktop\AI_Project_2026_2`
+项目位置：`C:\Users\31797\Documents\ChatGPT\作业 3\AI_Project_2026_2`
 
 2026-09-17 已真实调用 `qwen3.8-flash`，完成 5 张课堂样例和 2 张新增公开授权图片的分类：7 张成功、0 张失败，全部与预期标签一致。输入原图保留，分类副本已核对 SHA-256。仓库已公开，教师无需登录即可访问；本次使用一次性进程环境变量提供密钥，未将密钥写入项目。
 
@@ -70,7 +70,7 @@
 在 PowerShell 中执行：
 
 ```powershell
-cd C:\Users\31797\Desktop\AI_Project_2026_2
+cd C:\Users\31797\Documents\ChatGPT\作业 3\AI_Project_2026_2
 .\.venv\Scripts\Activate.ps1
 cd .\week02_photo_classifier
 python app.py --check
@@ -79,7 +79,7 @@ python app.py --check
 也可以不激活，直接指定解释器：
 
 ```powershell
-& 'C:\Users\31797\Desktop\AI_Project_2026_2\.venv\Scripts\python.exe' 'C:\Users\31797\Desktop\AI_Project_2026_2\week02_photo_classifier\app.py' --check
+& 'C:\Users\31797\Documents\ChatGPT\作业 3\AI_Project_2026_2\.venv\Scripts\python.exe' 'C:\Users\31797\Documents\ChatGPT\作业 3\AI_Project_2026_2\week02_photo_classifier\app.py' --check
 ```
 
 旧的 VS Code / Codex 进程可能仍持有修改前的 PATH；重新打开应用或使用上面的启动入口即可。不要把 `.venv` 移到别处继续使用，迁移后应重新创建并通过 `requirements.txt` 安装依赖。
@@ -89,7 +89,7 @@ python app.py --check
 本课程仓库使用 `main` 分支。每次完成一部分实践后，先保存文件、检查修改与暂存清单，再创建提交并上传。`git remote -v` 可查看本机连接的远程仓库。
 
 ```powershell
-cd C:\Users\31797\Desktop\AI_Project_2026_2
+cd C:\Users\31797\Documents\ChatGPT\作业 3\AI_Project_2026_2
 git status
 git add .
 git diff --cached --name-only

@@ -5,7 +5,7 @@ alwaysApply: true
 
 # Shared course workspace
 
-- Treat `C:\Users\31797\Desktop\AI_Project_2026_2` as the only project root.
+- Treat `C:\Users\31797\Documents\ChatGPT\作业 3\AI_Project_2026_2` as the only project root.
 - Read `HANDOFF.md`, `README.md`, and `docs/status/` before making changes.
 - Keep each week in a sibling `weekNN_topic` folder and reuse the root `.venv`.
 - Do not overwrite previous weeks or create a second repository.
