@@ -11,7 +11,7 @@ Before changing anything:
 4. Keep each week's work in its own sibling folder named `weekNN_topic`.
 5. Reuse the root `.venv`; never create a second virtual environment in a week folder.
 6. Preserve previous weeks unless the user explicitly requests a fix there.
-7. Keep shared AI settings in the local ignored project-root `.env` (a week-local `.env` may override it). Never print, commit, upload, or screenshot API keys.
+7. Keep shared AI settings in the ignored container-root `.env` at `C:\Users\31797\Documents\ChatGPT\作业 3\.env`; the AI project-root and week-local `.env` files are compatibility fallbacks. Never print, commit, upload, or screenshot API keys.
 8. Before committing, inspect the staged file list and confirm no `.env` is present.
 9. After a milestone, update `docs/status/WeekNN_STATUS.md` with evidence, tests, and remaining work.
 10. One window writes to this working tree at a time; use a separate Git worktree for parallel edits.

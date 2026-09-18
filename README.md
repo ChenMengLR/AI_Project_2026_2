@@ -4,7 +4,7 @@
 
 新窗口请先打开本项目根目录并阅读 [HANDOFF.md](HANDOFF.md)。第 3 周规则问答机器人的课程总结在 [docs/Week03_Rule_QA_Summary.md](docs/Week03_Rule_QA_Summary.md)，状态记录在 [docs/status/Week03_STATUS.md](docs/status/Week03_STATUS.md)，总结图在 [docs/Week03_Rule_QA_Summary.png](docs/Week03_Rule_QA_Summary.png)。
 
-第 3 周个人代码位于 `week03_rule_chatbot/`，共用根目录 `.venv`。第 2、3 周可以共用 AI 项目根目录 `.env`；真实 Qwen 调用需要在本机配置自己的密钥和同地域 Base URL。`.env` 不上传 GitHub。提交规范与自动检查见“作业 3”容器中的 `docs/COMMIT_POLICY.md`。
+第 3 周个人代码位于 `week03_rule_chatbot/`，共用根目录 `.venv`。第 2、3 周以及之后的 AI 任务统一读取“作业 3”容器根目录 `.env`；AI 项目根目录 `.env` 和周目录 `.env` 仅作为兼容性回退。真实 Qwen 调用需要在本机配置自己的密钥和同地域 Base URL。`.env` 不上传 GitHub。提交规范与自动检查见“作业 3”容器中的 `docs/COMMIT_POLICY.md`。
 
 项目位置：`C:\Users\31797\Documents\ChatGPT\作业 3\AI_Project_2026_2`
 
@@ -35,7 +35,7 @@
 ## 第一次使用
 
 1. 用 VS Code 的“文件 → 打开文件夹”打开本项目根目录。
-2. 编辑 AI 项目根目录 `.env`，填入自己从同一个 Singapore Model Studio 工作空间复制的两项；第 2、3 周会共用这份本机配置：
+2. 编辑“作业 3”容器根目录 `.env`，填入自己从同一个 Singapore Model Studio 工作空间复制的两项；第 2、3 周和以后新增的 AI 任务会共用这份本机配置：
 
    ```dotenv
    DASHSCOPE_API_KEY=自己的密钥
@@ -108,7 +108,7 @@ py -3.14 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-第一次使用时，可运行 `Run-Classifier-Secure.ps1` 临时输入自己的密钥；也可将根目录 `.env.example` 复制为根目录 `.env` 并填写自己的密钥和端点。如果已有 `.env`，不要覆盖它。`.venv` 和真实 `.env` 不在仓库中，需要在新电脑重新准备。仓库保留了本次验证的 7 张分类副本，后续仍应执行程序核对自己的真实结果。
+第一次使用时，可运行 `Run-Classifier-Secure.ps1` 临时输入自己的密钥；也可将“作业 3”容器根目录 `.env.example` 复制为 `.env` 并填写自己的密钥和端点。如果已有 `.env`，不要覆盖它。`.venv` 和真实 `.env` 不在仓库中，需要在新电脑重新准备。仓库保留了本次验证的 7 张分类副本，后续仍应执行程序核对自己的真实结果。
 
 ## 与课堂示例的差别
 

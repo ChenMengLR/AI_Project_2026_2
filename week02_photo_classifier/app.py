@@ -53,6 +53,11 @@ class ProjectPaths:
         return self.root.parent / ".env"
 
     @property
+    def workspace_env_file(self) -> Path:
+        """The 作业 container config shared by future AI tasks as well."""
+        return self.root.parent.parent / ".env"
+
+    @property
     def runtime_dir(self) -> Path:
         return self.root / "runtime"
 
@@ -152,9 +157,11 @@ def load_configuration(paths: ProjectPaths) -> tuple[ApiConfig | None, list[str]
     else:
         try:
             # Existing process variables take precedence over .env values.
-            # The project-root file is shared; the week-local file fills gaps.
-            if paths.shared_env_file != paths.env_file:
-                load_dotenv(paths.shared_env_file, override=False, interpolate=False)
+            # The container file is canonical; older project/week files fill
+            # gaps so existing clones continue to work.
+            for shared_path in (paths.workspace_env_file, paths.shared_env_file):
+                if shared_path != paths.env_file:
+                    load_dotenv(shared_path, override=False, interpolate=False)
             load_dotenv(paths.env_file, override=False, interpolate=False)
         except (OSError, UnicodeError):
             errors.append("无法读取 .env，请检查文件权限和 UTF-8 编码。")

@@ -20,6 +20,7 @@ PROJECT_ROOT = BASE_DIR.parent
 RULES_PATH = BASE_DIR / "rules.txt"
 ENV_PATH = BASE_DIR / ".env"
 SHARED_ENV_PATH = PROJECT_ROOT / ".env"
+WORKSPACE_ENV_PATH = PROJECT_ROOT.parent / ".env"
 
 SYSTEM_INSTRUCTIONS = """You are an evidence-grounded rules Q&A chatbot.
 Use only the supplied rules document. Never use outside knowledge or guesses.
@@ -47,10 +48,13 @@ def read_rules(path: Path = RULES_PATH) -> str:
 
 def load_settings(env_path: Path = ENV_PATH) -> tuple[str, str, str]:
     """Load credentials without printing either the key or its value."""
-    # The project-root .env is shared by all weeks. Process environment
-    # variables still have highest precedence; a week-local file fills gaps.
-    if env_path == ENV_PATH and SHARED_ENV_PATH != env_path:
-        load_dotenv(SHARED_ENV_PATH, override=False)
+    # The container-root .env is shared by all AI tasks. The AI project-root
+    # file remains a compatibility fallback, followed by a week-local file.
+    # Process environment variables still have highest precedence.
+    if env_path == ENV_PATH:
+        for shared_path in (WORKSPACE_ENV_PATH, SHARED_ENV_PATH):
+            if shared_path != env_path:
+                load_dotenv(shared_path, override=False)
     load_dotenv(env_path, override=False)
     key = os.getenv("DASHSCOPE_API_KEY", "").strip()
     base_url = os.getenv("DASHSCOPE_BASE_URL", "").strip()
@@ -66,7 +70,8 @@ def create_client(api_key: str, base_url: str) -> OpenAI:
     if not api_key or not base_url:
         raise RuntimeError(
             "API configuration is incomplete. Put DASHSCOPE_API_KEY and "
-            "DASHSCOPE_BASE_URL in week03_rule_chatbot/.env."
+            "DASHSCOPE_BASE_URL in the shared 作业 3/.env (or an AI project "
+            "fallback .env)."
         )
     return OpenAI(api_key=api_key, base_url=base_url)
 
