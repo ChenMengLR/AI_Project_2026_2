@@ -21,7 +21,7 @@
 
 1  打开桌面 AI_Project_2026_2，用 VS Code 打开整个文件夹。
 
-2  在 week02_photo_classifier/.env 填好本人 API Key 和兼容端点；确认免费额度保护。
+2  在 AI 项目根目录 `.env` 填好本人 API Key 和兼容端点；第 2、3 周共用这份配置，并确认免费额度保护。
 
 3  核对 input 已有 sample-01.jpg 至 sample-05.jpg，再加入自己的 2–3 张新图。
 

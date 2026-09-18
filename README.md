@@ -35,7 +35,7 @@
 ## 第一次使用
 
 1. 用 VS Code 的“文件 → 打开文件夹”打开本项目根目录。
-2. 编辑 `week02_photo_classifier/.env`，填入自己从同一个 Singapore Model Studio 工作空间复制的两项：
+2. 编辑 AI 项目根目录 `.env`，填入自己从同一个 Singapore Model Studio 工作空间复制的两项；第 2、3 周会共用这份本机配置：
 
    ```dotenv
    DASHSCOPE_API_KEY=自己的密钥
@@ -108,7 +108,7 @@ py -3.14 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-第一次使用时，可运行 `Run-Classifier-Secure.ps1` 临时输入自己的密钥；也可将 `week02_photo_classifier/.env.example` 复制为同目录的 `.env` 并填写自己的密钥和端点，如果已有 `.env`，不要覆盖它。`.venv` 和真实 `.env` 不在仓库中，需要在新电脑重新准备。仓库保留了本次验证的 7 张分类副本，后续仍应执行程序核对自己的真实结果。
+第一次使用时，可运行 `Run-Classifier-Secure.ps1` 临时输入自己的密钥；也可将根目录 `.env.example` 复制为根目录 `.env` 并填写自己的密钥和端点。如果已有 `.env`，不要覆盖它。`.venv` 和真实 `.env` 不在仓库中，需要在新电脑重新准备。仓库保留了本次验证的 7 张分类副本，后续仍应执行程序核对自己的真实结果。
 
 ## 与课堂示例的差别
 
