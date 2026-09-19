@@ -1,0 +1,39 @@
+{
+  "purpose": "Week 3 Qwen rules Q&A acceptance tests",
+  "generated_utc": "2026-09-19T02:59:36.248819+00:00",
+  "command": "python -X utf8 week03_rule_chatbot/app.py --question <question>",
+  "model": "qwen3.8-flash",
+  "inputs": [
+    "我可以在房间里使用电热水壶吗？",
+    "朋友可以来我的房间吗？",
+    "宿舍的打印机在哪里？"
+  ],
+  "files": {
+    "app.py_sha256": "3ac8fdea06441f6dee06370b4e782035f894ce2e791c7aed852e80e26279e76c",
+    "rules.txt_sha256": "19a65be236769aedb303e959fe7c18e1719d851828d8b475ddd8688eda287f3b"
+  },
+  "tests": [
+    {
+      "question": "我可以在房间里使用电热水壶吗？",
+      "started_utc": "2026-09-19T02:59:26.433767+00:00",
+      "ended_utc": "2026-09-19T02:59:30.174509+00:00",
+      "exit_code": 0,
+      "output": "Answer: 不可以。根据规定，电热水壶（전기포트）属于禁止携带或使用的电热/炊事设备。如果因健康原因确实需要此类产品，需事先向行政支援室咨询。\nEvidence: [제11조 및 입·퇴사 안내의 반입금지 물품] 전기난로, 전기장판, 전기다리미, 히터, 온풍기와 냉장고, 전기밥솥, 전기포트, 가스버너, 전자레인지, 가스레인지, 인덕션 등 전열·취사기기는 반입하거나 사용할 수 없다. 건강상 필요한 제품은 행정지원실에 사전 문의한다.\n"
+    },
+    {
+      "question": "朋友可以来我的房间吗？",
+      "started_utc": "2026-09-19T02:59:30.174541+00:00",
+      "ended_utc": "2026-09-19T02:59:33.964388+00:00",
+      "exit_code": 0,
+      "output": "Answer: 不可以。访客必须向行政支援室申请，且只能在指定场所会面，严禁进入学生宿舍房间。此外，未经生活馆馆长许可，不得将外部人员带入生活馆或安排其住宿。\nEvidence: [제17조 면회] 면회자는 행정지원실에 신청해야 한다. 면회시간은 10:00부터 20:00까지이며 지정된 장소에서만 면회할 수 있고 사생실에는 들어갈 수 없다.; [제12조 외부인 출입] 생활관장의 허가 없이 외부인을 생활관 안에 데려오거나 숙박시킬 수 없다.\n"
+    },
+    {
+      "question": "宿舍的打印机在哪里？",
+      "started_utc": "2026-09-19T02:59:33.964415+00:00",
+      "ended_utc": "2026-09-19T02:59:36.248795+00:00",
+      "exit_code": 0,
+      "output": "Answer: 无法从提供的规则确认。\nEvidence: Not found\n"
+    }
+  ],
+  "secret_policy": "No API key, base URL credential, request header, or environment value is stored here."
+}

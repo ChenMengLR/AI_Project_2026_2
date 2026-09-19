@@ -22,6 +22,8 @@ class Week03ChatbotTests(unittest.TestCase):
         self.assertIn("只允许测试", prompt)
         self.assertIn("测试问题", prompt)
         self.assertNotIn("DASHSCOPE_API_KEY", prompt)
+        self.assertIn("same language", app.SYSTEM_INSTRUCTIONS)
+        self.assertIn("Never replace a relevant sentence with ellipses", app.SYSTEM_INSTRUCTIONS)
 
     def test_ask_uses_qwen_and_returns_model_text(self):
         client = Mock()

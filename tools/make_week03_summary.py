@@ -79,10 +79,10 @@ draw_box(draw, (70, 705, 710, 300), "三类验收题", [
     "打印机位置：规则没有答案，Evidence: Not found",
 ], "#f2994a")
 draw_box(draw, (820, 705, 710, 300), "继续操作", [
-    "打开同一个项目根目录，不要新建空仓库",
-    "配置同地域 API Key 与 Base URL",
-    "运行 --check、--test-api、三道问题",
-    "确认 git status 没有 .env 后再提交",
+    "共享根 .env 已读取，密钥不入库",
+    "--test-api：API connection OK",
+    "三道验收题退出码全部为 0",
+    "Test 3：Evidence: Not found 已验证",
 ], "#9b51e0")
 
 draw.text((72, 1050), "项目根目录：C:\\Users\\31797\\Documents\\ChatGPT\\作业 3\\AI_Project_2026_2  ·  详见 HANDOFF.md 与 docs/status/Week03_STATUS.md", font=font(20), fill="#486581")

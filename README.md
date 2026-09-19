@@ -50,7 +50,7 @@
    ```powershell
    python app.py --check
    ```
-6. 确认 Model Studio 免费额度、有效期及 Free Quota Only / Stop-on-Exhaust 开关后，运行一次文本连接测试：
+6. 确认 Model Studio 免费额度、有效期及 Free Quota Only / Stop-on-Exhaust 开关后，运行一次文本连接测试；Week 3 三题的真实输出记录在 `week03_rule_chatbot/RUNTIME_EVIDENCE.md`：
 
    ```powershell
    python app.py --test-api
@@ -91,10 +91,8 @@ python app.py --check
 ```powershell
 cd C:\Users\31797\Documents\ChatGPT\作业 3\AI_Project_2026_2
 git status
-git add .
-git diff --cached --name-only
-git commit -m "说明本次完成的内容"
-git push
+cd ..
+.\scripts\Submit-CourseProject.ps1 -Project AI -Week 3 -Summary "完成规则问答机器人" -Push
 ```
 
 不要提交 `.env`。`.gitignore` 不会自动停止跟踪已经提交过的密钥文件。`input/` 中后续加入的图片可能出现在暂存清单，上传前要确认图片适合提交。

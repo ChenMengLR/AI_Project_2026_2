@@ -12,11 +12,11 @@
 | --- | --- |
 | 与 `week02_photo_classifier` 同级创建 `week03_rule_chatbot` | 已创建，未覆盖第 2 周目录 |
 | 继续使用根目录 `.venv` | 已保留根 `.venv`，周目录没有重复创建环境 |
-| 复制第 2 周 API 配置；不公开密钥 | 推荐在“作业 3”容器根 `.env` 共用一次；仓库只保留 `.env.example`，当前本机配置为空模板 |
+| 读取共享 API 配置；不公开密钥 | 已从“作业 3”容器根 `.env` 读取，`API KEY: True`、`BASE URL: True`；仓库只保留 `.env.example` |
 | 保存东亚大学翰林生活馆规则摘要 | `week03_rule_chatbot/rules.txt`，包含来源 URL 和确认日期 |
 | 连续提问、同语言回答、显示证据、`exit` 退出 | `week03_rule_chatbot/app.py` 已实现 |
 | 三类验收题 | 电热水壶、访客进房、打印机位置；测试说明已写入周目录 README |
-| GitHub 交付 | 提交前必须确认 `git status` 中没有 `.env`；本次交接文件记录了检查步骤 |
+| GitHub 交付 | `RUNTIME_EVIDENCE.md/json` 保存无密钥真实输出；提交前确认暂存清单没有 `.env` |
 
 ## 课程要求的运行顺序
 
@@ -31,7 +31,7 @@
 
 - **已完成**：目录、规则文档、问答程序、`.env.example`、离线测试、交接文档和课程总结。
 - **已验证**：4 项离线测试通过；代码不会在提示词或诊断中打印 API Key；规则文件可按 UTF-8 读取；请求会同时携带完整规则和问题。
-- **待本机执行**：真实 API 的 `--check` 目前显示 `API KEY: False`、`BASE URL: False`，因为当前项目没有有效的本地凭据。配置本人的同地域密钥后，才能完成真实调用、运行截图或运行视频。
+- **已验证**：共享根 `.env` 已被读取，`--test-api` 返回 `API connection OK`；三道验收题均退出码为 0。Test 1 引用第 11 条，Test 2 包含会客申请、10:00–20:00、指定地点和不得进入房间，Test 3 使用中文说明无法确认并输出 `Evidence: Not found`。完整输出见 `week03_rule_chatbot/RUNTIME_EVIDENCE.md`。
 - **范围说明**：课程的 Mission A/B 是小组任务。此前已决定暂不处理小组作业，因此没有虚构小组主题、功能负责人或团队验证结果。
 
 ## 小组部分的课程要求（以后若恢复）
@@ -47,10 +47,9 @@ python -m unittest discover -s tests -p "test_week03_chatbot.py" -v
 python week03_rule_chatbot\app.py --check
 python week03_rule_chatbot\app.py --test-api
 python week03_rule_chatbot\app.py
-git status --short
-git add HANDOFF.md docs week03_rule_chatbot tests
-git commit -m "Add Week 3 rules Q&A chatbot"
-git push
+git -C . status --short
+cd ..
+.\scripts\Submit-CourseProject.ps1 -Project AI -Week 3 -Summary "完成规则问答机器人" -Push
 ```
 
 提交前不要把 `.env` 写入命令、截图、Notion 或 GitHub。新窗口应先读取项目根目录的 `HANDOFF.md`，再读取本页和 `docs/status/Week03_STATUS.md`。

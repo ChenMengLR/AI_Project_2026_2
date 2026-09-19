@@ -48,7 +48,7 @@ AI_Project_2026_2/
 ├─ week03_rule_chatbot/               # 第 3 周个人练习：规则问答
 │  ├─ app.py
 │  ├─ rules.txt
-│  └─ .env                            # 仅本机，当前为空模板，需要本人配置
+│  └─ .env                            # 可选兼容回退；共享配置位于容器根 .env
 ├─ tests/                             # 跨周离线测试
 └─ docs/
    └─ status/                         # 每周状态和交接记录
