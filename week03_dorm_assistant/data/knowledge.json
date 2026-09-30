@@ -1,0 +1,804 @@
+{
+  "schema_version": "1.0.0",
+  "verified_date": "2026-09-30",
+  "scope": "Hanlim 公开一般入住准备说明；教学演示，不是学校审批或个人入住资格判断。",
+  "disclaimer_zh": "教学整理，非官方定论。中文为释义，韩文quote为短原文摘录而非全文。核对所属馆及当期公告；国际生和适用对象不明者的材料、替代材料与效力须另行确认。",
+  "student_types": [
+    "standard",
+    "international",
+    "unknown"
+  ],
+  "sources": [
+    {
+      "id": "HANLIM_MOVEIN",
+      "title": "한림생활관 입/퇴사 안내（翰林生活馆入住/退宿说明）",
+      "url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075",
+      "verified_date": "2026-09-30",
+      "scope": "一般公开入住说明；页面未显示具体适用学期或发布日期；不证明留学生材料或个人入住资格。"
+    },
+    {
+      "id": "HANLIM_RULES_DMS",
+      "title": "한림생활관 사생수칙（住宿生守则，DMS 站）",
+      "url": "https://dms.donga.ac.kr/hanlim/15139/subview.do",
+      "verified_date": "2026-09-30",
+      "scope": "公开住宿生守则；本版仅使用第9、10、24条，并与现站交叉核对。"
+    },
+    {
+      "id": "HANLIM_RULES_CURRENT",
+      "title": "한림생활관 사생수칙（住宿生守则，现站）",
+      "url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN025",
+      "verified_date": "2026-09-30",
+      "scope": "从入住说明导航进入；用于交叉核对第9、10、24条，不扩展个人资格结论。"
+    }
+  ],
+  "items": [
+    {
+      "id": "DOC_TB",
+      "category": "document",
+      "title_zh": "准备结核检查证明",
+      "title_ko": "결핵검진 확인서",
+      "requirement": "required",
+      "description_zh": "一般说明要求结核检查证明，可用健康证明或兵役体检结果通知书替代。",
+      "conditions": {
+        "stage": "before_move_in",
+        "student_types": [
+          "standard",
+          "international",
+          "unknown"
+        ],
+        "location": "Hanlim only",
+        "notes_zh": "材料种类和替代材料对国际生或对象不明者须先确认。"
+      },
+      "applicability": {
+        "standard": "general_guidance",
+        "international": "confirmation_required",
+        "unknown": "confirmation_required"
+      },
+      "source_id": "HANLIM_MOVEIN",
+      "quote": "결핵검진 확인서",
+      "quote_kind": "short_original_excerpt",
+      "source_locator": "1) 입사 전 서류 준비 (1)",
+      "source_url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075",
+      "verified_date": "2026-09-30",
+      "date_field": true,
+      "valid_months": 3,
+      "checkable": true,
+      "privacy": {
+        "collect": "status_and_issue_date_only",
+        "upload_allowed": false,
+        "do_not_collect": [
+          "证件号码",
+          "真实证件图片",
+          "体检结果",
+          "病史",
+          "房间密码"
+        ]
+      }
+    },
+    {
+      "id": "DOC_ADDRESS",
+      "category": "document",
+      "title_zh": "准备居民登记誊本",
+      "title_ko": "주민등록등본",
+      "requirement": "required",
+      "description_zh": "一般说明列居民登记誊本；核对家长地址后返还。",
+      "conditions": {
+        "stage": "before_move_in",
+        "student_types": [
+          "standard",
+          "international",
+          "unknown"
+        ],
+        "location": "Hanlim only",
+        "notes_zh": "未找到护照、外国人登记证等替代材料的适用依据。"
+      },
+      "applicability": {
+        "standard": "general_guidance",
+        "international": "confirmation_required",
+        "unknown": "confirmation_required"
+      },
+      "source_id": "HANLIM_MOVEIN",
+      "quote": "주민등록등본",
+      "quote_kind": "short_original_excerpt",
+      "source_locator": "1) 입사 전 서류 준비 (2)",
+      "source_url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075",
+      "verified_date": "2026-09-30",
+      "date_field": true,
+      "valid_months": 3,
+      "checkable": true,
+      "privacy": {
+        "collect": "status_and_issue_date_only",
+        "upload_allowed": false,
+        "do_not_collect": [
+          "证件号码",
+          "真实证件图片",
+          "体检结果",
+          "病史",
+          "房间密码"
+        ]
+      }
+    },
+    {
+      "id": "DOC_RECENCY",
+      "category": "rule",
+      "title_zh": "核对材料开具时间",
+      "title_ko": "서류 발급 시점",
+      "requirement": "required",
+      "description_zh": "上述入住前材料需为入住日起三个月以内开具的版本。",
+      "conditions": {
+        "stage": "before_move_in",
+        "student_types": [
+          "standard",
+          "international",
+          "unknown"
+        ],
+        "location": "Hanlim only",
+        "notes_zh": "适用对象先确认；边界日期算法是教学辅助，学校最终核定。"
+      },
+      "applicability": {
+        "standard": "general_guidance",
+        "international": "confirmation_required",
+        "unknown": "confirmation_required"
+      },
+      "source_id": "HANLIM_MOVEIN",
+      "quote": "3개월 이내 발급분",
+      "quote_kind": "short_original_excerpt",
+      "source_locator": "1) 입사 전 서류 준비 标题",
+      "source_url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075",
+      "verified_date": "2026-09-30",
+      "date_field": false,
+      "valid_months": 3,
+      "checkable": false,
+      "privacy": {
+        "collect": "status_only",
+        "upload_allowed": false,
+        "do_not_collect": [
+          "证件号码",
+          "真实证件图片",
+          "体检结果",
+          "病史",
+          "房间密码"
+        ]
+      }
+    },
+    {
+      "id": "CHECKIN_OFFICE",
+      "category": "step",
+      "title_zh": "到行政支援室办理入住",
+      "title_ko": "행정지원실 방문",
+      "requirement": "required",
+      "description_zh": "正常入住期间，在09:00–17:00到行政支援室办理。",
+      "conditions": {
+        "stage": "move_in_day",
+        "student_types": [
+          "standard",
+          "international",
+          "unknown"
+        ],
+        "location": "Hanlim only",
+        "notes_zh": "仅指正常入住期间，不能据此判断任意日期可入住。"
+      },
+      "applicability": {
+        "standard": "general_guidance",
+        "international": "reference",
+        "unknown": "reference"
+      },
+      "source_id": "HANLIM_MOVEIN",
+      "quote": "09:00~17:00",
+      "quote_kind": "short_original_excerpt",
+      "source_locator": "2) 입사 당일 (1)",
+      "source_url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075",
+      "verified_date": "2026-09-30",
+      "date_field": false,
+      "valid_months": null,
+      "checkable": true,
+      "privacy": {
+        "collect": "status_only",
+        "upload_allowed": false,
+        "do_not_collect": [
+          "证件号码",
+          "真实证件图片",
+          "体检结果",
+          "病史",
+          "房间密码"
+        ]
+      }
+    },
+    {
+      "id": "DOC_LATE_SUBMISSION",
+      "category": "rule",
+      "title_zh": "缺材料时确认补交安排",
+      "title_ko": "서류 제출",
+      "requirement": "information",
+      "description_zh": "一般说明允许未带材料先入住，但须在一周内补交。",
+      "conditions": {
+        "stage": "move_in_day",
+        "student_types": [
+          "standard",
+          "international",
+          "unknown"
+        ],
+        "location": "Hanlim only",
+        "notes_zh": "不能据此批准个人或留学生延期；先联系所属馆。"
+      },
+      "applicability": {
+        "standard": "general_guidance",
+        "international": "reference",
+        "unknown": "reference"
+      },
+      "source_id": "HANLIM_MOVEIN",
+      "quote": "일주일 이내로 제출 필요",
+      "quote_kind": "short_original_excerpt",
+      "source_locator": "2) 입사 당일 (2)",
+      "source_url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075",
+      "verified_date": "2026-09-30",
+      "date_field": false,
+      "valid_months": null,
+      "checkable": false,
+      "privacy": {
+        "collect": "status_only",
+        "upload_allowed": false,
+        "do_not_collect": [
+          "证件号码",
+          "真实证件图片",
+          "体检结果",
+          "病史",
+          "房间密码"
+        ]
+      }
+    },
+    {
+      "id": "ROOM_NOTICE",
+      "category": "rule",
+      "title_zh": "留意分配房间短信",
+      "title_ko": "호실 안내",
+      "requirement": "information",
+      "description_zh": "一般说明在正常入住日前一天，向学生手机发送房间通知。",
+      "conditions": {
+        "stage": "before_move_in",
+        "student_types": [
+          "standard",
+          "international",
+          "unknown"
+        ],
+        "location": "Hanlim only",
+        "notes_zh": "这里不查询个人房号，也不能保证个人收到短信的时间。"
+      },
+      "applicability": {
+        "standard": "general_guidance",
+        "international": "reference",
+        "unknown": "reference"
+      },
+      "source_id": "HANLIM_MOVEIN",
+      "quote": "문자 발송",
+      "quote_kind": "short_original_excerpt",
+      "source_locator": "2) 입사 당일 (3)",
+      "source_url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075",
+      "verified_date": "2026-09-30",
+      "date_field": false,
+      "valid_months": null,
+      "checkable": false,
+      "privacy": {
+        "collect": "status_only",
+        "upload_allowed": false,
+        "do_not_collect": [
+          "证件号码",
+          "真实证件图片",
+          "体检结果",
+          "病史",
+          "房间密码"
+        ]
+      }
+    },
+    {
+      "id": "SUPPLY_HYGIENE",
+      "category": "supply",
+      "title_zh": "准备洗漱和日用物品",
+      "title_ko": "위생용품 준비",
+      "requirement": "recommended",
+      "description_zh": "按个人需要备洗发用品、牙刷牙膏、毛巾、纸巾等。",
+      "conditions": {
+        "stage": "before_move_in",
+        "student_types": [
+          "standard",
+          "international",
+          "unknown"
+        ],
+        "location": "Hanlim only",
+        "notes_zh": "这是官网个人准备物品的教学清单，不判断学校强制购买。"
+      },
+      "applicability": {
+        "standard": "general_guidance",
+        "international": "reference",
+        "unknown": "reference"
+      },
+      "source_id": "HANLIM_MOVEIN",
+      "quote": "위생용품",
+      "quote_kind": "short_original_excerpt",
+      "source_locator": "3) 개인 준비물 (1)、(5)",
+      "source_url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075",
+      "verified_date": "2026-09-30",
+      "date_field": false,
+      "valid_months": null,
+      "checkable": true,
+      "privacy": {
+        "collect": "status_only",
+        "upload_allowed": false,
+        "do_not_collect": [
+          "证件号码",
+          "真实证件图片",
+          "体检结果",
+          "病史",
+          "房间密码"
+        ]
+      }
+    },
+    {
+      "id": "SUPPLY_BEDDING",
+      "category": "supply",
+      "title_zh": "准备合适季节的床品",
+      "title_ko": "침구류 준비",
+      "requirement": "recommended",
+      "description_zh": "准备适合夏季或冬季的床品。",
+      "conditions": {
+        "stage": "before_move_in",
+        "student_types": [
+          "standard",
+          "international",
+          "unknown"
+        ],
+        "location": "Hanlim only",
+        "notes_zh": "未据此判断具体床尺寸、学校提供或租赁情况。"
+      },
+      "applicability": {
+        "standard": "general_guidance",
+        "international": "reference",
+        "unknown": "reference"
+      },
+      "source_id": "HANLIM_MOVEIN",
+      "quote": "침구류",
+      "quote_kind": "short_original_excerpt",
+      "source_locator": "3) 개인 준비물 (2)",
+      "source_url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075",
+      "verified_date": "2026-09-30",
+      "date_field": false,
+      "valid_months": null,
+      "checkable": true,
+      "privacy": {
+        "collect": "status_only",
+        "upload_allowed": false,
+        "do_not_collect": [
+          "证件号码",
+          "真实证件图片",
+          "体检结果",
+          "病史",
+          "房间密码"
+        ]
+      }
+    },
+    {
+      "id": "SUPPLY_LAUNDRY",
+      "category": "supply",
+      "title_zh": "准备衣物洗护用品",
+      "title_ko": "세탁용품 준비",
+      "requirement": "recommended",
+      "description_zh": "可备衣架、晾衣架和洗涤剂；共用洗衣机、烘干机付费使用。",
+      "conditions": {
+        "stage": "before_move_in",
+        "student_types": [
+          "standard",
+          "international",
+          "unknown"
+        ],
+        "location": "Hanlim only",
+        "notes_zh": "未公开本页机器价格；胶囊、液体、粉末洗涤剂均列为可用。"
+      },
+      "applicability": {
+        "standard": "general_guidance",
+        "international": "reference",
+        "unknown": "reference"
+      },
+      "source_id": "HANLIM_MOVEIN",
+      "quote": "유료로 이용",
+      "quote_kind": "short_original_excerpt",
+      "source_locator": "3) 개인 준비물 (3)、(4)",
+      "source_url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075",
+      "verified_date": "2026-09-30",
+      "date_field": false,
+      "valid_months": null,
+      "checkable": true,
+      "privacy": {
+        "collect": "status_only",
+        "upload_allowed": false,
+        "do_not_collect": [
+          "证件号码",
+          "真实证件图片",
+          "体检结果",
+          "病史",
+          "房间密码"
+        ]
+      }
+    },
+    {
+      "id": "SUPPLY_NETWORK",
+      "category": "supply",
+      "title_zh": "按需准备网络用品",
+      "title_ko": "인터넷용품 준비",
+      "requirement": "recommended",
+      "description_zh": "个人用品列表列有路由器和网线，可按实际需要准备。",
+      "conditions": {
+        "stage": "before_move_in",
+        "student_types": [
+          "standard",
+          "international",
+          "unknown"
+        ],
+        "location": "Hanlim only",
+        "notes_zh": "不保证房内已装Wi-Fi或某型号兼容。"
+      },
+      "applicability": {
+        "standard": "general_guidance",
+        "international": "reference",
+        "unknown": "reference"
+      },
+      "source_id": "HANLIM_MOVEIN",
+      "quote": "공유기, 랜선",
+      "quote_kind": "short_original_excerpt",
+      "source_locator": "3) 개인 준비물 (6)",
+      "source_url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075",
+      "verified_date": "2026-09-30",
+      "date_field": false,
+      "valid_months": null,
+      "checkable": true,
+      "privacy": {
+        "collect": "status_only",
+        "upload_allowed": false,
+        "do_not_collect": [
+          "证件号码",
+          "真实证件图片",
+          "体检结果",
+          "病史",
+          "房间密码"
+        ]
+      }
+    },
+    {
+      "id": "PROHIBITED_ITEMS",
+      "category": "rule",
+      "title_zh": "检查禁带用品",
+      "title_ko": "반입금지 물품",
+      "requirement": "prohibited",
+      "description_zh": "禁带电热毯、取暖器、电饭锅、电热水壶、冰箱、火源危险品及酒类等。",
+      "conditions": {
+        "stage": "before_move_in",
+        "student_types": [
+          "standard",
+          "international",
+          "unknown"
+        ],
+        "location": "Hanlim only",
+        "notes_zh": "举例并非完整禁带清单，打包前打开原文核对。"
+      },
+      "applicability": {
+        "standard": "general_guidance",
+        "international": "reference",
+        "unknown": "reference"
+      },
+      "source_id": "HANLIM_MOVEIN",
+      "quote": "반입금지 물품",
+      "quote_kind": "short_original_excerpt",
+      "source_locator": "4) 반입금지 물품 (1)–(5)",
+      "source_url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075",
+      "verified_date": "2026-09-30",
+      "date_field": false,
+      "valid_months": null,
+      "checkable": false,
+      "privacy": {
+        "collect": "status_only",
+        "upload_allowed": false,
+        "do_not_collect": [
+          "证件号码",
+          "真实证件图片",
+          "体检结果",
+          "病史",
+          "房间密码"
+        ]
+      }
+    },
+    {
+      "id": "HEALTH_ITEM_INQUIRY",
+      "category": "rule",
+      "title_zh": "特殊健康用途物品先询问",
+      "title_ko": "사전 문의",
+      "requirement": "required",
+      "description_zh": "因健康原因需要使用相关物品时，先向行政支援室询问。",
+      "conditions": {
+        "stage": "before_move_in",
+        "student_types": [
+          "standard",
+          "international",
+          "unknown"
+        ],
+        "location": "Hanlim only",
+        "notes_zh": "仅在需要此类物品时适用；询问不等于已获许可。此项仅作条件提醒，不计完成率。",
+        "trigger": "health_related_item_needed"
+      },
+      "applicability": {
+        "standard": "general_guidance",
+        "international": "reference",
+        "unknown": "reference"
+      },
+      "source_id": "HANLIM_MOVEIN",
+      "quote": "사전 문의",
+      "quote_kind": "short_original_excerpt",
+      "source_locator": "4) 반입금지 물품 最后注释",
+      "source_url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075",
+      "verified_date": "2026-09-30",
+      "date_field": false,
+      "valid_months": null,
+      "checkable": false,
+      "privacy": {
+        "collect": "status_only",
+        "upload_allowed": false,
+        "do_not_collect": [
+          "证件号码",
+          "真实证件图片",
+          "体检结果",
+          "病史",
+          "房间密码"
+        ]
+      }
+    },
+    {
+      "id": "ROOM_ASSIGNMENT",
+      "category": "rule",
+      "title_zh": "不要自行调换分配房间",
+      "title_ko": "호실 배정",
+      "requirement": "prohibited",
+      "description_zh": "按学校分配入住，住宿生之间不能自行换房。",
+      "conditions": {
+        "stage": "move_in_day",
+        "student_types": [
+          "standard",
+          "international",
+          "unknown"
+        ],
+        "location": "Hanlim only",
+        "notes_zh": "仅适用翰林生活馆，调换需求先走官方确认。"
+      },
+      "applicability": {
+        "standard": "general_guidance",
+        "international": "reference",
+        "unknown": "reference"
+      },
+      "source_id": "HANLIM_RULES_DMS",
+      "quote": "임의로 변경할 수 없다.",
+      "quote_kind": "short_original_excerpt",
+      "source_locator": "제9조(호실 배정)",
+      "source_url": "https://dms.donga.ac.kr/hanlim/15139/subview.do",
+      "verified_date": "2026-09-30",
+      "date_field": false,
+      "valid_months": null,
+      "checkable": false,
+      "privacy": {
+        "collect": "status_only",
+        "upload_allowed": false,
+        "do_not_collect": [
+          "证件号码",
+          "真实证件图片",
+          "体检结果",
+          "病史",
+          "房间密码"
+        ]
+      },
+      "crosscheck_source_ids": [
+        "HANLIM_RULES_CURRENT"
+      ]
+    },
+    {
+      "id": "ACCESS_CARD",
+      "category": "step",
+      "title_zh": "领取并妥善携带出入证",
+      "title_ko": "출입증",
+      "requirement": "required",
+      "description_zh": "入住办理时领取出入证；在馆内佩戴，工作人员要求时出示。",
+      "conditions": {
+        "stage": "move_in_day",
+        "student_types": [
+          "standard",
+          "international",
+          "unknown"
+        ],
+        "location": "Hanlim only",
+        "notes_zh": "仅记录是否完成，不保存出入证号码或照片。"
+      },
+      "applicability": {
+        "standard": "general_guidance",
+        "international": "reference",
+        "unknown": "reference"
+      },
+      "source_id": "HANLIM_RULES_DMS",
+      "quote": "출입증을 항상 패용하여야 하며",
+      "quote_kind": "short_original_excerpt",
+      "source_locator": "제10조(출입증)；入住说明 2)(3)",
+      "source_url": "https://dms.donga.ac.kr/hanlim/15139/subview.do",
+      "verified_date": "2026-09-30",
+      "date_field": false,
+      "valid_months": null,
+      "checkable": true,
+      "privacy": {
+        "collect": "status_only",
+        "upload_allowed": false,
+        "do_not_collect": [
+          "证件号码",
+          "真实证件图片",
+          "体检结果",
+          "病史",
+          "房间密码"
+        ]
+      },
+      "crosscheck_source_ids": [
+        "HANLIM_RULES_CURRENT"
+      ],
+      "additional_source_ids": [
+        "HANLIM_MOVEIN"
+      ],
+      "additional_evidence": [
+        {
+          "source_id": "HANLIM_MOVEIN",
+          "quote": "출입증과 안내문 수령",
+          "source_locator": "2) 입사 당일 (3)"
+        }
+      ]
+    },
+    {
+      "id": "NOTICE_REVIEW",
+      "category": "step",
+      "title_zh": "阅读所属馆最新公告",
+      "title_ko": "공고 확인",
+      "requirement": "required",
+      "description_zh": "入住前检查所属馆公告，了解实际批次与办理安排。",
+      "conditions": {
+        "stage": "before_move_in",
+        "student_types": [
+          "standard",
+          "international",
+          "unknown"
+        ],
+        "location": "Hanlim only",
+        "notes_zh": "公告阅读义务来自守则；将其放在入住前是本工具的安排建议。"
+      },
+      "applicability": {
+        "standard": "general_guidance",
+        "international": "reference",
+        "unknown": "reference"
+      },
+      "source_id": "HANLIM_RULES_DMS",
+      "quote": "공고 내용을 숙지하여야 한다.",
+      "quote_kind": "short_original_excerpt",
+      "source_locator": "제24조(게시 및 광고물 부착) ①",
+      "source_url": "https://dms.donga.ac.kr/hanlim/15139/subview.do",
+      "verified_date": "2026-09-30",
+      "date_field": false,
+      "valid_months": null,
+      "checkable": true,
+      "privacy": {
+        "collect": "status_only",
+        "upload_allowed": false,
+        "do_not_collect": [
+          "证件号码",
+          "真实证件图片",
+          "体检结果",
+          "病史",
+          "房间密码"
+        ]
+      },
+      "crosscheck_source_ids": [
+        "HANLIM_RULES_CURRENT"
+      ]
+    }
+  ],
+  "qa_fixtures": [
+    {
+      "id": "QA_ANSWER_01",
+      "answerable": true,
+      "student_type": "standard",
+      "question": "一般入住说明要求准备哪两类材料，开具时间有什么要求？",
+      "expected_answer": "结核检查证明和居民登记誊本；按一般说明，入住日起三个月以内开具。",
+      "evidence_item_ids": [
+        "DOC_TB",
+        "DOC_ADDRESS",
+        "DOC_RECENCY"
+      ],
+      "must_qualify": "这是一般说明；留学生和适用对象不明者须先确认。",
+      "evidence_ids": [
+        "DOC_TB",
+        "DOC_ADDRESS",
+        "DOC_RECENCY"
+      ]
+    },
+    {
+      "id": "QA_ANSWER_02",
+      "answerable": true,
+      "student_type": "standard",
+      "question": "正常入住期间应该在几点到哪里办理入住？",
+      "expected_answer": "正常入住期间09:00–17:00到行政支援室。",
+      "evidence_item_ids": [
+        "CHECKIN_OFFICE"
+      ],
+      "must_qualify": "不能用这一时间窗断言某个日期属于正常入住期间。",
+      "evidence_ids": [
+        "CHECKIN_OFFICE"
+      ]
+    },
+    {
+      "id": "QA_ANSWER_03",
+      "answerable": true,
+      "student_type": "standard",
+      "question": "可以带电热毯和电饭锅吗？",
+      "expected_answer": "一般入住说明将电热毯和电饭锅列为禁带用品。",
+      "evidence_item_ids": [
+        "PROHIBITED_ITEMS"
+      ],
+      "must_qualify": "健康原因需使用相关物品，应事先询问行政支援室，不能自行视为获准。",
+      "evidence_ids": [
+        "PROHIBITED_ITEMS"
+      ]
+    },
+    {
+      "id": "QA_UNKNOWN_01",
+      "answerable": false,
+      "student_type": "international",
+      "question": "我是留学生，可以用护照或外国人登记证代替居民登记誊本吗？",
+      "expected_answer": "当前资料没有说明留学生替代材料，无法确认；请询问所属馆或国际交流部门。",
+      "evidence_item_ids": [],
+      "must_not_claim": [
+        "可以替代",
+        "必须提交护照",
+        "必须提交外国人登记证"
+      ],
+      "evidence_ids": []
+    },
+    {
+      "id": "QA_UNKNOWN_02",
+      "answerable": false,
+      "student_type": "unknown",
+      "question": "我2026年10月5日可以入住吗，我被分到哪个房间？",
+      "expected_answer": "现有资料未给这个人的入住批次或房号，无法确认；请查个人通知并联系所属馆。",
+      "evidence_item_ids": [],
+      "must_not_claim": [
+        "10月5日可以入住",
+        "具体房号",
+        "已核实本人资格"
+      ],
+      "evidence_ids": []
+    }
+  ],
+  "classification_notes": {
+    "required": "一般公开说明列为应做；条件和适用性未核实前不构成个人硬性结论。",
+    "recommended": "工具对个人生活用品的准备建议，不表示学校强制采购。",
+    "prohibited": "官网列明禁止；显示提醒，不计完成率。",
+    "information": "流程参考，不计完成率。"
+  },
+  "data_policy": {
+    "collect_real_documents": false,
+    "collect_medical_results": false,
+    "store_credentials": false,
+    "allowed_fields": [
+      "student_type",
+      "planned_move_in_date",
+      "item_preparation_status",
+      "optional_document_issue_date"
+    ],
+    "note_zh": "只记录准备状态和可选开具日期；不上传材料、不判断诊断或材料真伪。"
+  },
+  "unknown_topics": [
+    "留学生专门材料及替代材料",
+    "实际入住批次或具体日期",
+    "个人分配房间",
+    "个人录取/缴费/入住资格",
+    "费用及退款计算",
+    "床铺尺寸",
+    "药物或健康诊断"
+  ]
+}

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f3f5f1">
+  <title>入住有数 · Move-in Ready</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到准备清单</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#" aria-label="入住有数首页">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 28 28" fill="none"><path d="M5 23V8l9-4 9 4v15M10 23v-6h8v6M10 10h2m4 0h2M10 13h2m4 0h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span><strong>入住有数</strong><small>MOVE-IN READY</small></span>
+      </a>
+      <nav aria-label="页面导航"><a href="#checklist-section">准备清单</a><a href="#ask-section">规则问答</a><a href="#sources-section">资料来源</a></nav>
+      <div class="mode-indicator" id="mode-indicator"><span class="status-dot" aria-hidden="true"></span><span id="mode-text">正在读取资料</span></div>
+    </div>
+  </header>
+
+  <main id="main" class="page-shell">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy"><p class="eyebrow">宿舍入住准备助手 <span>/</span> 课程项目</p><h1 id="page-title">入住之前，<br>把准备的事理清。</h1><p class="hero-description">按你的入住流程核对资料与物品，找出缺失和待确认项。每一条建议，都能回到资料原文。</p><p class="verification-note" id="verified-note">正在读取资料版本…</p></div>
+      <div class="hero-note" aria-label="使用说明"><span class="note-number">01 — 03</span><p>选流程，标记准备状态，<br>得到下一步行动清单。</p><div class="note-divider"></div><small>手动核对无需AI。<br>文字理解与规则问答使用已配置的AI。</small></div>
+    </section>
+
+    <div id="load-error" class="notice notice-error" role="alert" hidden><div><strong>资料暂时没有加载成功</strong><p id="load-error-message"></p></div><button class="button button-secondary" id="retry-load" type="button">重新读取</button></div>
+    <div id="live-message" class="toast" role="status" aria-live="polite" hidden></div>
+
+    <div class="workspace" id="workspace" aria-busy="true">
+      <aside class="setup-column" aria-label="入住信息与快捷操作">
+        <section class="setup-panel" aria-labelledby="profile-heading">
+          <div class="section-kicker"><span class="step-number">01</span><span>先确定入住信息</span></div>
+          <h2 id="profile-heading">你的准备起点</h2>
+          <label for="profile">入住流程</label>
+          <select id="profile" name="profile"><option value="unknown">暂未确认适用身份</option><option value="standard">已确认按一般入住说明办理</option><option value="international">留学生（文件要求待确认）</option></select>
+          <p class="field-help" id="profile-help">不确定流程时，需向宿舍办公室确认适用要求。</p>
+          <label for="move-in-date">计划入住日期 <span class="optional">可选</span></label>
+          <input id="move-in-date" name="move_in_date" type="date" aria-describedby="move-in-help">
+          <p class="field-help" id="move-in-help">用于检查有时间要求的准备事项。</p>
+          <div class="local-save"><span class="save-indicator" aria-hidden="true"></span><p id="save-status">进度只保存在本浏览器</p></div>
+          <div class="side-actions"><button class="button button-secondary" type="button" id="save-progress">保存进度</button><button class="text-button" type="button" id="clear-progress">清空</button></div>
+        </section>
+        <div class="side-caption"><p class="caption-title">把“不确定”保留下来</p><p>已准备不等于已通过审核。缺少信息时，先标记待确认，再根据原文或宿舍答复补充。</p></div>
+      </aside>
+
+      <div class="work-column">
+        <section class="interpret-panel" aria-labelledby="interpret-heading">
+          <details id="interpret-details">
+            <summary><div><span class="eyebrow">可选 · AI辅助</span><h2 id="interpret-heading">用一段话整理准备情况</h2><p>例如：床品已经买好，洗衣液还没买，洗漱用品不确定。</p></div><span class="disclosure-plus" aria-hidden="true">+</span></summary>
+            <div class="interpret-body"><label for="preparation-text">你已经准备了什么，还有什么没准备？</label><textarea id="preparation-text" rows="3" maxlength="2000" placeholder="直接描述当前情况，AI会提出状态建议，由你确认后再应用。"></textarea><div class="inline-action"><p class="field-help" id="interpret-mode">正在检查AI配置…</p><button id="interpret-button" class="button button-secondary" type="button" disabled>整理为状态建议</button></div><div id="interpret-notices" class="notice notice-info" hidden></div><div id="suggestions-panel" hidden><div class="suggestion-heading"><h3>确认后再更新清单</h3><p>检查每条解释，取消不准确的建议。</p></div><div id="suggestion-list"></div><button class="button button-primary" id="apply-suggestions" type="button">应用所选建议</button></div></div>
+          </details>
+        </section>
+
+        <section class="checklist-section" id="checklist-section" aria-labelledby="checklist-heading">
+          <div class="section-top"><div><div class="section-kicker"><span class="step-number">02</span><span>逐项核对</span></div><h2 id="checklist-heading">入住准备清单</h2></div><span class="count-label" id="item-count">读取中</span></div>
+          <div class="progress-overview"><div class="progress-copy"><span id="progress-label">逐项标记你的实际准备情况</span><strong id="progress-count">—</strong></div><div class="progress-track" role="progressbar" aria-label="已标记为准备好的适用事项比例" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar"><span id="progress-fill"></span></div><div class="progress-legend"><span><i class="legend-dot ready"></i><span id="ready-count">已准备 0</span></span><span><i class="legend-dot missing"></i><span id="missing-count">待准备 0</span></span><span><i class="legend-dot unknown"></i><span id="unknown-count">待确认 0</span></span></div></div>
+          <div class="filter-row" role="group" aria-label="筛选清单状态"><button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">全部</button><button class="filter-button" type="button" data-filter="missing" aria-pressed="false">待准备</button><button class="filter-button" type="button" data-filter="unknown" aria-pressed="false">待确认</button><button class="filter-button" type="button" data-filter="ready" aria-pressed="false">已准备</button></div>
+          <div id="checklist" class="checklist"><p class="loading-note">正在读取经过整理的官方资料…</p></div>
+          <div class="check-action"><div><strong>准备好后，生成下一步。</strong><p>检查按资料规则执行，不需要AI。</p></div><button id="check-button" class="button button-primary" type="button" disabled>生成行动清单 <span aria-hidden="true">→</span></button></div>
+        </section>
+
+        <section id="report-section" class="report-section" aria-labelledby="report-heading" hidden tabindex="-1"><div class="section-top"><div><div class="section-kicker"><span class="step-number">03</span><span>安排下一步</span></div><h2 id="report-heading">你的行动清单</h2></div><div class="report-actions"><button id="export-json" class="text-button" type="button">导出JSON</button><button id="print-report" class="text-button" type="button">打印</button></div></div><p class="report-meta" id="report-meta"></p><div id="report-stale" class="notice notice-info" hidden>准备信息已经变化，请重新生成行动清单。</div><div id="report-summary" class="report-summary"></div><div id="report-content"></div></section>
+      </div>
+    </div>
+
+    <section class="knowledge-section" id="ask-section" aria-labelledby="ask-heading"><div class="knowledge-intro"><p class="eyebrow">有疑问，查依据</p><h2 id="ask-heading">规则怎么说？</h2><p>回答只依据已收录资料。资料没有说明的内容，会明确提示无法确认。</p><p class="field-help" id="ask-mode">正在检查AI配置…</p></div><div class="question-column"><form id="ask-form"><label for="question">输入你的规则问题</label><div class="question-field"><input id="question" name="question" maxlength="1000" placeholder="例如：入住前需要准备哪些证明？" autocomplete="off"><button class="button button-primary" id="ask-button" type="submit" disabled>查规则</button></div></form><div id="answer-panel" class="answer-panel" aria-live="polite" hidden></div></div></section>
+
+    <section class="sources-section" id="sources-section" aria-labelledby="sources-heading"><details><summary><div><p class="eyebrow">可追溯的资料</p><h2 id="sources-heading">来源与原文</h2><p id="sources-description">每条核对事项均可展开查看依据；这里列出完整来源。</p></div><span class="disclosure-plus" aria-hidden="true">+</span></summary><div id="source-list" class="source-list"></div></details></section>
+
+    <footer class="site-footer"><div><strong>入住有数</strong><span>MOVE-IN READY</span></div><p>课程项目 · 资料辅助核对工具<br>最终办理要求与安排以学校最新通知为准。</p></footer>
+  </main>
+
+  <dialog id="clear-dialog" aria-labelledby="clear-dialog-title"><h2 id="clear-dialog-title">清空当前准备记录？</h2><p>将移除本浏览器保存的流程、日期与状态。已导出的文件不受影响。</p><div class="dialog-actions"><button class="button button-secondary" type="button" id="cancel-clear">保留记录</button><button class="button button-primary" type="button" id="confirm-clear">清空记录</button></div></dialog>
+</body>
+</html>

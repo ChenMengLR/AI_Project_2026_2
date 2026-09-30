@@ -1,5 +1,11 @@
 # AI_Project_2026_2 课程环境
 
+## 2026-09-30 小组项目入口
+
+WANGHAOBIN 的一人项目 **入住有数 · 宿舍入住准备助手** 已建立，见 [运行说明与成果](week03_dorm_assistant/README.md)。双击 `week03_dorm_assistant/Start.cmd` 后打开 http://127.0.0.1:8765 。
+
+包含真实 Qwen 状态建议／依据问答、手动清单与日期核对、保存导出、Mission A/B、[Week 4 Route B](week04_dorm_validation/week04_feature_test.md)、[QA 证据](week03_dorm_assistant/docs/QA_REPORT.md) 和用户测试材料。真实用户测试尚未开展，课程平台提交单独记录。既有个人练习保留。
+
 ## 当前交接入口
 
 新窗口请先打开本项目根目录并阅读 [HANDOFF.md](HANDOFF.md)。第 3 周规则问答机器人的课程总结在 [docs/Week03_Rule_QA_Summary.md](docs/Week03_Rule_QA_Summary.md)，状态记录在 [docs/status/Week03_STATUS.md](docs/status/Week03_STATUS.md)，总结图在 [docs/Week03_Rule_QA_Summary.png](docs/Week03_Rule_QA_Summary.png)。

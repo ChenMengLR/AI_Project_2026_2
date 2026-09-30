@@ -1,0 +1,102 @@
+翰林生活馆入住准备：教学规则资料（12条）
+查阅日期：2026-09-30
+本文件是教学整理，非学校官方定论；韩文仅为短原文摘录，不是完整条款。中文为释义。完整规则请打开每条来源。
+适用范围：Hanlim一般公开说明。国际生/对象不明者的材料及效力待确认，生活用品可参考。其他宿舍不可直接套用。
+证件/健康事项只记录准备状态和可选开具日期，不上传真实材料、号码或体检内容。
+超出资料（例如留学生替代材料、个人房号、指定日期入住资格）必须回答无法确认，不编造。
+
+[R01] 入住材料 | item_ids=DOC_TB,DOC_ADDRESS
+韩文原文短摘录：결핵검진 확인서
+中文释义：一般说明要求结核检查证明，可用健康证明或兵役体检结果通知书替代。
+条件/边界：材料种类和替代材料对国际生或对象不明者须先确认。
+来源：HANLIM_MOVEIN | 1) 입사 전 서류 준비 (1) | https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075 | 查阅 2026-09-30
+韩文原文短摘录：주민등록등본
+中文释义：一般说明列居民登记誊本；核对家长地址后返还。
+条件/边界：未找到护照、外国人登记证等替代材料的适用依据。
+来源：HANLIM_MOVEIN | 1) 입사 전 서류 준비 (2) | https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075 | 查阅 2026-09-30
+
+[R02] 材料时间 | item_ids=DOC_RECENCY
+韩文原文短摘录：3개월 이내 발급분
+中文释义：上述入住前材料需为入住日起三个月以内开具的版本。
+条件/边界：适用对象先确认；边界日期算法是教学辅助，学校最终核定。
+来源：HANLIM_MOVEIN | 1) 입사 전 서류 준비 标题 | https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075 | 查阅 2026-09-30
+
+[R03] 报到时间地点 | item_ids=CHECKIN_OFFICE
+韩文原文短摘录：09:00~17:00
+中文释义：正常入住期间，在09:00–17:00到行政支援室办理。
+条件/边界：仅指正常入住期间，不能据此判断任意日期可入住。
+来源：HANLIM_MOVEIN | 2) 입사 당일 (1) | https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075 | 查阅 2026-09-30
+
+[R04] 缺材料补交 | item_ids=DOC_LATE_SUBMISSION
+韩文原文短摘录：일주일 이내로 제출 필요
+中文释义：一般说明允许未带材料先入住，但须在一周内补交。
+条件/边界：不能据此批准个人或留学生延期；先联系所属馆。
+来源：HANLIM_MOVEIN | 2) 입사 당일 (2) | https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075 | 查阅 2026-09-30
+
+[R05] 房间通知 | item_ids=ROOM_NOTICE
+韩文原文短摘录：문자 발송
+中文释义：一般说明在正常入住日前一天，向学生手机发送房间通知。
+条件/边界：这里不查询个人房号，也不能保证个人收到短信的时间。
+来源：HANLIM_MOVEIN | 2) 입사 당일 (3) | https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075 | 查阅 2026-09-30
+
+[R06] 个人用品与床品 | item_ids=SUPPLY_HYGIENE,SUPPLY_BEDDING
+韩文原文短摘录：위생용품
+中文释义：按个人需要备洗发用品、牙刷牙膏、毛巾、纸巾等。
+条件/边界：这是官网个人准备物品的教学清单，不判断学校强制购买。
+来源：HANLIM_MOVEIN | 3) 개인 준비물 (1)、(5) | https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075 | 查阅 2026-09-30
+韩文原文短摘录：침구류
+中文释义：准备适合夏季或冬季的床品。
+条件/边界：未据此判断具体床尺寸、学校提供或租赁情况。
+来源：HANLIM_MOVEIN | 3) 개인 준비물 (2) | https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075 | 查阅 2026-09-30
+
+[R07] 衣物洗护 | item_ids=SUPPLY_LAUNDRY
+韩文原文短摘录：유료로 이용
+中文释义：可备衣架、晾衣架和洗涤剂；共用洗衣机、烘干机付费使用。
+条件/边界：未公开本页机器价格；胶囊、液体、粉末洗涤剂均列为可用。
+来源：HANLIM_MOVEIN | 3) 개인 준비물 (3)、(4) | https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075 | 查阅 2026-09-30
+
+[R08] 网络用品 | item_ids=SUPPLY_NETWORK
+韩文原文短摘录：공유기, 랜선
+中文释义：个人用品列表列有路由器和网线，可按实际需要准备。
+条件/边界：不保证房内已装Wi-Fi或某型号兼容。
+来源：HANLIM_MOVEIN | 3) 개인 준비물 (6) | https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075 | 查阅 2026-09-30
+
+[R09] 禁带与事先询问 | item_ids=PROHIBITED_ITEMS,HEALTH_ITEM_INQUIRY
+韩文原文短摘录：반입금지 물품
+中文释义：禁带电热毯、取暖器、电饭锅、电热水壶、冰箱、火源危险品及酒类等。
+条件/边界：举例并非完整禁带清单，打包前打开原文核对。
+来源：HANLIM_MOVEIN | 4) 반입금지 물품 (1)–(5) | https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075 | 查阅 2026-09-30
+韩文原文短摘录：사전 문의
+中文释义：因健康原因需要使用相关物品时，先向行政支援室询问。
+条件/边界：仅在需要此类物品时适用；询问不等于已获许可。此项仅作条件提醒，不计完成率。
+来源：HANLIM_MOVEIN | 4) 반입금지 물품 最后注释 | https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075 | 查阅 2026-09-30
+
+[R10] 房间分配 | item_ids=ROOM_ASSIGNMENT
+韩文原文短摘录：임의로 변경할 수 없다.
+中文释义：按学校分配入住，住宿生之间不能自行换房。
+条件/边界：仅适用翰林生活馆，调换需求先走官方确认。
+来源：HANLIM_RULES_DMS | 제9조(호실 배정) | https://dms.donga.ac.kr/hanlim/15139/subview.do | 查阅 2026-09-30
+
+[R11] 出入证 | item_ids=ACCESS_CARD
+韩文原文短摘录：출입증을 항상 패용하여야 하며
+中文释义：入住办理时领取出入证；在馆内佩戴，工作人员要求时出示。
+条件/边界：仅记录是否完成，不保存出入证号码或照片。
+来源：HANLIM_RULES_DMS | 제10조(출입증)；入住说明 2)(3) | https://dms.donga.ac.kr/hanlim/15139/subview.do | 查阅 2026-09-30
+
+[R12] 公告核对 | item_ids=NOTICE_REVIEW
+韩文原文短摘录：공고 내용을 숙지하여야 한다.
+中文释义：入住前检查所属馆公告，了解实际批次与办理安排。
+条件/边界：公告阅读义务来自守则；将其放在入住前是本工具的安排建议。
+来源：HANLIM_RULES_DMS | 제24조(게시 및 광고물 부착) ① | https://dms.donga.ac.kr/hanlim/15139/subview.do | 查阅 2026-09-30
+
+验收题（3可回答+2不可回答）
+QA_ANSWER_01 | 可回答 | 一般入住说明要求准备哪两类材料，开具时间有什么要求？
+预期：结核检查证明和居民登记誊本；按一般说明，入住日起三个月以内开具。
+QA_ANSWER_02 | 可回答 | 正常入住期间应该在几点到哪里办理入住？
+预期：正常入住期间09:00–17:00到行政支援室。
+QA_ANSWER_03 | 可回答 | 可以带电热毯和电饭锅吗？
+预期：一般入住说明将电热毯和电饭锅列为禁带用品。
+QA_UNKNOWN_01 | 不可由现有资料确认 | 我是留学生，可以用护照或外国人登记证代替居民登记誊本吗？
+预期：当前资料没有说明留学生替代材料，无法确认；请询问所属馆或国际交流部门。
+QA_UNKNOWN_02 | 不可由现有资料确认 | 我2026年10月5日可以入住吗，我被分到哪个房间？
+预期：现有资料未给这个人的入住批次或房号，无法确认；请查个人通知并联系所属馆。

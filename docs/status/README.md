@@ -13,5 +13,7 @@
 当前记录：
 
 - [Week03_STATUS.md](Week03_STATUS.md)：第 3 周规则问答机器人
+- [Week03_TEAM_STATUS.md](Week03_TEAM_STATUS.md)：WANGHAOBIN 一人项目“入住有数”、Week 3 A/B 与 Week 4 验证
+- [Week04_STATUS.md](Week04_STATUS.md)：入住助手 Route B 功能验证及提交状态
 
 新的一周请创建同级文件，例如 `Week04_STATUS.md`，不要覆盖旧状态文件。
