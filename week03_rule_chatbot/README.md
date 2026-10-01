@@ -42,4 +42,4 @@ python week03_rule_chatbot\app.py --question "我可以在房间里使用电热�
 python -m unittest discover -s tests -p "test_week03_chatbot.py" -v
 ```
 
-当前 7 项离线测试通过。课程个人卡仍只读、状态未提交；[三周个人成果与提交状态](../docs/submission/2026-10-01/INDIVIDUAL_SUBMISSION.md)。
+当前 7 项离线测试通过。课程个人第 3 周卡已于 2026-10-01 填写代码与三题截图链接，状态为 `제출 · 已提交`，刷新后核对保存；[三周个人成果与提交状态](../docs/submission/2026-10-01/INDIVIDUAL_SUBMISSION.md)。

@@ -6,7 +6,7 @@ WANGHAOBIN 的一人项目 **入住有数 · 宿舍入住准备助手** 已建�
 
 包含真实 Qwen 状态建议／依据问答、手动清单与日期核对、保存导出、Mission A/B、[Week 4 Route B](week04_dorm_validation/week04_feature_test.md)、[QA 证据](week03_dorm_assistant/docs/QA_REPORT.md) 和用户测试材料。真实用户测试尚未开展，课程平台提交单独记录。既有个人练习保留。
 
-2026-10-01 已将第 2、3、4 周小组记录提交至 [课程项目卡](https://app.notion.com/p/WANGHAOBIN-3ec7c00fe5ad80f2af1ce80d21c4877e)，并刷新核验正文、成果链接及“已完成”状态。[小组提交记录与截图](docs/submission/2026-10-01/TEAM_SUBMISSION.md) 已归档。这里的完成指材料已登记，不表示教师批阅、课堂汇报或真实用户测试完成。个人第 2、3、4 周的代码、结果、视频或运行截图已准备，见 [个人成果与提交状态](docs/submission/2026-10-01/INDIVIDUAL_SUBMISSION.md)；课程个人卡只读，仍显示未提交。
+2026-10-01 已将第 2、3、4 周小组记录提交至 [课程项目卡](https://app.notion.com/p/WANGHAOBIN-3ec7c00fe5ad80f2af1ce80d21c4877e)，并刷新核验正文、成果链接及“已完成”状态。[小组提交记录与截图](docs/submission/2026-10-01/TEAM_SUBMISSION.md) 已归档。同日，个人第 2、3、4 周作业也已分别填入[本人课程卡](https://app.notion.com/p/Wang-Haobin-3db7c00fe5ad8143b6aad5a41dbe3cd6)，提交日期及 `제출 · 已提交` 状态刷新后保留，见 [个人成果与提交状态](docs/submission/2026-10-01/INDIVIDUAL_SUBMISSION.md)。登记完成不表示教师批阅、课堂汇报或真实用户测试完成。
 
 ## 当前交接入口
 
@@ -20,7 +20,7 @@ WANGHAOBIN 的一人项目 **入住有数 · 宿舍入住准备助手** 已建�
 
 最新运行证据见 [真实调用记录](week02_photo_classifier/RUNTIME_EVIDENCE.md)，课程提交情况见 [个人作业状态](week02_photo_classifier/SUBMISSION.md)。旧课程指南中的待配置/未实测描述属于准备阶段记录，以这两份最新说明为准。
 
-[59.90 秒真实运行视频](week02_photo_classifier/evidence/Week02_Qwen_Live_Demo.mp4) 已录制，包含输入、实际命令、实时输出与分类副本；[原始窗口录像](week02_photo_classifier/evidence/Week02_Qwen_Raw_Capture.mp4) 一并保留。AI 的 Notion 第 2 周页目前只读，视频与链接已备齐，但课程平台尚未提交。
+[59.90 秒真实运行视频](week02_photo_classifier/evidence/Week02_Qwen_Live_Demo.mp4) 已录制，包含输入、实际命令、实时输出与分类副本；[原始窗口录像](week02_photo_classifier/evidence/Week02_Qwen_Raw_Capture.mp4) 一并保留。AI 的 Notion 第 2 周个人卡已填写公开仓库及视频链接，状态为已提交，并在重新加载后核对保存。
 
 ## 课程说明与作业模板
 

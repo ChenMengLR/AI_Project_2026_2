@@ -33,4 +33,4 @@ $aiPython = (Resolve-Path -LiteralPath '..\.venv\Scripts\python.exe').Path
 
 三个程序均已实际以退出码 0 完成。两个课堂程序各联网读取一次 UCI；审计脚本优先使用本地 CSV。原始公开 CSV 没有纳入仓库；首次运行审计脚本时会从官方地址下载到本目录，`.gitignore` 已排除它。报告保留官方 URL 与本次 SHA-256。所有“新学生”均为公开数据随机留出集中的模拟记录，未进行真实用户招募或前瞻验证。
 
-个人课程卡仍为只读、显示未提交；与第 2、3 周的课程平台状态见[个人提交清单](../docs/submission/2026-10-01/INDIVIDUAL_SUBMISSION.md)。
+个人课程第 4 周卡已于 2026-10-01 填写仓库、报告、代码与四张运行截图链接，状态为 `제출 · 已提交`，刷新后核对保存；与第 2、3 周的课程平台状态见[个人提交清单](../docs/submission/2026-10-01/INDIVIDUAL_SUBMISSION.md)。
