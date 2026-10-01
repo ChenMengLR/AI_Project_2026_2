@@ -1,0 +1,19 @@
+{
+  "test": 3,
+  "question": "宿舍的打印机在哪里？",
+  "command": [
+    "C:\\Users\\31797\\Documents\\ChatGPT\\作业 3\\AI_Project_2026_2\\.venv\\Scripts\\python.exe",
+    "-B",
+    "C:\\Users\\31797\\Documents\\ChatGPT\\作业 3\\AI_Project_2026_2\\week03_rule_chatbot\\app.py",
+    "--question",
+    "宿舍的打印机在哪里？"
+  ],
+  "started_at": "2026-10-01T12:06:18.056868+08:00",
+  "finished_at": "2026-10-01T12:06:22.232128+08:00",
+  "duration_seconds": 4.18,
+  "exit_code": 0,
+  "safe_output": true,
+  "stdout": "Answer: 无法从提供的规则确认。\r\nEvidence: Not found",
+  "original_app_sha256": "83b4c4481a9f338241dde454925b3f82f627b306b97ef392921be9bd0bdc015f",
+  "medium": "Local browser terminal showing actual subprocess output"
+}

@@ -1,0 +1,19 @@
+{
+  "test": 2,
+  "question": "朋友可以来我的房间吗？",
+  "command": [
+    "C:\\Users\\31797\\Documents\\ChatGPT\\作业 3\\AI_Project_2026_2\\.venv\\Scripts\\python.exe",
+    "-B",
+    "C:\\Users\\31797\\Documents\\ChatGPT\\作业 3\\AI_Project_2026_2\\week03_rule_chatbot\\app.py",
+    "--question",
+    "朋友可以来我的房间吗？"
+  ],
+  "started_at": "2026-10-01T12:06:00.727749+08:00",
+  "finished_at": "2026-10-01T12:06:05.312667+08:00",
+  "duration_seconds": 4.58,
+  "exit_code": 0,
+  "safe_output": true,
+  "stdout": "Answer: 朋友不能进入你的宿舍房间。访客须先向行政支援室申请，仅可在10:00–20:00于指定地点会面。\r\nEvidence: [제17조 면회] 면회자는 행정지원실에 신청해야 한다. 면회시간은 10:00부터 20:00까지이며 지정된 장소에서만 면회할 수 있고 사생실에는 들어갈 수 없다.",
+  "original_app_sha256": "83b4c4481a9f338241dde454925b3f82f627b306b97ef392921be9bd0bdc015f",
+  "medium": "Local browser terminal showing actual subprocess output"
+}

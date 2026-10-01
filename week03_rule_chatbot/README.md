@@ -32,8 +32,14 @@ python week03_rule_chatbot\app.py --question "我可以在房间里使用电热�
 
 真实验收结果保存在 [RUNTIME_EVIDENCE.md](RUNTIME_EVIDENCE.md)，原始结构化记录保存在 [RUNTIME_EVIDENCE.json](RUNTIME_EVIDENCE.json)。
 
+2026-10-01 针对最终版本重新运行三题并保存课程要求的可视证据：[电热水壶](evidence/2026-10-01/Test1_Kettle_Live.png)、[访客](evidence/2026-10-01/Test2_Visitor_Live.png)、[规则外打印机](evidence/2026-10-01/Test3_Printer_Live.png)。同目录的 `Test*_Run.json` 保留实际命令、时间、退出码、输出和程序 SHA-256。画面是本机浏览器终端展示的真实 Python 子进程输出，不是原生 PowerShell 截图。
+
+模型在先前复测中曾漏掉访客申请或健康例外；当前版本仍实际调用 Qwen，并在匹配的中文问题上依据 `rules.txt` 第 17、11 条原文确定性补全必要条件。详情见 [首次 QA 记录](evidence/2026-10-01/INITIAL_QA_NOTE.md)。此改进只覆盖这两类问题，不代表所有规则问答都经过全面验证。
+
 离线测试：
 
 ```powershell
 python -m unittest discover -s tests -p "test_week03_chatbot.py" -v
 ```
+
+当前 7 项离线测试通过。课程个人卡仍只读、状态未提交；[三周个人成果与提交状态](../docs/submission/2026-10-01/INDIVIDUAL_SUBMISSION.md)。

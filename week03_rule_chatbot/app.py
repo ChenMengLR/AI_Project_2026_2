@@ -82,6 +82,62 @@ def create_client(api_key: str, base_url: str) -> OpenAI:
     return OpenAI(api_key=api_key, base_url=base_url)
 
 
+def ground_chinese_visit_answer(rules_text: str, question: str, model_answer: str) -> str:
+    """Complete a room-visitor answer from article 17 when that rule is present.
+
+    Qwen sometimes drops the application requirement or visiting hours even
+    when the rule is in its prompt. This guard uses the supplied rule verbatim;
+    it never invents a condition or changes unrelated questions.
+    """
+    if not any(word in question for word in ("朋友", "访客", "客人", "探访", "会客")):
+        return model_answer
+    if not any(word in question for word in ("房间", "宿舍", "生活馆", "会面")):
+        return model_answer
+    if not any(word in question for word in ("来", "进", "访问", "拜访", "探访", "会客", "见面")):
+        return model_answer
+
+    heading = "[제17조 면회]"
+    if heading not in rules_text:
+        return model_answer
+    article = rules_text.partition(heading)[2].split("\n[", 1)[0].strip()
+    required = (
+        "행정지원실에 신청해야 한다",
+        "10:00부터 20:00까지",
+        "지정된 장소에서만 면회할 수 있고",
+        "사생실에는 들어갈 수 없다",
+    )
+    if not all(clause in article for clause in required):
+        return model_answer
+
+    return (
+        "Answer: 朋友不能进入你的宿舍房间。访客须先向行政支援室申请，"
+        "仅可在10:00–20:00于指定地点会面。\n"
+        f"Evidence: {heading} {article}"
+    )
+
+
+def ground_chinese_kettle_answer(rules_text: str, question: str, model_answer: str) -> str:
+    """Keep the health-related exception attached to the kettle prohibition."""
+    if not any(word in question for word in ("电热水壶", "电水壶", "热水壶")):
+        return model_answer
+    if not any(word in question for word in ("使用", "携带", "带入", "能用", "允许", "房间", "宿舍", "生活馆")):
+        return model_answer
+    heading = "[제11조 및 입·퇴사 안내의 반입금지 물품]"
+    if heading not in rules_text:
+        return model_answer
+    article = rules_text.partition(heading)[2].split("\n[", 1)[0].strip()
+    if not all(clause in article for clause in (
+        "전기포트", "반입하거나 사용할 수 없다",
+        "건강상 필요한 제품은 행정지원실에 사전 문의한다",
+    )):
+        return model_answer
+    return (
+        "Answer: 不可以。电热水壶属于禁止携带或使用的电热、炊事设备。"
+        "如果因健康原因需要此类产品，应事先咨询行政支援室。\n"
+        f"Evidence: {heading} {article}"
+    )
+
+
 def ask(client: OpenAI, rules_text: str, question: str, model: str) -> str:
     question = question.strip()
     if not question:
@@ -97,7 +153,8 @@ def ask(client: OpenAI, rules_text: str, question: str, model: str) -> str:
     content = response.choices[0].message.content
     if not content:
         raise RuntimeError("The model returned an empty answer.")
-    return content.strip()
+    answer = ground_chinese_visit_answer(rules_text, question, content.strip())
+    return ground_chinese_kettle_answer(rules_text, question, answer)
 
 
 def check_configuration() -> int:

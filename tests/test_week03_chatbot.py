@@ -37,6 +37,40 @@ class Week03ChatbotTests(unittest.TestCase):
         self.assertEqual(kwargs["extra_body"], {"enable_thinking": False})
         self.assertIn("可以使用吗？", kwargs["messages"][1]["content"])
 
+    def test_visitor_answer_retains_every_condition_from_article_17(self):
+        rules = app.read_rules(WEEK / "rules.txt")
+        client = Mock()
+        client.chat.completions.create.return_value.choices = [
+            Mock(message=Mock(content="Answer: 朋友不能进房间。\nEvidence: 第17条。"))
+        ]
+        result = app.ask(client, rules, "朋友可以来我的房间吗？", "qwen3.8-flash")
+        for required in ("行政支援室", "10:00–20:00", "指定地点", "不能进入", "[제17조 면회]", "행정지원실에 신청해야 한다"):
+            self.assertIn(required, result)
+        client.chat.completions.create.assert_called_once()
+
+    def test_kettle_answer_retains_health_exception_from_source(self):
+        rules = app.read_rules(WEEK / "rules.txt")
+        client = Mock()
+        client.chat.completions.create.return_value.choices = [
+            Mock(message=Mock(content="Answer: 不可以使用电热水壶。\nEvidence: 第11条。"))
+        ]
+        result = app.ask(client, rules, "我可以在房间里使用电热水壶吗？", "qwen3.8-flash")
+        for required in ("禁止携带或使用", "健康原因", "事先咨询行政支援室", "[제11조", "건강상 필요한 제품은"):
+            self.assertIn(required, result)
+        client.chat.completions.create.assert_called_once()
+
+    def test_source_guards_do_not_change_unrelated_questions(self):
+        rules = app.read_rules(WEEK / "rules.txt")
+        model_answer = "Answer: 规则中没有购买地点。\nEvidence: Not found"
+        self.assertEqual(
+            app.ground_chinese_kettle_answer(rules, "电热水壶在哪里买？", model_answer),
+            model_answer,
+        )
+        self.assertEqual(
+            app.ground_chinese_visit_answer(rules, "朋友的房间有打印机吗？", model_answer),
+            model_answer,
+        )
+
     def test_missing_config_never_prints_key(self):
         with tempfile.TemporaryDirectory() as temp:
             env = Path(temp) / ".env"

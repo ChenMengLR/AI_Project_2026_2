@@ -4,3 +4,4 @@ __pycache__/
 *.py[cod]
 .DS_Store
 sorted/
+week04_dropout_prediction/uci697_source.csv

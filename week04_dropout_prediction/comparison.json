@@ -1,0 +1,368 @@
+{
+  "retrieved_for_audit_utc": "2026-10-01T04:05:53.926954+00:00",
+  "source_url": "https://archive.ics.uci.edu/static/public/697/data.csv",
+  "source_dataset_url": "https://archive.ics.uci.edu/dataset/697/predict+students+dropout+and+academic+success",
+  "source_doi": "10.24432/C5MC89",
+  "uci_metadata_last_updated": "Mon Feb 26 2024",
+  "source_csv_bytes": 495642,
+  "source_csv_sha256": "a1b1a6531bbb93a5c7fdf0093b47172776652a4ffb12342fb79655c85b74801b",
+  "data_rows": 4424,
+  "data_columns": 37,
+  "all_data_missing_values": 0,
+  "target_counts": {
+    "Graduate": 2209,
+    "Dropout": 1421,
+    "Enrolled": 794
+  },
+  "versions": {
+    "python": "3.14.7",
+    "pandas": "3.0.6",
+    "numpy": "2.5.3",
+    "scikit_learn": "1.9.1",
+    "scipy": "1.18.1",
+    "ucimlrepo": "0.0.7"
+  },
+  "classroom_seven_inputs": {
+    "columns": [
+      "admission_grade",
+      "age",
+      "scholarship",
+      "tuition_paid",
+      "sem1_enrolled",
+      "sem1_passed",
+      "sem1_grade"
+    ],
+    "train_rows": 3539,
+    "test_rows": 885,
+    "train_actual_dropout": 1137,
+    "test_actual_dropout": 284,
+    "selected_input_missing_values": 0,
+    "model_accuracy": 0.8305084745762712,
+    "model_dropout_recall": 0.7464788732394366,
+    "baseline_accuracy": 0.6790960451977401,
+    "baseline_dropout_recall": 0.0,
+    "confusion_matrix_TN_FP_FN_TP": [
+      523,
+      78,
+      72,
+      212
+    ],
+    "feature_importance": [
+      {
+        "name": "sem1_grade",
+        "importance": 0.2358781504906787
+      },
+      {
+        "name": "sem1_passed",
+        "importance": 0.22575818819615226
+      },
+      {
+        "name": "admission_grade",
+        "importance": 0.2196560728253203
+      },
+      {
+        "name": "age",
+        "importance": 0.1262736857889493
+      },
+      {
+        "name": "tuition_paid",
+        "importance": 0.09336921865308467
+      },
+      {
+        "name": "sem1_enrolled",
+        "importance": 0.0670886950051801
+      },
+      {
+        "name": "scholarship",
+        "importance": 0.03197598904063482
+      }
+    ],
+    "first_ten_test_examples": [
+      {
+        "number": 1,
+        "source_row_zero_based": 2892,
+        "age": 18,
+        "sem1_enrolled": 6,
+        "sem1_passed": 6,
+        "sem1_grade": 13.16666667,
+        "risk_probability": 0.33,
+        "risk_shown_percent": 33,
+        "suggested_action": "暂无行动",
+        "actual_dropout": false
+      },
+      {
+        "number": 2,
+        "source_row_zero_based": 2555,
+        "age": 18,
+        "sem1_enrolled": 5,
+        "sem1_passed": 4,
+        "sem1_grade": 10.5,
+        "risk_probability": 0.3633333333333333,
+        "risk_shown_percent": 36,
+        "suggested_action": "暂无行动",
+        "actual_dropout": false
+      },
+      {
+        "number": 3,
+        "source_row_zero_based": 2266,
+        "age": 50,
+        "sem1_enrolled": 6,
+        "sem1_passed": 2,
+        "sem1_grade": 13.5,
+        "risk_probability": 0.8,
+        "risk_shown_percent": 80,
+        "suggested_action": "联系咨询",
+        "actual_dropout": true
+      },
+      {
+        "number": 4,
+        "source_row_zero_based": 3757,
+        "age": 18,
+        "sem1_enrolled": 7,
+        "sem1_passed": 7,
+        "sem1_grade": 13.398,
+        "risk_probability": 0.13,
+        "risk_shown_percent": 13,
+        "suggested_action": "暂无行动",
+        "actual_dropout": false
+      },
+      {
+        "number": 5,
+        "source_row_zero_based": 3861,
+        "age": 18,
+        "sem1_enrolled": 6,
+        "sem1_passed": 1,
+        "sem1_grade": 11.0,
+        "risk_probability": 0.51,
+        "risk_shown_percent": 51,
+        "suggested_action": "联系咨询",
+        "actual_dropout": true
+      },
+      {
+        "number": 6,
+        "source_row_zero_based": 269,
+        "age": 18,
+        "sem1_enrolled": 8,
+        "sem1_passed": 7,
+        "sem1_grade": 13.67142857,
+        "risk_probability": 0.01,
+        "risk_shown_percent": 1,
+        "suggested_action": "暂无行动",
+        "actual_dropout": false
+      },
+      {
+        "number": 7,
+        "source_row_zero_based": 971,
+        "age": 33,
+        "sem1_enrolled": 5,
+        "sem1_passed": 1,
+        "sem1_grade": 10.0,
+        "risk_probability": 0.92,
+        "risk_shown_percent": 92,
+        "suggested_action": "联系咨询",
+        "actual_dropout": true
+      },
+      {
+        "number": 8,
+        "source_row_zero_based": 1220,
+        "age": 19,
+        "sem1_enrolled": 0,
+        "sem1_passed": 0,
+        "sem1_grade": 0.0,
+        "risk_probability": 0.88,
+        "risk_shown_percent": 88,
+        "suggested_action": "联系咨询",
+        "actual_dropout": true
+      },
+      {
+        "number": 9,
+        "source_row_zero_based": 3545,
+        "age": 18,
+        "sem1_enrolled": 7,
+        "sem1_passed": 6,
+        "sem1_grade": 13.26666667,
+        "risk_probability": 0.01,
+        "risk_shown_percent": 1,
+        "suggested_action": "暂无行动",
+        "actual_dropout": false
+      },
+      {
+        "number": 10,
+        "source_row_zero_based": 477,
+        "age": 28,
+        "sem1_enrolled": 7,
+        "sem1_passed": 0,
+        "sem1_grade": 0.0,
+        "risk_probability": 0.99,
+        "risk_shown_percent": 99,
+        "suggested_action": "联系咨询",
+        "actual_dropout": true
+      }
+    ]
+  },
+  "challenge_four_inputs": {
+    "columns": [
+      "admission_grade",
+      "age",
+      "scholarship",
+      "tuition_paid"
+    ],
+    "train_rows": 3539,
+    "test_rows": 885,
+    "train_actual_dropout": 1137,
+    "test_actual_dropout": 284,
+    "selected_input_missing_values": 0,
+    "model_accuracy": 0.6621468926553672,
+    "model_dropout_recall": 0.6161971830985915,
+    "baseline_accuracy": 0.6790960451977401,
+    "baseline_dropout_recall": 0.0,
+    "confusion_matrix_TN_FP_FN_TP": [
+      411,
+      190,
+      109,
+      175
+    ],
+    "feature_importance": [
+      {
+        "name": "admission_grade",
+        "importance": 0.6049868514226732
+      },
+      {
+        "name": "age",
+        "importance": 0.18814176766708263
+      },
+      {
+        "name": "tuition_paid",
+        "importance": 0.14954905267335483
+      },
+      {
+        "name": "scholarship",
+        "importance": 0.05732232823688934
+      }
+    ],
+    "first_ten_test_examples": [
+      {
+        "number": 1,
+        "source_row_zero_based": 2892,
+        "age": 18,
+        "sem1_enrolled": 6,
+        "sem1_passed": 6,
+        "sem1_grade": 13.16666667,
+        "risk_probability": 0.07,
+        "risk_shown_percent": 7,
+        "suggested_action": "暂无行动",
+        "actual_dropout": false
+      },
+      {
+        "number": 2,
+        "source_row_zero_based": 2555,
+        "age": 18,
+        "sem1_enrolled": 5,
+        "sem1_passed": 4,
+        "sem1_grade": 10.5,
+        "risk_probability": 0.94,
+        "risk_shown_percent": 94,
+        "suggested_action": "联系咨询",
+        "actual_dropout": false
+      },
+      {
+        "number": 3,
+        "source_row_zero_based": 2266,
+        "age": 50,
+        "sem1_enrolled": 6,
+        "sem1_passed": 2,
+        "sem1_grade": 13.5,
+        "risk_probability": 0.77,
+        "risk_shown_percent": 77,
+        "suggested_action": "联系咨询",
+        "actual_dropout": true
+      },
+      {
+        "number": 4,
+        "source_row_zero_based": 3757,
+        "age": 18,
+        "sem1_enrolled": 7,
+        "sem1_passed": 7,
+        "sem1_grade": 13.398,
+        "risk_probability": 0.2851666666666667,
+        "risk_shown_percent": 29,
+        "suggested_action": "暂无行动",
+        "actual_dropout": false
+      },
+      {
+        "number": 5,
+        "source_row_zero_based": 3861,
+        "age": 18,
+        "sem1_enrolled": 6,
+        "sem1_passed": 1,
+        "sem1_grade": 11.0,
+        "risk_probability": 0.32,
+        "risk_shown_percent": 32,
+        "suggested_action": "暂无行动",
+        "actual_dropout": true
+      },
+      {
+        "number": 6,
+        "source_row_zero_based": 269,
+        "age": 18,
+        "sem1_enrolled": 8,
+        "sem1_passed": 7,
+        "sem1_grade": 13.67142857,
+        "risk_probability": 0.275,
+        "risk_shown_percent": 28,
+        "suggested_action": "暂无行动",
+        "actual_dropout": false
+      },
+      {
+        "number": 7,
+        "source_row_zero_based": 971,
+        "age": 33,
+        "sem1_enrolled": 5,
+        "sem1_passed": 1,
+        "sem1_grade": 10.0,
+        "risk_probability": 0.3119523809523809,
+        "risk_shown_percent": 31,
+        "suggested_action": "暂无行动",
+        "actual_dropout": true
+      },
+      {
+        "number": 8,
+        "source_row_zero_based": 1220,
+        "age": 19,
+        "sem1_enrolled": 0,
+        "sem1_passed": 0,
+        "sem1_grade": 0.0,
+        "risk_probability": 0.18333333333333335,
+        "risk_shown_percent": 18,
+        "suggested_action": "暂无行动",
+        "actual_dropout": true
+      },
+      {
+        "number": 9,
+        "source_row_zero_based": 3545,
+        "age": 18,
+        "sem1_enrolled": 7,
+        "sem1_passed": 6,
+        "sem1_grade": 13.26666667,
+        "risk_probability": 0.07005952380952381,
+        "risk_shown_percent": 7,
+        "suggested_action": "暂无行动",
+        "actual_dropout": false
+      },
+      {
+        "number": 10,
+        "source_row_zero_based": 477,
+        "age": 28,
+        "sem1_enrolled": 7,
+        "sem1_passed": 0,
+        "sem1_grade": 0.0,
+        "risk_probability": 0.8578214285714284,
+        "risk_shown_percent": 86,
+        "suggested_action": "联系咨询",
+        "actual_dropout": true
+      }
+    ]
+  },
+  "change_accuracy_percentage_points": -16.836,
+  "change_dropout_recall_percentage_points": -13.028
+}

@@ -6,13 +6,13 @@ WANGHAOBIN 的一人项目 **入住有数 · 宿舍入住准备助手** 已建�
 
 包含真实 Qwen 状态建议／依据问答、手动清单与日期核对、保存导出、Mission A/B、[Week 4 Route B](week04_dorm_validation/week04_feature_test.md)、[QA 证据](week03_dorm_assistant/docs/QA_REPORT.md) 和用户测试材料。真实用户测试尚未开展，课程平台提交单独记录。既有个人练习保留。
 
-2026-10-01 已将第 2、3、4 周小组记录提交至 [课程项目卡](https://app.notion.com/p/WANGHAOBIN-3ec7c00fe5ad80f2af1ce80d21c4877e)，并刷新核验正文、成果链接及“已完成”状态。[提交记录与截图](docs/submission/2026-10-01/TEAM_SUBMISSION.md) 已归档。这里的完成指材料已登记，不表示教师批阅、课堂汇报或真实用户测试完成。个人作业提交另行处理。
+2026-10-01 已将第 2、3、4 周小组记录提交至 [课程项目卡](https://app.notion.com/p/WANGHAOBIN-3ec7c00fe5ad80f2af1ce80d21c4877e)，并刷新核验正文、成果链接及“已完成”状态。[小组提交记录与截图](docs/submission/2026-10-01/TEAM_SUBMISSION.md) 已归档。这里的完成指材料已登记，不表示教师批阅、课堂汇报或真实用户测试完成。个人第 2、3、4 周的代码、结果、视频或运行截图已准备，见 [个人成果与提交状态](docs/submission/2026-10-01/INDIVIDUAL_SUBMISSION.md)；课程个人卡只读，仍显示未提交。
 
 ## 当前交接入口
 
 新窗口请先打开本项目根目录并阅读 [HANDOFF.md](HANDOFF.md)。第 3 周规则问答机器人的课程总结在 [docs/Week03_Rule_QA_Summary.md](docs/Week03_Rule_QA_Summary.md)，状态记录在 [docs/status/Week03_STATUS.md](docs/status/Week03_STATUS.md)，总结图在 [docs/Week03_Rule_QA_Summary.png](docs/Week03_Rule_QA_Summary.png)。
 
-第 3 周个人代码位于 `week03_rule_chatbot/`，共用根目录 `.venv`。第 2、3 周以及之后的 AI 任务统一读取“作业 3”容器根目录 `.env`；AI 项目根目录 `.env` 和周目录 `.env` 仅作为兼容性回退。真实 Qwen 调用需要在本机配置自己的密钥和同地域 Base URL。`.env` 不上传 GitHub。提交规范与自动检查见“作业 3”容器中的 `docs/COMMIT_POLICY.md`。
+第 3 周个人代码位于 `week03_rule_chatbot/`；第 4 周个人 UCI 预测位于 [week04_dropout_prediction/](week04_dropout_prediction/README.md)，两者共用根目录 `.venv`。第 2、3 周以及之后的 AI 任务统一读取“作业 3”容器根目录 `.env`；AI 项目根目录 `.env` 和周目录 `.env` 仅作为兼容性回退。真实 Qwen 调用需要在本机配置自己的密钥和同地域 Base URL。`.env` 不上传 GitHub。提交规范与自动检查见“作业 3”容器中的 `docs/COMMIT_POLICY.md`。
 
 项目位置：`C:\Users\31797\Documents\ChatGPT\作业 3\AI_Project_2026_2`
 
