@@ -4,7 +4,7 @@
 
 课程规定的文件名：`week04_feature_test.md`；本项目正式归档位置为 `week04_dorm_validation/week04_feature_test.md`。
 
-**本轮已完成合成用例、真实 Qwen 调用与开发者界面验收；真实用户测试尚未开展，Notion 尚未提交。** 测试结果的范围见下方记录，不能解释为真实用户效果或通用准确率。
+**已完成合成用例、真实 Qwen 调用与开发者界面验收；2026-10-01 已提交至 [Notion 第 4 周小组记录](https://app.notion.com/p/04-4-56d7c00fe5ad83b9bf1f814041a32ada)，刷新验证保存成功。真实用户测试尚未开展。** 测试结果的范围见下方记录，不能解释为真实用户效果或通用准确率。本文件是团队 Route B，不能代替个人 UCI 预测练习。
 
 ## Route B：不采用预测，继续验证核心 AI 功能
 
@@ -104,7 +104,7 @@
 
 ## 下一步
 
-下一步确认国际生实际流程与适用材料，保留证据缺口；准备好真实试用范围后，再按 [`USER_TEST_KIT.md`](../week03_dorm_assistant/docs/USER_TEST_KIT.md) 招募和记录。Notion 目前没有找到 WANGHAOBIN 卡或新增入口，等待可编辑项目卡链接后提交并检查保存结果。
+下一步确认国际生实际流程与适用材料，保留证据缺口；准备好真实试用范围后，再按 [`USER_TEST_KIT.md`](../week03_dorm_assistant/docs/USER_TEST_KIT.md) 招募和记录。课程项目卡和第 2、3、4 周小组记录已保存，见 [提交记录](../docs/submission/2026-10-01/TEAM_SUBMISSION.md)；等待教师批阅及对一人项目安排的确认。
 
 ## 来源
 

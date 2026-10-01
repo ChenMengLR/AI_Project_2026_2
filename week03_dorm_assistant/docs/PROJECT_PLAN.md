@@ -53,7 +53,7 @@
 - **真实浏览器界面验收通过**：手动核对、AI 确认前后状态、国际生材料待确认、刷新恢复、实际下载导出、越界输入不改状态，以及 AI 未配置时的手动功能。证据见 [`QA_REPORT.md`](QA_REPORT.md)、[`UI_EXPORTED_REPORT.json`](../evidence/UI_EXPORTED_REPORT.json) 和同目录截图。
 - **已发现并修复三项问题**：问答摘要漏掉附加条件；未来出具日期被误视为已准备；出入证答复需要同时展示两处来源。首次输出保留于 `INITIAL_VALIDATION.md/json`，修复及复测见 QA 报告。
 - **真实用户测试尚未开展**：没有真实参与者、用户反馈或用户效果数据；招募说明与任务材料已准备。
-- **Notion 尚未提交**：课程库当前未找到 WANGHAOBIN 卡，也没有新增入口；需要用户提供可编辑的项目卡链接，再填写并重新打开核对保存结果。
+- **Notion 已登记第 2、3、4 周小组材料**：2026-10-01 在课程团队库建立 [WANGHAOBIN 项目卡](https://app.notion.com/p/WANGHAOBIN-3ec7c00fe5ad80f2af1ce80d21c4877e)，填写并重新打开核对了正文、链接和状态；教师批阅、一人项目批准及课堂汇报另行确认。详见 [提交记录](../../docs/submission/2026-10-01/TEAM_SUBMISSION.md)。
 
 ## 文件位置与推进顺序
 

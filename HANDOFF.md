@@ -2,7 +2,11 @@
 
 ## 2026-09-30 新增一人项目
 
-WANGHAOBIN 已授权开发“入住有数 · 宿舍入住准备助手”，代码位于 `week03_dorm_assistant/`，Week 4 文档位于 `week04_dorm_validation/`。先读该项目 README、`docs/status/Week03_TEAM_STATUS.md` 与 `Week04_STATUS.md`。真实用户测试暂不能开展，已准备材料；当前 AI 团队 Notion 库没有该成员卡片且无新建入口，平台提交状态必须单独核验。旧个人 Week 3 状态中的“小组暂不处理”是历史决定，已被此次授权更新；个人程序仍原样保留。
+WANGHAOBIN 已授权开发“入住有数 · 宿舍入住准备助手”，代码位于 `week03_dorm_assistant/`，Week 4 文档位于 `week04_dorm_validation/`。先读该项目 README、`docs/status/Week03_TEAM_STATUS.md` 与 `Week04_STATUS.md`。2026-10-01 已在课程团队库建立本人项目卡，提交第 2、3、4 周记录并重新打开核验，详见 [提交记录](docs/submission/2026-10-01/TEAM_SUBMISSION.md)。9 月 30 日没有项目卡入口的阻碍已解决。真实用户测试尚未开展，教师对一人项目的确认和批阅仍待进行。旧个人 Week 3 状态中的“小组暂不处理”是历史决定，已被此次授权更新；个人程序仍原样保留。
+
+## 2026-10-01 个人作业后续
+
+用户本轮要求先提交小组作业，个人卡仍为只读，个人作业没有提交。继续个人任务时应补齐 Week 3 的真实 Terminal 截图或演示视频；已有 Markdown 运行日志不能替代课程指定媒介。Week 4 个人 UCI 预测练习独立于团队 Route B，仍需实际完成并记录指标、挑战对比及运行截图或视频，正式目录按课堂命名 `week04_dropout_prediction/`。临时准备材料未运行，不可当作完成结果。个人页需要所有者开放编辑权限；不要在其他工作区建立副本冒充课程提交。
 
 这是本课程项目的唯一共享工作区。新建 Codex 窗口、VS Code 窗口或终端都应打开同一个绝对路径：
 
