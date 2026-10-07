@@ -1,5 +1,9 @@
 # AI_Project_2026_2 交接说明
 
+## 2026-10-08 第 5 周推荐与中韩双语
+
+原 `week03_dorm_assistant/` 已加入中文／韩语切换及确定性的 Top 3 下一步推荐；在 `week05_recommendation/` 保存课程独立 A/B/C Qwen 练习、两种宿舍模拟情境的实际界面结果、空候选回退、独立 MP4 和已嵌入视频的中韩双语 PPT。完整进度、59 项离线测试和限制见 [`docs/status/Week05_STATUS.md`](docs/status/Week05_STATUS.md)。资料仍不能确认留学生具体材料及替代关系，真实用户测试未开展。课程第 5 周卡的实际提交状态以状态文件后续更新为准，不据代码完成推断已提交。
+
 ## 2026-09-30 新增一人项目
 
 WANGHAOBIN 已授权开发“入住有数 · 宿舍入住准备助手”，代码位于 `week03_dorm_assistant/`，Week 4 文档位于 `week04_dorm_validation/`。先读该项目 README、`docs/status/Week03_TEAM_STATUS.md` 与 `Week04_STATUS.md`。2026-10-01 已在课程团队库建立本人项目卡，提交第 2、3、4 周记录并重新打开核验，详见 [提交记录](docs/submission/2026-10-01/TEAM_SUBMISSION.md)。9 月 30 日没有项目卡入口的阻碍已解决。真实用户测试尚未开展，教师对一人项目的确认和批阅仍待进行。旧个人 Week 3 状态中的“小组暂不处理”是历史决定，已被此次授权更新；个人程序仍原样保留。

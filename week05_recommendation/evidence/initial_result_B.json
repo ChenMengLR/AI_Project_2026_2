@@ -1,0 +1,43 @@
+{
+  "scenario": "B",
+  "profile": {
+    "interests": [
+      "Statistics"
+    ],
+    "level": "intermediate",
+    "available_minutes": 90
+  },
+  "mode": "qwen",
+  "model": "qwen3.8-flash",
+  "expected_ids": [
+    "C4"
+  ],
+  "validated": true,
+  "validation_errors": [],
+  "result": {
+    "recommendations": [
+      {
+        "id": "C4",
+        "reason_zh": "兴趣匹配且级别与时长符合",
+        "reason_ko": "관심사, 수준 및 시간 모두 적합"
+      }
+    ],
+    "excluded": [
+      {
+        "id": "C1",
+        "reason_zh": "级别不匹配",
+        "reason_ko": "수준 불일치"
+      },
+      {
+        "id": "C2",
+        "reason_zh": "级别不匹配",
+        "reason_ko": "수준 불일치"
+      },
+      {
+        "id": "C3",
+        "reason_zh": "兴趣与级别均不匹配",
+        "reason_ko": "관심사 및 수준 불일치"
+      }
+    ]
+  }
+}

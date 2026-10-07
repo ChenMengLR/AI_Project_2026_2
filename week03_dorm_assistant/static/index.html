@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#f3f5f1">
+  <link rel="icon" href="data:,">
   <title>入住有数 · Move-in Ready</title>
   <link rel="stylesheet" href="/styles.css">
   <script src="/app.js" defer></script>
@@ -18,6 +19,7 @@
         <span><strong>入住有数</strong><small>MOVE-IN READY</small></span>
       </a>
       <nav aria-label="页面导航"><a href="#checklist-section">准备清单</a><a href="#ask-section">规则问答</a><a href="#sources-section">资料来源</a></nav>
+      <div class="language-switch" role="group" aria-label="界面语言"><button type="button" data-language="zh" aria-pressed="true">中文</button><button type="button" data-language="ko" aria-pressed="false">한국어</button></div>
       <div class="mode-indicator" id="mode-indicator"><span class="status-dot" aria-hidden="true"></span><span id="mode-text">正在读取资料</span></div>
     </div>
   </header>
@@ -64,7 +66,7 @@
           <div class="check-action"><div><strong>准备好后，生成下一步。</strong><p>检查按资料规则执行，不需要AI。</p></div><button id="check-button" class="button button-primary" type="button" disabled>生成行动清单 <span aria-hidden="true">→</span></button></div>
         </section>
 
-        <section id="report-section" class="report-section" aria-labelledby="report-heading" hidden tabindex="-1"><div class="section-top"><div><div class="section-kicker"><span class="step-number">03</span><span>安排下一步</span></div><h2 id="report-heading">你的行动清单</h2></div><div class="report-actions"><button id="export-json" class="text-button" type="button">导出JSON</button><button id="print-report" class="text-button" type="button">打印</button></div></div><p class="report-meta" id="report-meta"></p><div id="report-stale" class="notice notice-info" hidden>准备信息已经变化，请重新生成行动清单。</div><div id="report-summary" class="report-summary"></div><div id="report-content"></div></section>
+        <section id="report-section" class="report-section" aria-labelledby="report-heading" hidden tabindex="-1"><div class="section-top"><div><div class="section-kicker"><span class="step-number">03</span><span>安排下一步</span></div><h2 id="report-heading">你的行动清单</h2></div><div class="report-actions"><button id="export-json" class="text-button" type="button">导出JSON</button><button id="print-report" class="text-button" type="button">打印</button></div></div><p class="report-meta" id="report-meta"></p><div id="report-stale" class="notice notice-info" hidden>准备信息已经变化，请重新生成行动清单。</div><div id="report-summary" class="report-summary"></div><section class="recommendation-section" aria-labelledby="recommendation-heading"><div class="recommendation-heading"><span class="recommendation-kicker">PERSONALIZED NEXT STEPS</span><h3 id="recommendation-heading">为你推荐的下一步</h3><p>根据你选择的身份与准备状态，从待处理事项中选出最多三项；仅作准备辅助。</p></div><div id="recommendations" class="recommendations"></div><p id="recommendation-notice" class="empty-note" hidden></p></section><div id="report-content"></div></section>
       </div>
     </div>
 

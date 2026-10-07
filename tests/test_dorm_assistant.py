@@ -1,8 +1,11 @@
 """Critical behavior checks: applicability, dates, AI output validation, HTTP boundaries."""
 import importlib.util
+from contextlib import redirect_stdout
+import io
 import json
 from pathlib import Path
 import sys
+import tempfile
 import threading
 from types import SimpleNamespace
 import unittest
@@ -42,6 +45,17 @@ class PreparationTests(unittest.TestCase):
             self.assertIn(item["source_id"], sources)
             self.assertTrue(item["quote"].strip())
             self.assertEqual(item["source_url"], sources[item["source_id"]]["url"])
+
+    def test_korean_catalog_is_complete(self):
+        self.assertTrue(self.data["disclaimer_ko"])
+        self.assertTrue(self.data["scope_ko"])
+        for source in self.data["sources"]:
+            self.assertTrue(source["title_ko"])
+            self.assertTrue(source["scope_ko"])
+        for item in self.data["items"]:
+            self.assertTrue(item["title_ko"])
+            self.assertTrue(item["description_ko"])
+            self.assertTrue(item["conditions"]["notes_ko"])
 
     def test_default_is_not_success(self):
         report = core.check({}, self.data)
@@ -90,6 +104,57 @@ class PreparationTests(unittest.TestCase):
         self.assertEqual(report["summary"]["total"], sum(bool(x.get("checkable", True)) for x in self.data["items"]))
         self.assertEqual(self.result_item(self.payload(), "HEALTH_ITEM_INQUIRY")["status"], "reference")
 
+    def test_standard_recommendations_prioritize_unfinished_before_move_in(self):
+        states = {"DOC_TB": "ready", "DOC_ADDRESS": "ready", "NOTICE_REVIEW": "ready",
+                  "SUPPLY_HYGIENE": "ready", "SUPPLY_BEDDING": "missing",
+                  "SUPPLY_LAUNDRY": "missing", "SUPPLY_NETWORK": "unknown"}
+        dates = {"DOC_TB": "2026-09-30", "DOC_ADDRESS": "2026-09-30"}
+        result = core.check(self.payload(states=states, dates=dates), self.data, today=core.date(2026, 10, 8))
+        self.assertEqual([x["id"] for x in result["recommendations"]],
+                         ["SUPPLY_BEDDING", "SUPPLY_LAUNDRY", "SUPPLY_NETWORK"])
+        self.assertTrue(all(x["source"]["url"].startswith("https://") for x in result["recommendations"]))
+
+    def test_international_recommendations_preserve_scope_confirmation(self):
+        states = {"DOC_TB": "ready", "DOC_ADDRESS": "ready", "NOTICE_REVIEW": "missing",
+                  "SUPPLY_HYGIENE": "ready", "SUPPLY_BEDDING": "ready",
+                  "SUPPLY_LAUNDRY": "ready", "SUPPLY_NETWORK": "ready"}
+        dates = {"DOC_TB": "2026-09-30", "DOC_ADDRESS": "2026-09-30"}
+        result = core.check(self.payload(profile="international", states=states, dates=dates,
+                                         language="ko"), self.data, today=core.date(2026, 10, 8))
+        self.assertEqual([x["id"] for x in result["recommendations"]],
+                         ["DOC_TB", "DOC_ADDRESS", "NOTICE_REVIEW"])
+        self.assertEqual([x["status"] for x in result["recommendations"]],
+                         ["confirm", "confirm", "missing"])
+        self.assertTrue(all("생활관" in x["next_action"] or "원문" in x["next_action"]
+                            for x in result["recommendations"]))
+        self.assertEqual(result["overall"], "scope_unconfirmed")
+
+    def test_korean_check_localizes_all_explanations(self):
+        report = core.check(self.payload(language="ko"), self.data, today=core.date(2026, 10, 8))
+        self.assertTrue(all(any("가" <= c <= "힣" for c in text)
+                            for item in report["items"] for text in (item["message"], item["next_action"])))
+        self.assertTrue(all(any("가" <= c <= "힣" for c in text)
+                            for row in report["recommendations"] for text in (row["reason"], row["next_action"])))
+        self.assertIn("공식", report["notice"])
+        self.assertEqual(report["recommendations"][0]["source"]["title"],
+                         report["recommendations"][0]["source"]["title_ko"])
+
+    def test_no_candidates_has_explicit_fallback(self):
+        states = {x["id"]: "ready" for x in self.data["items"] if x.get("checkable", True)}
+        dates = {"DOC_TB": "2026-09-30", "DOC_ADDRESS": "2026-09-30"}
+        report = core.check(self.payload(move_in_date="2026-10-01", states=states,
+                                         dates=dates, language="ko"), self.data, today=core.date(2026, 10, 8))
+        self.assertEqual(report["recommendations"], [])
+        self.assertIn("추천할", report["recommendation_notice"])
+
+    def test_invalid_date_is_recommended_for_review(self):
+        states = {x["id"]: "ready" for x in self.data["items"] if x.get("checkable", True)}
+        dates = {"DOC_TB": "2026-07-31", "DOC_ADDRESS": "2026-09-30"}
+        report = core.check(self.payload(states=states, dates=dates), self.data, today=core.date(2026, 10, 8))
+        self.assertEqual(report["recommendations"][0]["id"], "DOC_TB")
+        self.assertEqual(report["recommendations"][0]["status"], "invalid_date")
+        self.assertNotIn("HEALTH_ITEM_INQUIRY", [x["id"] for x in report["recommendations"]])
+
     def test_invalid_inputs(self):
         for payload in ([], {"profile": []}, {"profile": "all"}, {"states": []},
                         {"states": {"NOT_AN_ITEM": "ready"}}, {"states": {"DOC_TB": "maybe"}},
@@ -97,9 +162,31 @@ class PreparationTests(unittest.TestCase):
                         {"move_in_date": "0001-01-01"}, {"dates": {"DOC_TB": "garbage"}}):
             with self.subTest(payload=payload), self.assertRaises(core.InputError):
                 core.check(payload, self.data)
+        with self.assertRaises(core.InputError):
+            core.check(self.payload(language="en"), self.data)
 
 
 class AIValidationTests(unittest.TestCase):
+    def test_korean_interpret_notice_and_reason(self):
+        result = core.interpret({"text": "침구류는 아직 준비하지 않았어요", "language": "ko"},
+                                client=fake_client({"suggestions": [
+                                    {"item_id": "SUPPLY_BEDDING", "state": "missing", "reason": "用户未准备"}]}))
+        self.assertIn("확인", result["notices"][0])
+        self.assertIn("미준비", result["suggestions"][0]["reason"])
+
+    def test_korean_ask_uses_reviewed_catalog_text_and_caveat(self):
+        result = core.ask({"question": "결핵검진 확인서가 필요한가요?", "language": "ko"},
+                          client=fake_client({"answered": True, "answer": "中文模型回答", "evidence_ids": ["DOC_TB"]}))
+        self.assertIn("3개월", result["answer"])
+        self.assertNotIn("中文模型回答", result["answer"])
+        self.assertIn("DOC_RECENCY", [x["item_id"] for x in result["evidence"]])
+        self.assertEqual(result["evidence"][0]["title"], "결핵검진 확인서")
+
+    def test_korean_refusal(self):
+        result = core.ask({"question": "여권으로 대신할 수 있나요?", "language": "ko"},
+                          client=fake_client({"answered": False, "answer": "모름", "evidence_ids": []}))
+        self.assertFalse(result["answered"])
+        self.assertIn("확인할 수 없습니다", result["answer"])
     def test_ambiguous_suggestion_stays_unknown(self):
         result = core.interpret({"text": "床单好像准备了，不确定"}, client=fake_client({"suggestions": [
             {"item_id": "SUPPLY_BEDDING", "state": "unknown", "reason": "用户不确定"}]}))
@@ -162,6 +249,116 @@ class AIValidationTests(unittest.TestCase):
         self.assertNotIn("SECRET_MUST_NOT_LEAK", str(caught.exception))
 
 
+class ClassroomRecommendationTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        spec = importlib.util.spec_from_file_location("week05_classroom", ROOT / "week05_recommendation" / "app.py")
+        cls.app = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(cls.app)
+
+    def test_expected_scenarios_are_distinct(self):
+        self.assertEqual(self.app.expected_ids(self.app.SCENARIOS["A"]), ["C1", "C3"])
+        self.assertEqual(self.app.expected_ids(self.app.SCENARIOS["B"]), ["C4"])
+        self.assertEqual(self.app.expected_ids(self.app.SCENARIOS["C"]), [])
+
+    def test_rule_result_covers_every_candidate_once_with_bilingual_reasons(self):
+        for name, profile in self.app.SCENARIOS.items():
+            with self.subTest(scenario=name):
+                result = self.app.rule_result(profile)
+                self.assertEqual(self.app.validate_result(profile, result), [])
+                self.assertEqual(len(result["recommendations"] + result["excluded"]), 4)
+
+    def test_validator_rejects_wrong_model_recommendation_and_duplicate(self):
+        profile = self.app.SCENARIOS["A"]
+        wrong = self.app.rule_result(profile)
+        wrong["recommendations"].append(wrong["excluded"].pop())
+        self.assertTrue(self.app.validate_result(profile, wrong))
+        duplicate = self.app.rule_result(profile)
+        duplicate["excluded"][0]["id"] = "C1"
+        self.assertTrue(self.app.validate_result(profile, duplicate))
+
+    def test_validator_rejects_missing_korean_reason(self):
+        profile = self.app.SCENARIOS["B"]
+        result = self.app.rule_result(profile)
+        result["recommendations"][0]["reason_ko"] = ""
+        self.assertTrue(any("reason_ko" in issue for issue in self.app.validate_result(profile, result)))
+
+    def test_all_failed_criteria_and_numbers_appear_in_audited_reasons(self):
+        profile = self.app.SCENARIOS["B"]
+        result = self.app.rule_result(profile)
+        by_id = {row["id"]: row for row in result["recommendations"] + result["excluded"]}
+        for item_id in ("C1", "C2", "C3"):
+            self.assertEqual(by_id[item_id]["failed_criteria"], ["interest", "level"])
+            for field in ("reason_zh", "reason_ko"):
+                self.assertIn("Statistics", by_id[item_id][field])
+                self.assertIn("intermediate", by_id[item_id][field])
+        self.assertIn("60", by_id["C4"]["reason_zh"])
+        self.assertIn("90", by_id["C4"]["reason_ko"])
+
+    def test_validator_rejects_incomplete_failure_list(self):
+        profile = self.app.SCENARIOS["B"]
+        result = self.app.rule_result(profile)
+        row = next(row for row in result["excluded"] if row["id"] == "C1")
+        row["failed_criteria"] = ["level"]
+        self.assertTrue(any("C1" in issue for issue in self.app.validate_result(profile, result)))
+
+    def test_canonicalization_replaces_incomplete_model_reason(self):
+        profile = self.app.SCENARIOS["B"]
+        raw = self.app.rule_result(profile)
+        row = next(row for row in raw["excluded"] if row["id"] == "C1")
+        row["reason_zh"], row["reason_ko"] = "级别不匹配", "수준 불일치"
+        self.assertTrue(any("C1" in issue for issue in self.app.audit_raw_reasons(profile, raw)))
+        audited = self.app.canonicalize_result(profile, raw)
+        corrected = next(row for row in audited["excluded"] if row["id"] == "C1")
+        self.assertIn("AI", corrected["reason_zh"])
+        self.assertIn("Statistics", corrected["reason_ko"])
+        self.assertIn("beginner", corrected["reason_zh"])
+        self.assertEqual(self.app.validate_result(profile, audited), [])
+
+    def test_raw_decisions_can_be_corrected_when_failure_list_is_incomplete(self):
+        profile = self.app.SCENARIOS["C"]
+        raw = self.app.rule_result(profile)
+        raw["excluded"][0]["failed_criteria"] = ["time"]
+        self.assertEqual(self.app.validate_result(profile, raw, require_failed_criteria=False), [])
+        self.assertTrue(self.app.validate_result(profile, raw))
+        corrected = self.app.canonicalize_result(profile, raw)
+        self.assertEqual(corrected["excluded"][0]["failed_criteria"], ["interest", "time"])
+        self.assertEqual(self.app.validate_result(profile, corrected), [])
+
+    def test_saved_qwen_result_keeps_raw_omission_and_corrects_final_reason(self):
+        profile = self.app.SCENARIOS["B"]
+        raw = self.app.rule_result(profile)
+        row = next(row for row in raw["excluded"] if row["id"] == "C1")
+        row["failed_criteria"] = ["level"]
+        row["reason_zh"], row["reason_ko"] = "级别不匹配", "수준 불일치"
+        with tempfile.TemporaryDirectory() as folder, patch.object(self.app, "BASE", Path(folder)), \
+             patch.object(self.app, "qwen_result", return_value=(raw, "fake-model")):
+            with redirect_stdout(io.StringIO()):
+                self.assertEqual(self.app.main(["--mode", "qwen", "--scenario", "B", "--save-results"]), 0)
+            saved = json.loads((Path(folder) / "evidence" / "result_B.json").read_text(encoding="utf-8"))
+        self.assertTrue(saved["validated"])
+        self.assertTrue(saved["raw_model_criteria_issues"])
+        self.assertTrue(saved["raw_model_reason_issues"])
+        original = next(row for row in saved["raw_model_result"]["excluded"] if row["id"] == "C1")
+        corrected = next(row for row in saved["result"]["excluded"] if row["id"] == "C1")
+        self.assertEqual(original["failed_criteria"], ["level"])
+        self.assertEqual(corrected["failed_criteria"], ["interest", "level"])
+        self.assertIn("Statistics", corrected["reason_ko"])
+
+    def test_course_output_uses_recommendations_and_saves_profile(self):
+        profile = self.app.SCENARIOS["A"]
+        legacy = self.app.rule_result(profile)
+        legacy["recommended"] = legacy.pop("recommendations")
+        self.assertTrue(self.app.validate_result(profile, legacy))
+        with tempfile.TemporaryDirectory() as folder, patch.object(self.app, "BASE", Path(folder)):
+            with redirect_stdout(io.StringIO()):
+                self.assertEqual(self.app.main(["--mode", "rules", "--scenario", "A", "--save-results"]), 0)
+            saved = json.loads((Path(folder) / "evidence" / "result_A.json").read_text(encoding="utf-8"))
+        self.assertEqual(saved["profile"], profile)
+        self.assertIn("recommendations", saved["result"])
+        self.assertEqual(saved["result"]["recommendations"][0]["id"], "C1")
+
+
 class HTTPTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -190,6 +387,15 @@ class HTTPTests(unittest.TestCase):
         request = Request(self.url + "/api/check", data=b'{}', headers={"Content-Type": "application/json"})
         with urlopen(request) as res:
             self.assertEqual(json.load(res)["overall"], "scope_unconfirmed")
+
+    def test_korean_check_http(self):
+        body = json.dumps({"language": "ko", "profile": "international"}).encode("utf-8")
+        request = Request(self.url + "/api/check", data=body, headers={"Content-Type": "application/json"})
+        with urlopen(request) as res:
+            report = json.load(res)
+        self.assertEqual(report["overall"], "scope_unconfirmed")
+        self.assertIn("recommendations", report)
+        self.assertIn("확인", report["recommendations"][0]["next_action"])
 
     def test_cross_origin_rejected(self):
         request = Request(self.url + "/api/check", data=b'{}', headers={"Content-Type": "application/json", "Origin": "https://example.org"})

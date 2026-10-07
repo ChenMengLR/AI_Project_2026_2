@@ -1,0 +1,101 @@
+{
+  "scenario": "A",
+  "profile": {
+    "interests": [
+      "AI",
+      "VR"
+    ],
+    "level": "beginner",
+    "available_minutes": 30
+  },
+  "mode": "qwen",
+  "model": "qwen3.8-flash",
+  "expected_ids": [
+    "C1",
+    "C3"
+  ],
+  "validated": true,
+  "validation_errors": [],
+  "reason_source": "verified_rules",
+  "result": {
+    "recommendations": [
+      {
+        "id": "C1",
+        "failed_criteria": [],
+        "reason_zh": "兴趣标签 AI 匹配；难度同为 beginner；单门 10 分钟不超过可用的 30 分钟。",
+        "reason_ko": "관심 분야에 AI 태그가 포함되고 난이도 beginner가 일치합니다. 강의 시간 10분은 이용 가능한 30분 이내입니다."
+      },
+      {
+        "id": "C3",
+        "failed_criteria": [],
+        "reason_zh": "兴趣标签 VR 匹配；难度同为 beginner；单门 25 分钟不超过可用的 30 分钟。",
+        "reason_ko": "관심 분야에 VR 태그가 포함되고 난이도 beginner가 일치합니다. 강의 시간 25분은 이용 가능한 30분 이내입니다."
+      }
+    ],
+    "excluded": [
+      {
+        "id": "C2",
+        "failed_criteria": [
+          "level",
+          "time"
+        ],
+        "reason_zh": "难度 advanced 与用户要求 beginner 不同；单门 90 分钟超过可用的 30 分钟。",
+        "reason_ko": "강의 난이도(advanced)와 사용자 요청 난이도(beginner)가 다릅니다. 강의 시간은 90분으로 이용 가능한 30분을 초과합니다."
+      },
+      {
+        "id": "C4",
+        "failed_criteria": [
+          "interest",
+          "level",
+          "time"
+        ],
+        "reason_zh": "兴趣标签 Statistics 与用户兴趣 AI, VR 不匹配；难度 intermediate 与用户要求 beginner 不同；单门 60 分钟超过可用的 30 分钟。",
+        "reason_ko": "강의 태그(Statistics)와 사용자 관심 분야(AI, VR)가 일치하지 않습니다. 강의 난이도(intermediate)와 사용자 요청 난이도(beginner)가 다릅니다. 강의 시간은 60분으로 이용 가능한 30분을 초과합니다."
+      }
+    ]
+  },
+  "raw_model_result": {
+    "recommendations": [
+      {
+        "id": "C1",
+        "failed_criteria": [],
+        "reason_zh": "兴趣标签包含AI，级别为beginner，时长10分钟不超过30分钟，符合所有条件。",
+        "reason_ko": "관심 태그에 AI가 포함되고, 수준이 beginner이며, 시간이 10분으로 30분을 초과하지 않아 모든 조건을 충족합니다."
+      },
+      {
+        "id": "C3",
+        "failed_criteria": [],
+        "reason_zh": "兴趣标签包含VR，级别为beginner，时长25分钟不超过30分钟，符合所有条件。",
+        "reason_ko": "관심 태그에 VR이 포함되고, 수준이 beginner이며, 시간이 25분으로 30분을 초과하지 않아 모든 조건을 충족합니다."
+      }
+    ],
+    "excluded": [
+      {
+        "id": "C2",
+        "failed_criteria": [
+          "time"
+        ],
+        "reason_zh": "时长90分钟超过可用时间30分钟。",
+        "reason_ko": "시간이 90분으로 사용 가능한 30분을 초과합니다."
+      },
+      {
+        "id": "C4",
+        "failed_criteria": [
+          "time"
+        ],
+        "reason_zh": "时长60分钟超过可用时间30分钟。",
+        "reason_ko": "시간이 60분으로 사용 가능한 30분을 초과합니다."
+      }
+    ]
+  },
+  "raw_model_criteria_issues": [
+    "C2 未列全不满足条件：应为 ['level', 'time']。",
+    "C4 未列全不满足条件：应为 ['interest', 'level', 'time']。"
+  ],
+  "raw_model_reason_issues": [
+    "C2 reason_zh 未逐项写出或量化：['advanced', 'beginner']。",
+    "C2 reason_ko 未逐项写出或量化：['advanced', 'beginner']。",
+    "C4 reason_zh 未逐项写出或量化：['Statistics', 'AI', 'VR', 'intermediate', 'beginner']。",
+    "C4 reason_ko 未逐项写出或量化：['Statistics', 'AI', 'VR', 'intermediate', 'beginner']。"
+  ]
+}

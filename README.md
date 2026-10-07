@@ -4,7 +4,7 @@
 
 WANGHAOBIN 的一人项目 **入住有数 · 宿舍入住准备助手** 已建立，见 [运行说明与成果](week03_dorm_assistant/README.md)。双击 `week03_dorm_assistant/Start.cmd` 后打开 http://127.0.0.1:8765 。
 
-包含真实 Qwen 状态建议／依据问答、手动清单与日期核对、保存导出、Mission A/B、[Week 4 Route B](week04_dorm_validation/week04_feature_test.md)、[QA 证据](week03_dorm_assistant/docs/QA_REPORT.md) 和用户测试材料。真实用户测试尚未开展，课程平台提交单独记录。既有个人练习保留。
+包含真实 Qwen 状态建议／依据问答、手动清单与日期核对、保存导出、Mission A/B、[Week 4 Route B](week04_dorm_validation/week04_feature_test.md)、[Week 5 推荐及中韩双语 PPT／视频](week05_recommendation/README.md)、[QA 证据](week03_dorm_assistant/docs/QA_REPORT.md) 和用户测试材料。真实用户测试尚未开展，课程平台提交单独记录。既有个人练习保留。
 
 2026-10-01 已将第 2、3、4 周小组记录提交至 [课程项目卡](https://app.notion.com/p/WANGHAOBIN-3ec7c00fe5ad80f2af1ce80d21c4877e)，并刷新核验正文、成果链接及“已完成”状态。[小组提交记录与截图](docs/submission/2026-10-01/TEAM_SUBMISSION.md) 已归档。同日，个人第 2、3、4 周作业也已分别填入[本人课程卡](https://app.notion.com/p/Wang-Haobin-3db7c00fe5ad8143b6aad5a41dbe3cd6)，提交日期及 `제출 · 已提交` 状态刷新后保留，见 [个人成果与提交状态](docs/submission/2026-10-01/INDIVIDUAL_SUBMISSION.md)。登记完成不表示教师批阅、课堂汇报或真实用户测试完成。
 

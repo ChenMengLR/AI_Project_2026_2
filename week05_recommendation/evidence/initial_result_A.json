@@ -1,0 +1,45 @@
+{
+  "scenario": "A",
+  "profile": {
+    "interests": [
+      "AI",
+      "VR"
+    ],
+    "level": "beginner",
+    "available_minutes": 30
+  },
+  "mode": "qwen",
+  "model": "qwen3.8-flash",
+  "expected_ids": [
+    "C1",
+    "C3"
+  ],
+  "validated": true,
+  "validation_errors": [],
+  "result": {
+    "recommendations": [
+      {
+        "id": "C1",
+        "reason_zh": "兴趣匹配AI，级别为beginner，时长10分钟在30分钟内。",
+        "reason_ko": "AI 관심사 일치, beginner 수준, 10분으로 30분 이내."
+      },
+      {
+        "id": "C3",
+        "reason_zh": "兴趣匹配VR，级别为beginner，时长25分钟在30分钟内。",
+        "reason_ko": "VR 관심사 일치, beginner 수준, 25분으로 30분 이내."
+      }
+    ],
+    "excluded": [
+      {
+        "id": "C2",
+        "reason_zh": "级别advanced不匹配，且时长90分钟超过限制。",
+        "reason_ko": "수준 advanced 불일치, 90분으로 제한 초과."
+      },
+      {
+        "id": "C4",
+        "reason_zh": "无共同兴趣标签，级别intermediate不匹配，且时长60分钟超过限制。",
+        "reason_ko": "공통 관심사 없음, 수준 intermediate 불일치, 60분으로 제한 초과."
+      }
+    ]
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "scenario": "C",
+  "profile": {
+    "interests": [
+      "VR"
+    ],
+    "level": "beginner",
+    "available_minutes": 5
+  },
+  "mode": "qwen",
+  "model": "qwen3.8-flash",
+  "expected_ids": [],
+  "validated": true,
+  "validation_errors": [],
+  "reason_source": "verified_rules",
+  "result": {
+    "recommendations": [],
+    "excluded": [
+      {
+        "id": "C1",
+        "failed_criteria": [
+          "interest",
+          "time"
+        ],
+        "reason_zh": "兴趣标签 AI 与用户兴趣 VR 不匹配；单门 10 分钟超过可用的 5 分钟。",
+        "reason_ko": "강의 태그(AI)와 사용자 관심 분야(VR)가 일치하지 않습니다. 강의 시간은 10분으로 이용 가능한 5분을 초과합니다."
+      },
+      {
+        "id": "C2",
+        "failed_criteria": [
+          "interest",
+          "level",
+          "time"
+        ],
+        "reason_zh": "兴趣标签 AI 与用户兴趣 VR 不匹配；难度 advanced 与用户要求 beginner 不同；单门 90 分钟超过可用的 5 分钟。",
+        "reason_ko": "강의 태그(AI)와 사용자 관심 분야(VR)가 일치하지 않습니다. 강의 난이도(advanced)와 사용자 요청 난이도(beginner)가 다릅니다. 강의 시간은 90분으로 이용 가능한 5분을 초과합니다."
+      },
+      {
+        "id": "C3",
+        "failed_criteria": [
+          "time"
+        ],
+        "reason_zh": "单门 25 分钟超过可用的 5 分钟。",
+        "reason_ko": "강의 시간은 25분으로 이용 가능한 5분을 초과합니다."
+      },
+      {
+        "id": "C4",
+        "failed_criteria": [
+          "interest",
+          "level",
+          "time"
+        ],
+        "reason_zh": "兴趣标签 Statistics 与用户兴趣 VR 不匹配；难度 intermediate 与用户要求 beginner 不同；单门 60 分钟超过可用的 5 分钟。",
+        "reason_ko": "강의 태그(Statistics)와 사용자 관심 분야(VR)가 일치하지 않습니다. 강의 난이도(intermediate)와 사용자 요청 난이도(beginner)가 다릅니다. 강의 시간은 60분으로 이용 가능한 5분을 초과합니다."
+      }
+    ]
+  },
+  "raw_model_result": {
+    "recommendations": [],
+    "excluded": [
+      {
+        "id": "C1",
+        "failed_criteria": [
+          "time"
+        ],
+        "reason_zh": "时长10分钟超过可用时间5分钟。",
+        "reason_ko": "시간이 10분으로 가용 시간 5분을 초과합니다."
+      },
+      {
+        "id": "C2",
+        "failed_criteria": [
+          "time"
+        ],
+        "reason_zh": "时长90分钟超过可用时间5分钟。",
+        "reason_ko": "시간이 90분으로 가용 시간 5분을 초과합니다."
+      },
+      {
+        "id": "C3",
+        "failed_criteria": [
+          "time"
+        ],
+        "reason_zh": "时长25分钟超过可用时间5分钟。",
+        "reason_ko": "시간이 25분으로 가용 시간 5분을 초과합니다."
+      },
+      {
+        "id": "C4",
+        "failed_criteria": [
+          "time"
+        ],
+        "reason_zh": "时长60分钟超过可用时间5分钟。",
+        "reason_ko": "시간이 60분으로 가용 시간 5분을 초과합니다."
+      }
+    ]
+  },
+  "raw_model_criteria_issues": [
+    "C1 未列全不满足条件：应为 ['interest', 'time']。",
+    "C2 未列全不满足条件：应为 ['interest', 'level', 'time']。",
+    "C4 未列全不满足条件：应为 ['interest', 'level', 'time']。"
+  ],
+  "raw_model_reason_issues": [
+    "C1 reason_zh 未逐项写出或量化：['AI', 'VR']。",
+    "C1 reason_ko 未逐项写出或量化：['AI', 'VR']。",
+    "C2 reason_zh 未逐项写出或量化：['AI', 'VR', 'advanced', 'beginner']。",
+    "C2 reason_ko 未逐项写出或量化：['AI', 'VR', 'advanced', 'beginner']。",
+    "C4 reason_zh 未逐项写出或量化：['Statistics', 'VR', 'intermediate', 'beginner']。",
+    "C4 reason_ko 未逐项写出或量化：['Statistics', 'VR', 'intermediate', 'beginner']。"
+  ]
+}

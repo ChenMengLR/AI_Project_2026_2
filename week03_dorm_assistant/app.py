@@ -70,19 +70,24 @@ class Handler(BaseHTTPRequestHandler):
         operation = routes.get(urlsplit(self.path).path)
         if not operation:
             return self.json(404, {"error": "not_found", "message": "接口不存在。"})
+        language = "zh"
         try:
             length = int(self.headers.get("Content-Length", "0"))
             if not 1 <= length <= 20000:
                 return self.json(413, {"error": "body_size", "message": "请求为空或内容过长。"})
             self.connection.settimeout(10)
             payload = json.loads(self.rfile.read(length).decode("utf-8"))
+            if isinstance(payload, dict) and payload.get("language") == "ko":
+                language = "ko"
             return self.json(200, operation(payload))
         except (core.InputError, ValueError, UnicodeDecodeError):
-            return self.json(400, {"error": "invalid_input", "message": "输入格式无效，请核对身份、状态和日期。"})
+            return self.json(400, {"error": "invalid_input", "message": core.localized(language,
+                "输入格式无效，请核对身份、状态和日期。", "입력 형식이 올바르지 않습니다. 적용 대상, 상태와 날짜를 확인하세요.")})
         except core.AIError as exc:
             return self.json(503, {"error": "ai_unavailable", "message": str(exc)})
         except Exception:
-            return self.json(500, {"error": "internal", "message": "处理失败，请保留当前记录并重试。"})
+            return self.json(500, {"error": "internal", "message": core.localized(language,
+                "处理失败，请保留当前记录并重试。", "처리에 실패했습니다. 현재 기록을 보존하고 다시 시도하세요.")})
 
 
 def make_server(port=8765):

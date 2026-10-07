@@ -1,0 +1,98 @@
+{
+  "scenario": "B",
+  "profile": {
+    "interests": [
+      "Statistics"
+    ],
+    "level": "intermediate",
+    "available_minutes": 90
+  },
+  "mode": "qwen",
+  "model": "qwen3.8-flash",
+  "expected_ids": [
+    "C4"
+  ],
+  "validated": true,
+  "validation_errors": [],
+  "reason_source": "verified_rules",
+  "result": {
+    "recommendations": [
+      {
+        "id": "C4",
+        "failed_criteria": [],
+        "reason_zh": "兴趣标签 Statistics 匹配；难度同为 intermediate；单门 60 分钟不超过可用的 90 分钟。",
+        "reason_ko": "관심 분야에 Statistics 태그가 포함되고 난이도 intermediate가 일치합니다. 강의 시간 60분은 이용 가능한 90분 이내입니다."
+      }
+    ],
+    "excluded": [
+      {
+        "id": "C1",
+        "failed_criteria": [
+          "interest",
+          "level"
+        ],
+        "reason_zh": "兴趣标签 AI 与用户兴趣 Statistics 不匹配；难度 beginner 与用户要求 intermediate 不同。",
+        "reason_ko": "강의 태그(AI)와 사용자 관심 분야(Statistics)가 일치하지 않습니다. 강의 난이도(beginner)와 사용자 요청 난이도(intermediate)가 다릅니다."
+      },
+      {
+        "id": "C2",
+        "failed_criteria": [
+          "interest",
+          "level"
+        ],
+        "reason_zh": "兴趣标签 AI 与用户兴趣 Statistics 不匹配；难度 advanced 与用户要求 intermediate 不同。",
+        "reason_ko": "강의 태그(AI)와 사용자 관심 분야(Statistics)가 일치하지 않습니다. 강의 난이도(advanced)와 사용자 요청 난이도(intermediate)가 다릅니다."
+      },
+      {
+        "id": "C3",
+        "failed_criteria": [
+          "interest",
+          "level"
+        ],
+        "reason_zh": "兴趣标签 VR 与用户兴趣 Statistics 不匹配；难度 beginner 与用户要求 intermediate 不同。",
+        "reason_ko": "강의 태그(VR)와 사용자 관심 분야(Statistics)가 일치하지 않습니다. 강의 난이도(beginner)와 사용자 요청 난이도(intermediate)가 다릅니다."
+      }
+    ]
+  },
+  "raw_model_result": {
+    "recommendations": [
+      {
+        "id": "C4",
+        "failed_criteria": [],
+        "reason_zh": "兴趣标签包含 Statistics，级别为 intermediate，时长 60 分钟不超过 90 分钟，符合推荐条件。",
+        "reason_ko": "관심 태그에 Statistics가 포함되고, 수준이 intermediate이며, 시간 60분이 90분을 초과하지 않아 추천 조건을 충족합니다."
+      }
+    ],
+    "excluded": [
+      {
+        "id": "C1",
+        "failed_criteria": [
+          "interest",
+          "level"
+        ],
+        "reason_zh": "兴趣标签 AI 与用户兴趣 Statistics 不匹配；级别 beginner 与用户级别 intermediate 不一致。",
+        "reason_ko": "관심 태그 AI가 사용자 관심 Statistics와 일치하지 않습니다. 수준 beginner가 사용자 수준 intermediate와 다릅니다."
+      },
+      {
+        "id": "C2",
+        "failed_criteria": [
+          "interest",
+          "level"
+        ],
+        "reason_zh": "兴趣标签 AI 与用户兴趣 Statistics 不匹配；级别 advanced 与用户级别 intermediate 不一致。",
+        "reason_ko": "관심 태그 AI가 사용자 관심 Statistics와 일치하지 않습니다. 수준 advanced가 사용자 수준 intermediate와 다릅니다."
+      },
+      {
+        "id": "C3",
+        "failed_criteria": [
+          "interest",
+          "level"
+        ],
+        "reason_zh": "兴趣标签 VR 与用户兴趣 Statistics 不匹配；级别 beginner 与用户级别 intermediate 不一致。",
+        "reason_ko": "관심 태그 VR이 사용자 관심 Statistics와 일치하지 않습니다. 수준 beginner가 사용자 수준 intermediate와 다릅니다."
+      }
+    ]
+  },
+  "raw_model_criteria_issues": [],
+  "raw_model_reason_issues": []
+}

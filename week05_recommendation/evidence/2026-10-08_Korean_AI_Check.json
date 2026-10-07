@@ -1,0 +1,64 @@
+{
+  "tested_at": "2026-10-08T00:49:31",
+  "model": "qwen3.8-flash",
+  "cases": [
+    {
+      "operation": "interpret",
+      "synthetic_input": {
+        "language": "ko",
+        "text": "침구는 준비했고 세제는 아직 사지 않았습니다."
+      },
+      "ok": true,
+      "result": {
+        "suggestions": [
+          {
+            "item_id": "SUPPLY_BEDDING",
+            "state": "ready",
+            "reason": "사용자가 '침구는 준비했고'라고 명시함"
+          },
+          {
+            "item_id": "SUPPLY_LAUNDRY",
+            "state": "missing",
+            "reason": "사용자가 '세제는 아직 사지 않았습니다'라고 명시함"
+          }
+        ],
+        "notices": [
+          "이는 AI가 해석한 제안입니다. 각 항목을 확인한 뒤 적용하세요."
+        ],
+        "mode": "ai"
+      }
+    },
+    {
+      "operation": "ask",
+      "synthetic_input": {
+        "language": "ko",
+        "question": "전기장판을 가져갈 수 있나요?"
+      },
+      "ok": true,
+      "result": {
+        "answer": "제공된 자료에 따르면: 전기장판, 난방기, 전기밥솥, 전기주전자, 냉장고, 화재 위험 물품, 주류 등이 반입금지로 안내됩니다. 건강상의 이유로 관련 물품을 사용해야 하는 경우 먼저 행정지원실에 문의해야 합니다.",
+        "evidence": [
+          {
+            "item_id": "PROHIBITED_ITEMS",
+            "source_id": "HANLIM_MOVEIN",
+            "quote": "반입금지 물품",
+            "url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075",
+            "title": "반입금지 물품",
+            "source_locator": "4) 반입금지 물품 (1)–(5)"
+          },
+          {
+            "item_id": "HEALTH_ITEM_INQUIRY",
+            "source_id": "HANLIM_MOVEIN",
+            "quote": "사전 문의",
+            "url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075",
+            "title": "사전 문의",
+            "source_locator": "4) 반입금지 물품 最后注释"
+          }
+        ],
+        "answered": true,
+        "mode": "ai",
+        "notice": "인용은 확인한 로컬 자료에서 가져왔습니다. 인용이 있더라도 모델의 해석이 반드시 옳은 것은 아니므로 원문을 확인하세요."
+      }
+    }
+  ]
+}
