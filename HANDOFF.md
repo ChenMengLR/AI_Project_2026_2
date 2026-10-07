@@ -2,7 +2,7 @@
 
 ## 2026-10-08 第 5 周推荐与中韩双语
 
-原 `week03_dorm_assistant/` 已加入中文／韩语切换及确定性的 Top 3 下一步推荐；在 `week05_recommendation/` 保存课程独立 A/B/C Qwen 练习、两种宿舍模拟情境的实际界面结果、空候选回退、独立 MP4 和已嵌入视频的中韩双语 PPT。完整进度、59 项离线测试和限制见 [`docs/status/Week05_STATUS.md`](docs/status/Week05_STATUS.md)。资料仍不能确认留学生具体材料及替代关系，真实用户测试未开展。课程第 5 周卡的实际提交状态以状态文件后续更新为准，不据代码完成推断已提交。
+原 `week03_dorm_assistant/` 已加入中文／韩语切换及确定性的 Top 3 下一步推荐；在 `week05_recommendation/` 保存课程独立 A/B/C Qwen 练习、两种宿舍模拟情境的实际界面结果、空候选回退、独立 MP4 和已嵌入视频的中韩双语 PPT。完整进度、59 项离线测试和限制见 [`docs/status/Week05_STATUS.md`](docs/status/Week05_STATUS.md)。第 5 周 Notion 卡已登记并附 PPT、视频、源码 ZIP；[提交记录](docs/submission/2026-10-08/TEAM_WEEK05_SUBMISSION.md)有刷新核验截图。GitHub 远端暂拒绝推送，本地提交仍须补推并更新课程卡链接。资料仍不能确认留学生具体材料及替代关系，真实用户测试未开展。
 
 ## 2026-09-30 新增一人项目
 

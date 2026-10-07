@@ -26,4 +26,5 @@
 - `python -m unittest discover -s tests -q`：59 项通过。`node --check week03_dorm_assistant/static/app.js`、本机服务 `--check`、`git diff --check` 通过。浏览器实际 A/B/C 的推荐 IDs 与后端确定性输出一致，韩语偏好及状态刷新后保留。
 - 用合成韩文输入实际调用本机 Qwen 的状态理解与规则问答：识别床品已准备、洗护用品未准备，并以韩语回答电热毯问题且附韩文官方来源。输入、输出见 `week05_recommendation/evidence/2026-10-08_Korean_AI_Check.json`；这不构成模型质量的广泛评估。
 - 真实用户测试、教师对一人项目的确认和课堂现场汇报尚未发生。国际生具体材料及替代关系仍需补充可追溯的官方依据；当前功能保留待确认，不验证证件真实性或入住资格。
-- 第 5 周 Notion 小组卡：<https://app.notion.com/p/bf47c00fe5ad827e881201f714c87e53>。本文件写入时，成果尚在准备登记；实际提交和刷新核验结果须在完成后另行更新，不能预先声称提交成功。
+- 第 5 周 [Notion 小组卡](https://app.notion.com/p/05-5-bf47c00fe5ad827e881201f714c87e53) 已填写任务、进展、成果并标记 `완료 · 已完成`；中韩双语 PPT、独立 MP4 和不含密钥的第 5 周源码 ZIP 三份附件在新页面中均可见。[提交记录与截图](../submission/2026-10-08/TEAM_WEEK05_SUBMISSION.md)保存了核验证据。
+- 本地提交 `e2f0b12` 已创建；向 GitHub `origin/main` 及新分支推送时，远端均返回 `Internal Server Error`。课程卡已写明远端未同步，源码包作为可审阅的备用交付；待恢复后需推送并更新课程卡中的准确提交链接。不能把当前仓库 `main` 链接称为第 5 周线上代码。
