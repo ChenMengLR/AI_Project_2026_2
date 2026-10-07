@@ -27,4 +27,4 @@
 - 用合成韩文输入实际调用本机 Qwen 的状态理解与规则问答：识别床品已准备、洗护用品未准备，并以韩语回答电热毯问题且附韩文官方来源。输入、输出见 `week05_recommendation/evidence/2026-10-08_Korean_AI_Check.json`；这不构成模型质量的广泛评估。
 - 真实用户测试、教师对一人项目的确认和课堂现场汇报尚未发生。国际生具体材料及替代关系仍需补充可追溯的官方依据；当前功能保留待确认，不验证证件真实性或入住资格。
 - 第 5 周 [Notion 小组卡](https://app.notion.com/p/05-5-bf47c00fe5ad827e881201f714c87e53) 已填写任务、进展、成果并标记 `완료 · 已完成`；中韩双语 PPT、独立 MP4 和不含密钥的第 5 周源码 ZIP 三份附件在新页面中均可见。[提交记录与截图](../submission/2026-10-08/TEAM_WEEK05_SUBMISSION.md)保存了核验证据。
-- 本地提交 `e2f0b12` 已创建；向 GitHub `origin/main` 及新分支推送时，远端均返回 `Internal Server Error`。课程卡已写明远端未同步，源码包作为可审阅的备用交付；待恢复后需推送并更新课程卡中的准确提交链接。不能把当前仓库 `main` 链接称为第 5 周线上代码。
+- 第 5 周功能提交 `e2f0b12` 及课程提交记录已推送到 GitHub `origin/main`，远端 SHA 与本地核对一致；课程卡成果字段已更新为[线上第 5 周代码](https://github.com/ChenMengLR/AI_Project_2026_2/tree/main/week05_recommendation)和提交记录。推送期间曾出现远端 `Internal Server Error`，重试后恢复；源码 ZIP 仍作为课程页面附件备份。
