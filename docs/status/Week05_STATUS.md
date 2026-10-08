@@ -18,6 +18,7 @@
 
 ## 独立课堂练习
 
+- 2026-10-08 已在[本人个人第 5 周卡](https://app.notion.com/p/5-5-3f37c00fe5ad808894c0c1785666ae0a)填写中韩说明、代码及 A/B/C 真实运行记录，周次为 5，实际提交日期为 2026-10-08，状态为 `제출 · 已提交`。重新加载后字段、正文和六份链接均保留，见[个人提交记录与截图](../submission/2026-10-08/INDIVIDUAL_WEEK05_SUBMISSION.md)。本个人练习未另录视频，`Demo Video` 留空并在正文说明；教师确认和批阅尚未完成。
 - `week05_recommendation/app.py` 根据课程原页四候选和 A/B/C 资料运行。离线规则预期 A 为 C1/C3、B 为 C4、C 为空；真实 `qwen3.8-flash` 按课程要求的 `recommendations`/`excluded` 字段重新运行后也是这些结果。
 - 初版真实 Qwen 输出的 B 情境漏写部分排除条件，已单独保留。修订提示词后重新调用，模型推荐集合 A/B/C 分别为 C1/C3、C4、空；原始模型 A、C 的部分排除理由仍不完整。最终 `result` 的中韩理由由规则核对实际标签、级别和分钟数后逐项生成，三组 `validated=true`。`raw_model_result` 与遗漏审计字段保留模型原话和问题，不能把最终理由称为模型原始输出。证据为 `evidence/result_A.json`、`result_B.json`、`result_C.json` 与 `2026-10-08_Qwen_ABC.jsonl`。
 

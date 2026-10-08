@@ -1,5 +1,9 @@
 # AI_Project_2026_2 交接说明
 
+## 2026-10-08 第 5 周个人作业提交
+
+个人独立 A/B/C 推荐练习现已登记到[本人第 5 周个人卡](https://app.notion.com/p/5-5-3f37c00fe5ad808894c0c1785666ae0a)，周次 5、提交日期 2026-10-08、状态 `제출 · 已提交`。中韩说明和六份代码/运行证据链接在重新加载后保留，详见[个人提交记录与截图](docs/submission/2026-10-08/INDIVIDUAL_WEEK05_SUBMISSION.md)。本练习采用 JSON/JSONL 证据，未另录个人视频，`Demo Video` 留空并已说明；教师批阅待进行。小组宿舍项目的 PPT/视频及提交记录另行保留。
+
 ## 2026-10-08 第 5 周推荐与中韩双语
 
 原 `week03_dorm_assistant/` 已加入中文／韩语切换及确定性的 Top 3 下一步推荐；在 `week05_recommendation/` 保存课程独立 A/B/C Qwen 练习、两种宿舍模拟情境的实际界面结果、空候选回退、独立 MP4 和已嵌入视频的中韩双语 PPT。完整进度、59 项离线测试和限制见 [`docs/status/Week05_STATUS.md`](docs/status/Week05_STATUS.md)。第 5 周 Notion 卡已登记并附 PPT、视频、源码 ZIP；[提交记录](docs/submission/2026-10-08/TEAM_WEEK05_SUBMISSION.md)有刷新核验截图。GitHub `origin/main` 已同步，课程卡链接已更新。资料仍不能确认留学生具体材料及替代关系，真实用户测试未开展。
