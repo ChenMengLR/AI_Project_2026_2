@@ -5,6 +5,7 @@ const LANGUAGE_KEY = 'move-in-ready.language.v1';
 const VALID_STATES = new Set(['ready', 'missing', 'unknown']);
 const VALID_PROFILES = new Set(['standard', 'international', 'unknown']);
 const CATEGORY_ORDER = ['document', 'step', 'supply', 'rule'];
+const SAMPLE_NOTICE = '수업용 가상 공지(실제 학교 안내가 아님): 2026년 11월 입사 예정자는 10월 28일까지 결핵검진 확인서를 행정지원실에 제출하세요. 단, 유학생의 제출 서류 종류는 별도 안내를 확인한 뒤 준비하세요. 입사 전 침구류를 준비하세요.';
 
 // Course data and official Korean excerpts stay in the catalog. This map only
 // translates application copy; unknown policy details must never be invented.
@@ -15,6 +16,40 @@ const KO = Object.freeze({
   '入住有数首页': '입주 준비 한눈에 홈',
   '页面导航': '페이지 탐색',
   '界面语言': '화면 언어',
+  'AI读通知': 'AI 공지 해석',
+  'AI 核心功能 · 新通知到行动': 'AI 핵심 기능 · 새 공지를 실행 항목으로',
+  '读懂一份尚未收录的韩文通知': '아직 수록되지 않은 한국어 공지 읽기',
+  '粘贴通知原文，AI 提取待办、对象、期限和例外，并标出原文片段。关联既有清单时，会显示你自报的准备状态；是否适用由你核对。': '공지 원문을 붙여 넣으면 AI가 할 일, 대상, 기한과 예외를 추출하고 원문 근거를 표시합니다. 기존 준비 목록과 연결되면 직접 표시한 상태를 보여 줍니다. 적용 여부는 직접 확인하세요.',
+  '通知文字将发送给已配置的 AI，不保存在本地进度中。请勿粘贴证件号码、健康信息或个人账号。': '공지 텍스트는 설정된 AI로 전송되며 로컬 진행 기록에는 저장되지 않습니다. 신분증 번호, 건강 정보 또는 개인 계정을 붙여 넣지 마세요.',
+  '韩文通知原文': '한국어 공지 원문',
+  '粘贴通知正文，不要填写个人敏感信息。': '공지 본문을 붙여 넣으세요. 민감한 개인정보는 입력하지 마세요.',
+  '填入模拟通知': '가상 공지 입력',
+  '示例是教学虚构材料，不代表学校政策。': '예시는 수업용 가상 자료이며 학교 정책이 아닙니다.',
+  '通知链接': '공지 링크',
+  '仅供你核对': '직접 확인용',
+  '可选，仅供你核对': '선택 · 직접 확인용',
+  'AI解读通知': 'AI로 공지 해석',
+  '正在解读…': '해석 중…',
+  'AI解读需要先配置服务。原文仍可自行核对。': 'AI 해석을 위해 서비스를 설정해야 합니다. 원문은 직접 확인할 수 있습니다.',
+  'AI会分析新通知；结果须与原文、最新学校要求核对。': 'AI가 새 공지를 분석합니다. 결과는 원문 및 학교의 최신 안내와 대조하세요.',
+  '请先粘贴韩文通知。': '한국어 공지를 먼저 붙여 넣어 주세요.',
+  '输入已变化，请重新解读。': '입력이 변경되었습니다. 다시 해석하세요.',
+  '没有提取到明确待办，请阅读原文或换一段通知。': '명확한 실행 항목을 찾지 못했습니다. 원문을 읽거나 다른 공지를 입력하세요.',
+  'AI 提取的行动与例外': 'AI가 추출한 실행 항목과 예외',
+  '例外说明，非新增待办': '예외 안내 · 새로운 할 일이 아님',
+  '请核对适用对象和原文，清单状态不会自动更新。': '적용 대상과 원문을 확인하세요. 준비 목록 상태는 자동으로 바뀌지 않습니다.',
+  '原文依据': '원문 근거',
+  '对象原文': '대상 원문',
+  '期限原文': '기한 원문',
+  '例外原文': '예외 원문',
+  'AI推测关联清单（请核对）': 'AI가 추정한 목록 연결 (확인 필요)',
+  '当前自报状态': '현재 직접 표시한 상태',
+  '新事项，未在原清单中': '기존 목록에 없는 새 항목',
+  '适用性待确认': '적용 여부 확인 필요',
+  '可能遗漏的限制或例外，请核对原文': '빠졌을 수 있는 제한·예외를 원문에서 확인하세요',
+  '以下是关键词提示，不代表 AI 已正确理解：': '다음은 키워드 경고이며 AI가 올바르게 이해했다는 뜻이 아닙니다:',
+  '打开输入的链接 ↗': '입력한 링크 열기 ↗',
+  '通知原文已保留；请稍后重试或自行核对。': '공지 원문은 유지됩니다. 나중에 다시 시도하거나 직접 확인하세요.',
   '准备清单': '준비 목록',
   '规则问答': '규정 질문',
   '资料来源': '자료 출처',
@@ -23,11 +58,15 @@ const KO = Object.freeze({
   '课程项目': '수업 프로젝트',
   '入住之前，': '입주 전에,',
   '把准备的事理清。': '준비할 일을 정리하세요.',
-  '按你的入住流程核对资料与物品，找出缺失和待确认项。每一条建议，都能回到资料原文。': '본인의 입주 절차에 따라 서류와 물품을 확인하고, 빠진 항목과 확인할 항목을 찾으세요. 각 제안은 자료 원문으로 확인할 수 있습니다.',
+  '粘贴新的韩文宿舍通知，让 AI 找出行动、期限与例外；再对照你的准备状态和原文逐项核对。': '새로운 한국어 생활관 공지를 붙여 넣으면 AI가 할 일, 기한과 예외를 찾습니다. 준비 상태와 원문을 대조해 항목별로 확인하세요.',
   '正在读取资料版本…': '자료 버전을 불러오는 중…',
   '使用说明': '이용 안내',
   '选流程，标记准备状态，': '절차와 상태를 고르고,',
   '得到下一步行动清单。': '다음 단계를 확인하세요.',
+  '读新通知，核对原文，': '새 공지를 읽고 원문을 확인해,',
+  '确认适用的下一步。': '적용되는 다음 단계를 확인하세요.',
+  '新通知由AI解读。': '새 공지는 AI가 해석합니다.',
+  '手动清单仍可独立使用。': '수동 목록은 별도로 사용할 수 있습니다.',
   '手动核对无需AI。': '수동 확인에는 AI가 필요하지 않습니다.',
   '文字理解与规则问答使用已配置的AI。': '문장 이해와 규정 질의에는 설정된 AI를 사용합니다.',
   '资料暂时没有加载成功': '자료를 불러오지 못했습니다',
@@ -253,6 +292,8 @@ let booting = false;
 let formRevision = 0;
 let sessionEpoch = 0;
 let conversationHistory = [];
+let noticeRevision = 0;
+let noticePending = false;
 
 const staticTextNodes = [];
 const textWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
@@ -295,6 +336,7 @@ async function changeLanguage(language) {
   currentLanguage = language;
   try { localStorage.setItem(LANGUAGE_KEY, language); } catch (_) { /* Language still works for this session. */ }
   sessionEpoch += 1;
+  clearNoticeResult();
   clearSuggestions();
   $('interpret-notices').hidden = true;
   $('interpret-notices').textContent = '';
@@ -304,6 +346,7 @@ async function changeLanguage(language) {
   renderStaticLanguage();
   renderHealth();
   $('interpret-button').textContent = tr('整理为状态建议');
+  $('notice-button').textContent = tr('AI解读通知');
   $('ask-button').textContent = tr('查规则');
   $('check-button').textContent = tr('生成行动清单') + ' →';
   if (catalog) { renderChecklist(); renderSources(); saveProgress(); }
@@ -434,6 +477,7 @@ function saveProgress(explicit = false) {
 
 function changed({ invalidateSuggestions = false } = {}) {
   formRevision += 1;
+  clearNoticeResult();
   if (report) $('report-stale').hidden = false;
   if (invalidateSuggestions) clearSuggestions();
   $('save-status').textContent = tr('正在保存…');
@@ -442,14 +486,81 @@ function changed({ invalidateSuggestions = false } = {}) {
   renderProgress();
 }
 
+function clearNoticeResult() {
+  noticeRevision += 1;
+  $('notice-results').hidden = true;
+  $('notice-results').replaceChildren();
+}
+
+function renderNoticeResults(result) {
+  const panel = $('notice-results');
+  const colon = currentLanguage === 'ko' ? ': ' : '：';
+  panel.replaceChildren();
+  panel.append(element('h3', '', tr('AI 提取的行动与例外')));
+  panel.append(element('p', 'field-help', tr('请核对适用对象和原文，清单状态不会自动更新。')));
+  if (Array.isArray(result.uncovered_caveats) && result.uncovered_caveats.length) {
+    const warning = element('div', 'notice-uncovered');
+    warning.append(element('strong', '', tr('可能遗漏的限制或例外，请核对原文')));
+    warning.append(element('p', '', tr('以下是关键词提示，不代表 AI 已正确理解：')));
+    result.uncovered_caveats.forEach(quote => warning.append(element('blockquote', '', quote)));
+    panel.append(warning);
+  }
+  if (!result.actions.length) panel.append(element('p', 'empty-note', tr('没有提取到明确待办，请阅读原文或换一段通知。')));
+  result.actions.forEach((action, index) => {
+    const card = element('article', 'notice-action');
+    const title = currentLanguage === 'ko' ? action.action_ko : action.action_zh;
+    card.append(element('h4', '', `${index + 1}. ${title}`));
+    if (action.kind === 'exception_note') card.append(element('p', 'notice-exception-kind', tr('例外说明，非新增待办')));
+    if (action.catalog_item_id) {
+      const catalogTitle = currentLanguage === 'ko' ? action.catalog_title_ko : action.catalog_title_zh;
+      card.append(element('p', 'notice-match', `${tr('AI推测关联清单（请核对）')}${colon}${catalogTitle} · ${tr('当前自报状态')}${colon}${stateLabels()[action.current_state] || stateLabels().unknown} · ${tr('适用性待确认')}`));
+    } else card.append(element('p', 'notice-match', tr('新事项，未在原清单中')));
+    card.append(element('p', 'notice-evidence-label', tr('原文依据')));
+    card.append(element('blockquote', '', action.source_quote));
+    [['audience_quote', '对象原文'], ['deadline_quote', '期限原文'], ['exception_quote', '例外原文']].forEach(([key, label]) => {
+      if (action[key]) card.append(element('p', 'notice-condition', `${tr(label)}${colon}${action[key]}`));
+    });
+    panel.append(card);
+  });
+  if (result.source_url) panel.append(externalLink(tr('打开输入的链接 ↗'), result.source_url));
+  panel.append(element('p', 'field-help', result.notice));
+  panel.hidden = false;
+}
+
+async function interpretNotice() {
+  const noticeText = $('notice-text').value.trim();
+  if (!noticeText) { announce(tr('请先粘贴韩文通知。'), true); $('notice-text').focus(); return; }
+  const sourceUrl = $('notice-url').value.trim();
+  const revision = noticeRevision;
+  const button = $('notice-button');
+  noticePending = true; button.disabled = true; button.textContent = tr('正在解读…');
+  $('notice-results').hidden = false;
+  $('notice-results').replaceChildren(element('p', 'field-help', tr('正在解读…')));
+  try {
+    const result = await request('/api/notice/interpret', { notice_text: noticeText, source_url: sourceUrl,
+      language: currentLanguage, profile: progress.profile, states: { ...progress.states } });
+    if (revision !== noticeRevision || noticeText !== $('notice-text').value.trim() || sourceUrl !== $('notice-url').value.trim()) return;
+    if (!result || !Array.isArray(result.actions) || result.review_required !== true) throw new Error(tr('服务未返回有效结果，请检查本地服务后重试。'));
+    renderNoticeResults(result);
+  } catch (error) {
+    if (revision !== noticeRevision) return;
+    $('notice-results').replaceChildren(element('p', 'answer-notice', `${error.message} ${tr('通知原文已保留；请稍后重试或自行核对。')}`));
+    $('notice-results').hidden = false;
+  } finally {
+    noticePending = false; button.textContent = tr('AI解读通知'); renderHealth();
+  }
+}
+
 function renderHealth() {
   const configured = health.ai_configured === true;
   $('mode-indicator').classList.toggle('configured', configured);
   $('mode-text').textContent = tr(configured ? '手动可用 · AI已配置' : '手动检查可用');
   $('interpret-button').disabled = !configured || !catalog;
+  $('notice-button').disabled = !configured || !catalog || noticePending;
   $('ask-button').disabled = !configured || !catalog;
   $('interpret-mode').textContent = tr(configured ? '点击后将文字发送给AI；文字不写入本地进度。建议经你确认后应用，请勿填写证件号码。' : 'AI尚未配置。你仍可逐项手动标记并生成行动清单。');
   $('ask-mode').textContent = tr(configured ? 'AI已配置。以实际返回为准，回答会附资料依据。' : '规则问答需要AI配置。现在可直接查看各项原文与资料来源。');
+  $('notice-mode').textContent = tr(configured ? 'AI会分析新通知；结果须与原文、最新学校要求核对。' : 'AI解读需要先配置服务。原文仍可自行核对。');
 }
 
 function makeEvidence(item, overrideSource) {
@@ -838,8 +949,9 @@ function resetProgress() {
   let storageCleared = true;
   try { localStorage.removeItem(STORAGE_KEY); } catch (_) { storageCleared = false; }
   progress = { profile: 'unknown', move_in_date: '', states: {}, dates: {}, preparation_text: '' };
+  clearNoticeResult();
   formRevision += 1; sessionEpoch += 1; report = null; filter = 'all'; clearSuggestions();
-  $('profile').value = 'unknown'; $('move-in-date').value = ''; $('preparation-text').value = ''; $('question').value = '';
+  $('profile').value = 'unknown'; $('move-in-date').value = ''; $('preparation-text').value = ''; $('question').value = ''; $('notice-text').value = ''; $('notice-url').value = '';
   $('interpret-notices').hidden = true; $('answer-panel').hidden = true; $('report-section').hidden = true;
   clearConversation(false);
   document.querySelectorAll('[data-filter]').forEach(button => { const active = button.dataset.filter === 'all'; button.classList.toggle('is-active', active); button.setAttribute('aria-pressed', String(active)); });
@@ -886,6 +998,10 @@ $('clear-progress').addEventListener('click', () => $('clear-dialog').showModal(
 $('cancel-clear').addEventListener('click', () => $('clear-dialog').close());
 $('confirm-clear').addEventListener('click', resetProgress);
 $('interpret-button').addEventListener('click', interpret);
+$('notice-button').addEventListener('click', interpretNotice);
+$('notice-text').addEventListener('input', clearNoticeResult);
+$('notice-url').addEventListener('input', clearNoticeResult);
+$('notice-sample').addEventListener('click', () => { $('notice-text').value = SAMPLE_NOTICE; $('notice-url').value = ''; clearNoticeResult(); $('notice-text').focus(); });
 $('apply-suggestions').addEventListener('click', applySuggestions);
 $('check-button').addEventListener('click', generateReport);
 $('ask-form').addEventListener('submit', askQuestion);

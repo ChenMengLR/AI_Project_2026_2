@@ -1,0 +1,32 @@
+{
+  "recorded_at_utc": "2026-10-20T09:11:50.147840+00:00",
+  "sample_kind": "synthetic_blind_not_school_policy",
+  "model": "qwen3.8-flash",
+  "input": "수업용 가상 공지(실제 학교 안내가 아님): 2026년 11월 동관 입사 예정자 중 아직 모바일 출입 등록을 하지 않은 학생은 10월 30일 18시까지 생활관 포털에서 QR 출입 등록을 완료하세요. 서관 입사 예정자는 이번 등록 대상이 아닙니다. 등록을 완료한 학생은 다시 신청할 필요가 없습니다.",
+  "result": {
+    "actions": [
+      {
+        "action_zh": "在10月30日18时前通过生活馆门户完成QR出入登记",
+        "action_ko": "10월 30일 18시까지 생활관 포털에서 QR 출입 등록을 완료하세요",
+        "kind": "action",
+        "source_quote": "2026년 11월 동관 입사 예정자 중 아직 모바일 출입 등록을 하지 않은 학생은 10월 30일 18시까지 생활관 포털에서 QR 출입 등록을 완료하세요. 서관 입사 예정자는 이번 등록 대상이 아닙니다.",
+        "audience_quote": "2026년 11월 동관 입사 예정자 중 아직 모바일 출입 등록을 하지 않은 학생",
+        "deadline_quote": "10월 30일 18시까지",
+        "exception_quote": "서관 입사 예정자는 이번 등록 대상이 아닙니다.",
+        "catalog_item_id": null,
+        "catalog_title_zh": "",
+        "catalog_title_ko": "",
+        "current_state": null,
+        "catalog_match_unverified": false
+      }
+    ],
+    "source_url": "",
+    "profile": "international",
+    "uncovered_caveats": [
+      "등록을 완료한 학생은 다시 신청할 필요가 없습니다."
+    ],
+    "review_required": true,
+    "source_url_verified": false,
+    "notice": "AI仅整理你粘贴的文字；引文经过文字匹配，但行动释义、条件关联、清单匹配、日期和适用性仍需你核对。链接未由程序抓取或验证，清单不会自动更改。"
+  }
+}

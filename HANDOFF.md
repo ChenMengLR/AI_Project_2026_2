@@ -1,5 +1,9 @@
 # AI_Project_2026_2 交接说明
 
+## 2026-10-20 第七周 AI 核心任务调整
+
+导师指出原项目较像问答索引。现已增加“新韩文宿舍通知 → 中韩双语行动、对象、期限、例外及原文证据”的 Qwen 主流程，旧清单和连续问答改为辅助。代码在 `week07_notice_interpreter/` 并接入 `week03_dorm_assistant/` 首页。两份合成通知的真实 Qwen 调用、首次漏“已登记无需重复”的失败记录、词法守护后的最终结果、中文及韩语网页运行和 81 项离线测试见 [`docs/status/Week07_STATUS.md`](docs/status/Week07_STATUS.md)。导师可直接使用的中韩说明在 [`week07_notice_interpreter/MENTOR_BRIEF.md`](week07_notice_interpreter/MENTOR_BRIEF.md)。第七周英文 Word 初稿已按此主线改写并目视核验；作者单位／学生邮箱、课程平台提交和现场汇报仍待完成。后续须重新核对 GitHub 与课程平台状态，不把本地成果自动视为已上传。
+
 ## 2026-10-20 第 6 周连续问答与检索提交
 
 已将入住有数的小组连续问答与个人三文档检索练习推送到 GitHub `origin/main`，代码及结果提交为 `8e750d0`。小组[第 6 周卡](https://app.notion.com/p/06-6-0697c00fe5ad83148635017fc48c39dc)与个人[第 6 周卡](https://app.notion.com/p/6-6-3ff7c00fe5ad80e28f45f3429837339b)均已登记，刷新后核验。详情见[Week 06 状态](docs/status/Week06_STATUS.md)、[小组提交记录](docs/submission/2026-10-20/TEAM_WEEK06_SUBMISSION.md)及[个人提交记录](docs/submission/2026-10-20/INDIVIDUAL_WEEK06_SUBMISSION.md)。72 项离线测试通过；真实用户测试、公开部署及教师批阅仍待完成。第七周英文创意奖初稿已置于 `week07_creative_award/`，作者单位／邮箱待本人核实，课程要求的邮件与现场汇报尚未进行。

@@ -13,7 +13,10 @@ import core
 APP_DIR = Path(__file__).resolve().parent
 if str(APP_DIR) not in sys.path:
     sys.path.insert(0, str(APP_DIR))
+if str(APP_DIR.parent) not in sys.path:
+    sys.path.insert(0, str(APP_DIR.parent))
 import conversation
+from week07_notice_interpreter.notice import interpret_notice
 
 STATIC = Path(__file__).resolve().parent / "static"
 ASSETS = {"/": ("index.html", "text/html; charset=utf-8"),
@@ -73,7 +76,8 @@ class Handler(BaseHTTPRequestHandler):
         if self.headers.get("Content-Type", "").split(";")[0].strip() != "application/json":
             return self.json(415, {"error": "content_type", "message": "请发送 JSON。"})
         routes = {"/api/check": core.check, "/api/interpret": core.interpret,
-                  "/api/ask": core.ask, "/api/conversation": conversation.answer}
+                  "/api/ask": core.ask, "/api/conversation": conversation.answer,
+                  "/api/notice/interpret": interpret_notice}
         operation = routes.get(urlsplit(self.path).path)
         if not operation:
             return self.json(404, {"error": "not_found", "message": "接口不存在。"})

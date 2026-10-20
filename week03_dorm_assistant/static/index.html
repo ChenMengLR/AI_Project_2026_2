@@ -18,7 +18,7 @@
         <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 28 28" fill="none"><path d="M5 23V8l9-4 9 4v15M10 23v-6h8v6M10 10h2m4 0h2M10 13h2m4 0h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         <span><strong>入住有数</strong><small>MOVE-IN READY</small></span>
       </a>
-      <nav aria-label="页面导航"><a href="#checklist-section">准备清单</a><a href="#ask-section">规则问答</a><a href="#sources-section">资料来源</a></nav>
+      <nav aria-label="页面导航"><a href="#notice-section">AI读通知</a><a href="#checklist-section">准备清单</a><a href="#ask-section">规则问答</a><a href="#sources-section">资料来源</a></nav>
       <div class="language-switch" role="group" aria-label="界面语言"><button type="button" data-language="zh" aria-pressed="true">中文</button><button type="button" data-language="ko" aria-pressed="false">한국어</button></div>
       <div class="mode-indicator" id="mode-indicator"><span class="status-dot" aria-hidden="true"></span><span id="mode-text">正在读取资料</span></div>
     </div>
@@ -26,12 +26,17 @@
 
   <main id="main" class="page-shell">
     <section class="hero" aria-labelledby="page-title">
-      <div class="hero-copy"><p class="eyebrow">宿舍入住准备助手 <span>/</span> 课程项目</p><h1 id="page-title">入住之前，<br>把准备的事理清。</h1><p class="hero-description">按你的入住流程核对资料与物品，找出缺失和待确认项。每一条建议，都能回到资料原文。</p><p class="verification-note" id="verified-note">正在读取资料版本…</p></div>
-      <div class="hero-note" aria-label="使用说明"><span class="note-number">01 — 03</span><p>选流程，标记准备状态，<br>得到下一步行动清单。</p><div class="note-divider"></div><small>手动核对无需AI。<br>文字理解与规则问答使用已配置的AI。</small></div>
+      <div class="hero-copy"><p class="eyebrow">宿舍入住准备助手 <span>/</span> 课程项目</p><h1 id="page-title">入住之前，<br>把准备的事理清。</h1><p class="hero-description">粘贴新的韩文宿舍通知，让 AI 找出行动、期限与例外；再对照你的准备状态和原文逐项核对。</p><p class="verification-note" id="verified-note">正在读取资料版本…</p></div>
+      <div class="hero-note" aria-label="使用说明"><span class="note-number">01 — 03</span><p>读新通知，核对原文，<br>确认适用的下一步。</p><div class="note-divider"></div><small>新通知由AI解读。<br>手动清单仍可独立使用。</small></div>
     </section>
 
     <div id="load-error" class="notice notice-error" role="alert" hidden><div><strong>资料暂时没有加载成功</strong><p id="load-error-message"></p></div><button class="button button-secondary" id="retry-load" type="button">重新读取</button></div>
     <div id="live-message" class="toast" role="status" aria-live="polite" hidden></div>
+
+    <section class="notice-interpreter" id="notice-section" aria-labelledby="notice-heading">
+      <div class="notice-intro"><p class="eyebrow">AI 核心功能 · 新通知到行动</p><h2 id="notice-heading">读懂一份尚未收录的韩文通知</h2><p>粘贴通知原文，AI 提取待办、对象、期限和例外，并标出原文片段。关联既有清单时，会显示你自报的准备状态；是否适用由你核对。</p><p class="field-help">通知文字将发送给已配置的 AI，不保存在本地进度中。请勿粘贴证件号码、健康信息或个人账号。</p></div>
+      <div class="notice-work"><label for="notice-text">韩文通知原文</label><textarea id="notice-text" rows="5" maxlength="6000" placeholder="粘贴通知正文，不要填写个人敏感信息。"></textarea><div class="notice-inline"><button id="notice-sample" class="text-button" type="button">填入模拟通知</button><span>示例是教学虚构材料，不代表学校政策。</span></div><label for="notice-url">通知链接 <span class="optional">可选，仅供你核对</span></label><input id="notice-url" type="url" maxlength="500" placeholder="https://..."><div class="inline-action"><p class="field-help" id="notice-mode">正在检查AI配置…</p><button id="notice-button" class="button button-primary" type="button" disabled>AI解读通知</button></div><div id="notice-results" class="notice-results" aria-live="polite" hidden></div></div>
+    </section>
 
     <div class="workspace" id="workspace" aria-busy="true">
       <aside class="setup-column" aria-label="入住信息与快捷操作">

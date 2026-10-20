@@ -397,6 +397,16 @@ class HTTPTests(unittest.TestCase):
         self.assertIn("recommendations", report)
         self.assertIn("확인", report["recommendations"][0]["next_action"])
 
+    def test_new_notice_route_http(self):
+        body = json.dumps({"notice_text": "수업용 가상 공지: 2026년 11월 입사 예정자는 침구류를 준비하세요."}, ensure_ascii=False).encode("utf-8")
+        request = Request(self.url + "/api/notice/interpret", data=body,
+                          headers={"Content-Type": "application/json; charset=utf-8"})
+        with patch.object(self.app, "interpret_notice", return_value={"actions": [], "review_required": True}) as operation:
+            with urlopen(request) as res:
+                result = json.load(res)
+        self.assertTrue(result["review_required"])
+        operation.assert_called_once()
+
     def test_cross_origin_rejected(self):
         request = Request(self.url + "/api/check", data=b'{}', headers={"Content-Type": "application/json", "Origin": "https://example.org"})
         with self.assertRaises(HTTPError) as caught:
