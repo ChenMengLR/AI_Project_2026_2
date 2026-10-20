@@ -11,3 +11,12 @@
 @media(max-width:380px){.header-inner nav{gap:12px}.header-inner nav a{font-size:9px}.language-switch button{padding:5px 7px}}
 @media print{body{background:#fff;color:#222;font-size:11px}.site-header,.hero,.setup-column,.interpret-panel,.checklist-section,.knowledge-section,.sources-section,.toast,.report-actions,.site-footer,.filter-row,dialog{display:none!important}.page-shell{max-width:none;padding:0}.workspace{display:block}.report-section{display:block!important;border:0;margin:0;padding:0}.report-summary{background:#fff!important;color:#222!important;border:1px solid #aaa;break-inside:avoid}.report-summary h3,.report-summary p,.report-stats,.report-stats strong{color:#222!important}.report-item{break-inside:avoid;border-color:#aaa}.item-evidence{display:block}.item-evidence .evidence-content{display:block}.report-meta{font-size:9px}.section-kicker{display:none}.report-section:before{content:"入住有数 · 入住准备行动清单";display:block;font-size:10px;color:#666;margin-bottom:12px}}
 @media print{.recommendation-section{background:#fff;border:1px solid #aaa;break-inside:avoid}.recommendations{grid-template-columns:1fr}.recommendation-card{break-inside:avoid}html[lang="ko"] .report-section:before{content:"입주 준비 한눈에 · 입주 준비 실행 목록"}}
+.conversation-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:12px 0;font-size:11px;color:var(--muted)}
+.conversation-list{display:grid;gap:14px}
+.conversation-turn{padding:20px;border:1px solid var(--line);border-radius:12px;background:#fff;box-shadow:0 8px 28px #2339300b;min-width:0}
+.conversation-turn .answer-label{margin:0 0 8px}
+.conversation-turn .answer-text{margin:8px 0 0;line-height:1.8;white-space:pre-wrap}
+.retrieval-box{margin:14px 0;padding:12px 14px;background:#f5f7f4;border-radius:8px}
+.retrieval-line{font-size:11px;line-height:1.65;color:var(--muted);overflow-wrap:anywhere;margin:5px 0}
+.conversation-turn .answer-evidence{margin-top:16px}
+.conversation-turn .evidence-content{margin-top:10px}

@@ -85,6 +85,16 @@ const KO = Object.freeze({
   '根据你选择的身份与准备状态，从待处理事项中选出最多三项；仅作准备辅助。': '선택한 대상과 준비 상태에 따라 처리할 항목을 최대 세 개 추천합니다. 준비를 돕기 위한 안내입니다.',
   '有疑问，查依据': '궁금한 점은 근거 확인',
   '规则怎么说？': '규정에는 어떻게 나와 있나요?',
+  '连续提问，核对来源': '이어서 질문하고 출처 확인하기',
+  '本次页面会显示全部问答；后续提问仅使用最近三轮问题与引用作为上下文。清空或刷新页面会结束对话。': '이 페이지에는 이번 대화의 질문과 답변이 모두 보입니다. 후속 질문에는 최근 세 차례의 질문과 인용만 맥락으로 사용합니다. 대화를 지우거나 새로고침하면 대화가 종료됩니다.',
+  '本次对话 0 轮': '현재 대화 0회',
+  '清空对话': '대화 지우기',
+  '理解后的独立问题': '맥락을 반영한 독립 질문',
+  '韩文检索词': '한국어 검색어',
+  '检索到的文档与条款': '검색된 문서와 조항',
+  '未检索到条款': '검색된 조항 없음',
+  '第': '제',
+  '轮': '회',
   '回答只依据已收录资料。资料没有说明的内容，会明确提示无法确认。': '답변은 수록된 자료만 근거로 합니다. 자료에 없는 내용은 확인할 수 없다고 안내합니다.',
   '输入你的规则问题': '규정 관련 질문 입력',
   '例如：入住前需要准备哪些证明？': '예: 입주 전에 어떤 증명서를 준비해야 하나요?',
@@ -242,6 +252,7 @@ let saveTimer = null;
 let booting = false;
 let formRevision = 0;
 let sessionEpoch = 0;
+let conversationHistory = [];
 
 const staticTextNodes = [];
 const textWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
@@ -289,6 +300,7 @@ async function changeLanguage(language) {
   $('interpret-notices').textContent = '';
   $('answer-panel').hidden = true;
   $('answer-panel').replaceChildren();
+  clearConversation(false);
   renderStaticLanguage();
   renderHealth();
   $('interpret-button').textContent = tr('整理为状态建议');
@@ -757,31 +769,59 @@ async function askQuestion(event) {
   const panel = $('answer-panel'); panel.hidden = false;
   panel.replaceChildren(element('p', 'answer-label', tr('正在根据收录资料查找依据…')));
   try {
-    const result = await request('/api/ask', { question, language: currentLanguage });
+    const result = await request('/api/conversation', { question, language: currentLanguage,
+      history: conversationHistory.slice(-3) });
     if (epoch !== sessionEpoch || question !== $('question').value.trim()) { panel.hidden = true; return; }
     if (!result || typeof result.answer !== 'string') throw new Error(tr('未收到有效回答，请查看原文或稍后重试。'));
-    panel.replaceChildren(element('p', 'answer-label', tr('根据收录资料回答')), element('p', 'answer-text', result.answer));
-    if (result.notice) panel.append(element('p', 'answer-notice', result.notice));
+    const turn = element('article', 'conversation-turn');
+    turn.append(element('p', 'answer-label', `${tr('第')} ${$('conversation-list').children.length + 1} ${tr('轮')} · ${question}`));
+    if (result.standalone_question) turn.append(element('p', 'retrieval-line', `${tr('理解后的独立问题')}：${result.standalone_question}`));
+    if (Array.isArray(result.keywords_ko) && result.keywords_ko.length) turn.append(element('p', 'retrieval-line', `${tr('韩文检索词')}：${result.keywords_ko.join(' · ')}`));
+    const retrieved = Array.isArray(result.retrieved) ? result.retrieved : [];
+    const retrievalBox = element('div', 'retrieval-box');
+    retrievalBox.append(element('p', 'answer-label', tr('检索到的文档与条款')));
+    if (retrieved.length) retrieved.forEach((hit, index) => {
+      const line = element('p', 'retrieval-line', `[S${index + 1}] ${hit.document || ''} · ${sourceLocator(hit.clause || hit.item_id || '')}`);
+      retrievalBox.append(line);
+    });
+    else retrievalBox.append(element('p', 'retrieval-line', tr('未检索到条款')));
+    turn.append(retrievalBox, element('p', 'answer-label', tr('根据收录资料回答')), element('p', 'answer-text', result.answer));
+    if (result.notice) turn.append(element('p', 'answer-notice', result.notice));
     const evidence = Array.isArray(result.evidence) ? result.evidence : [];
     if (evidence.length) {
       const evidencePanel = element('div', 'answer-evidence');
       evidencePanel.append(element('p', 'answer-label', tr('回答依据')));
       evidence.forEach(entry => {
-        const item = itemById(entry.item_id) || {};
-        const source = sourceById(entry.source_id) || {};
         const block = element('div', 'evidence-content');
+        block.append(element('p', 'retrieval-line', `${entry.document || ''} · ${sourceLocator(entry.clause || entry.item_id || '')}`));
         if (entry.quote) block.append(element('blockquote', '', entry.quote));
-        block.append(externalLink(sourceTitle(source) || tr('打开原始资料 ↗'), source.url || item.source_url));
+        if (entry.url) block.append(externalLink(tr('打开原始资料 ↗'), entry.url));
         evidencePanel.append(block);
       });
-      panel.append(evidencePanel);
+      turn.append(evidencePanel);
     } else {
-      panel.append(element('p', 'answer-notice', tr('本次回答没有返回可展示的原文依据。请查看资料原文或向宿舍确认，勿据此视为已核实。')));
+      turn.append(element('p', 'answer-notice', tr('本次回答没有返回可展示的原文依据。请查看资料原文或向宿舍确认，勿据此视为已核实。')));
     }
+    $('conversation-list').append(turn);
+    conversationHistory.push({ question, evidence_ids: evidence.map(entry => entry.item_id).slice(0, 3) });
+    if (conversationHistory.length > 3) conversationHistory.shift();
+    $('conversation-count').textContent = currentLanguage === 'ko' ? `현재 대화 ${$('conversation-list').children.length}회` : `本次对话 ${$('conversation-list').children.length} 轮`;
+    panel.hidden = true;
+    $('question').value = '';
+    turn.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
   } catch (error) {
     if (epoch !== sessionEpoch) return;
     panel.replaceChildren(element('p', 'answer-notice', `${error.message} ${tr('问题已保留。你仍可查看来源原文，或使用无需AI的手动检查。')}`));
   } finally { button.textContent = tr('查规则'); button.disabled = !health.ai_configured; }
+}
+
+function clearConversation(announceClear = true) {
+  sessionEpoch += 1;
+  conversationHistory = [];
+  $('conversation-list').replaceChildren();
+  $('conversation-count').textContent = tr('本次对话 0 轮');
+  $('answer-panel').hidden = true;
+  if (announceClear) announce(tr('清空对话'));
 }
 
 function exportReport() {
@@ -801,6 +841,7 @@ function resetProgress() {
   formRevision += 1; sessionEpoch += 1; report = null; filter = 'all'; clearSuggestions();
   $('profile').value = 'unknown'; $('move-in-date').value = ''; $('preparation-text').value = ''; $('question').value = '';
   $('interpret-notices').hidden = true; $('answer-panel').hidden = true; $('report-section').hidden = true;
+  clearConversation(false);
   document.querySelectorAll('[data-filter]').forEach(button => { const active = button.dataset.filter === 'all'; button.classList.toggle('is-active', active); button.setAttribute('aria-pressed', String(active)); });
   $('save-status').textContent = tr(storageCleared ? '已清空 · 进度仅在本浏览器' : '页面已清空，但本地记录移除失败'); renderChecklist();
   $('clear-dialog').close(); announce(tr(storageCleared ? '准备记录已清空。' : '当前页面已清空，但浏览器存储未允许移除记录；刷新后可能恢复旧记录。'), !storageCleared); $('profile').focus();
@@ -848,6 +889,7 @@ $('interpret-button').addEventListener('click', interpret);
 $('apply-suggestions').addEventListener('click', applySuggestions);
 $('check-button').addEventListener('click', generateReport);
 $('ask-form').addEventListener('submit', askQuestion);
+$('clear-conversation').addEventListener('click', () => clearConversation());
 $('export-json').addEventListener('click', exportReport);
 $('print-report').addEventListener('click', () => { if (report) window.print(); });
 $('retry-load').addEventListener('click', boot);

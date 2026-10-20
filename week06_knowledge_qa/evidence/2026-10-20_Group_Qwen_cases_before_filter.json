@@ -1,0 +1,294 @@
+[
+  {
+    "scenario": "grounded",
+    "generated_at": "2026-10-20T06:48:33.658032+00:00",
+    "input": {
+      "question": "可以带电热水壶吗？",
+      "history": []
+    },
+    "result": {
+      "question": "可以带电热水壶吗？",
+      "standalone_question": "可以带电热水壶吗？",
+      "keywords_ko": [
+        "전기포트",
+        "반입",
+        "가능"
+      ],
+      "rewrite_mode": "model",
+      "retrieved": [
+        {
+          "item_id": "PROHIBITED_ITEMS",
+          "document": "한림생활관 입/퇴사 안내（翰林生活馆入住/退宿说明）",
+          "clause": "4) 반입금지 물품 (1)–(5)",
+          "url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075",
+          "quote": "반입금지 물품",
+          "score": 6
+        },
+        {
+          "item_id": "HEALTH_ITEM_INQUIRY",
+          "document": "한림생활관 입/퇴사 안내（翰林生活馆入住/退宿说明）",
+          "clause": "4) 반입금지 물품 最后注释",
+          "url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075",
+          "quote": "사전 문의",
+          "score": 2
+        }
+      ],
+      "history_used": 0,
+      "mode": "retrieval_ai",
+      "answered": true,
+      "answer": "已收录资料说明：禁带电热毯、取暖器、电饭锅、电热水壶、冰箱、火源危险品及酒类等。 因健康原因需要使用相关物品时，先向行政支援室询问。",
+      "evidence": [
+        {
+          "item_id": "PROHIBITED_ITEMS",
+          "document": "한림생활관 입/퇴사 안내（翰林生活馆入住/退宿说明）",
+          "clause": "4) 반입금지 물품 (1)–(5)",
+          "source_id": "HANLIM_MOVEIN",
+          "quote": "반입금지 물품",
+          "url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075"
+        },
+        {
+          "item_id": "HEALTH_ITEM_INQUIRY",
+          "document": "한림생활관 입/퇴사 안내（翰林生活馆入住/退宿说明）",
+          "clause": "4) 반입금지 물품 最后注释",
+          "source_id": "HANLIM_MOVEIN",
+          "quote": "사전 문의",
+          "url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075"
+        }
+      ],
+      "failure_stage": null,
+      "notice": "答案采用已核对的条目文字；请按链接核对原文。"
+    }
+  },
+  {
+    "scenario": "followup",
+    "generated_at": "2026-10-20T06:48:36.730277+00:00",
+    "input": {
+      "question": "可以带电热水壶吗？",
+      "history": []
+    },
+    "result": {
+      "question": "可以带电热水壶吗？",
+      "standalone_question": "可以带电热水壶吗？",
+      "keywords_ko": [
+        "전기포트",
+        "반입",
+        "가능 여부"
+      ],
+      "rewrite_mode": "model",
+      "retrieved": [
+        {
+          "item_id": "PROHIBITED_ITEMS",
+          "document": "한림생활관 입/퇴사 안내（翰林生活馆入住/退宿说明）",
+          "clause": "4) 반입금지 물품 (1)–(5)",
+          "url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075",
+          "quote": "반입금지 물품",
+          "score": 6
+        },
+        {
+          "item_id": "HEALTH_ITEM_INQUIRY",
+          "document": "한림생활관 입/퇴사 안내（翰林生活馆入住/退宿说明）",
+          "clause": "4) 반입금지 물품 最后注释",
+          "url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075",
+          "quote": "사전 문의",
+          "score": 2
+        }
+      ],
+      "history_used": 0,
+      "mode": "retrieval_ai",
+      "answered": true,
+      "answer": "已收录资料说明：禁带电热毯、取暖器、电饭锅、电热水壶、冰箱、火源危险品及酒类等。 因健康原因需要使用相关物品时，先向行政支援室询问。",
+      "evidence": [
+        {
+          "item_id": "PROHIBITED_ITEMS",
+          "document": "한림생활관 입/퇴사 안내（翰林生活馆入住/退宿说明）",
+          "clause": "4) 반입금지 물품 (1)–(5)",
+          "source_id": "HANLIM_MOVEIN",
+          "quote": "반입금지 물품",
+          "url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075"
+        },
+        {
+          "item_id": "HEALTH_ITEM_INQUIRY",
+          "document": "한림생활관 입/퇴사 안내（翰林生活馆入住/退宿说明）",
+          "clause": "4) 반입금지 물품 最后注释",
+          "source_id": "HANLIM_MOVEIN",
+          "quote": "사전 문의",
+          "url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075"
+        }
+      ],
+      "failure_stage": null,
+      "notice": "答案采用已核对的条目文字；请按链接核对原文。"
+    }
+  },
+  {
+    "scenario": "followup",
+    "generated_at": "2026-10-20T06:48:39.640250+00:00",
+    "input": {
+      "question": "那冰箱呢？",
+      "history": [
+        {
+          "question": "可以带电热水壶吗？",
+          "evidence_ids": [
+            "PROHIBITED_ITEMS",
+            "HEALTH_ITEM_INQUIRY"
+          ]
+        }
+      ]
+    },
+    "result": {
+      "question": "那冰箱呢？",
+      "standalone_question": "可以带冰箱吗？",
+      "keywords_ko": [
+        "냉장고",
+        "반입 가능 여부",
+        "금지 물품"
+      ],
+      "rewrite_mode": "model",
+      "retrieved": [
+        {
+          "item_id": "PROHIBITED_ITEMS",
+          "document": "한림생활관 입/퇴사 안내（翰林生活馆入住/退宿说明）",
+          "clause": "4) 반입금지 물품 (1)–(5)",
+          "url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075",
+          "quote": "반입금지 물품",
+          "score": 10
+        },
+        {
+          "item_id": "HEALTH_ITEM_INQUIRY",
+          "document": "한림생활관 입/퇴사 안내（翰林生活馆入住/退宿说明）",
+          "clause": "4) 반입금지 물품 最后注释",
+          "url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075",
+          "quote": "사전 문의",
+          "score": 2
+        }
+      ],
+      "history_used": 1,
+      "mode": "retrieval_ai",
+      "answered": true,
+      "answer": "已收录资料说明：禁带电热毯、取暖器、电饭锅、电热水壶、冰箱、火源危险品及酒类等。 因健康原因需要使用相关物品时，先向行政支援室询问。",
+      "evidence": [
+        {
+          "item_id": "PROHIBITED_ITEMS",
+          "document": "한림생활관 입/퇴사 안내（翰林生活馆入住/退宿说明）",
+          "clause": "4) 반입금지 물품 (1)–(5)",
+          "source_id": "HANLIM_MOVEIN",
+          "quote": "반입금지 물품",
+          "url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075"
+        },
+        {
+          "item_id": "HEALTH_ITEM_INQUIRY",
+          "document": "한림생활관 입/퇴사 안내（翰林生活馆入住/退宿说明）",
+          "clause": "4) 반입금지 물품 最后注释",
+          "source_id": "HANLIM_MOVEIN",
+          "quote": "사전 문의",
+          "url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075"
+        }
+      ],
+      "failure_stage": null,
+      "notice": "答案采用已核对的条目文字；请按链接核对原文。"
+    }
+  },
+  {
+    "scenario": "unavailable",
+    "generated_at": "2026-10-20T06:48:42.061864+00:00",
+    "input": {
+      "question": "奖学金申请日期是什么？",
+      "history": []
+    },
+    "result": {
+      "question": "奖学金申请日期是什么？",
+      "standalone_question": "장학금 신청 기간은 언제인가요?",
+      "keywords_ko": [
+        "장학금",
+        "신청",
+        "기간"
+      ],
+      "rewrite_mode": "model",
+      "retrieved": [
+        {
+          "item_id": "DOC_RECENCY",
+          "document": "한림생활관 입/퇴사 안내（翰林生活馆入住/退宿说明）",
+          "clause": "1) 입사 전 서류 준비 标题",
+          "url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075",
+          "quote": "3개월 이내 발급분",
+          "score": 4
+        },
+        {
+          "item_id": "CHECKIN_OFFICE",
+          "document": "한림생활관 입/퇴사 안내（翰林生活馆入住/退宿说明）",
+          "clause": "2) 입사 당일 (1)",
+          "url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075",
+          "quote": "09:00~17:00",
+          "score": 2
+        }
+      ],
+      "history_used": 0,
+      "mode": "retrieval_ai",
+      "answered": false,
+      "answer": "检索到了相关资料，但其中没有足够依据回答这个问题；请查看原文或联系生活馆。",
+      "evidence": [],
+      "failure_stage": "answer",
+      "notice": "检索命中不等于问题已得到证实。"
+    }
+  },
+  {
+    "scenario": "retrieval_paraphrase",
+    "generated_at": "2026-10-20T06:48:44.802203+00:00",
+    "input": {
+      "question": "烧水的机器能带进宿舍吗？",
+      "history": []
+    },
+    "result": {
+      "question": "烧水的机器能带进宿舍吗？",
+      "standalone_question": "烧水的机器能带进宿舍吗？",
+      "keywords_ko": [
+        "전기포트",
+        "기숙사",
+        "반입",
+        "금지"
+      ],
+      "rewrite_mode": "model",
+      "retrieved": [
+        {
+          "item_id": "PROHIBITED_ITEMS",
+          "document": "한림생활관 입/퇴사 안내（翰林生活馆入住/退宿说明）",
+          "clause": "4) 반입금지 물품 (1)–(5)",
+          "url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075",
+          "quote": "반입금지 물품",
+          "score": 8
+        },
+        {
+          "item_id": "HEALTH_ITEM_INQUIRY",
+          "document": "한림생활관 입/퇴사 안내（翰林生活馆入住/退宿说明）",
+          "clause": "4) 반입금지 물품 最后注释",
+          "url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075",
+          "quote": "사전 문의",
+          "score": 4
+        }
+      ],
+      "history_used": 0,
+      "mode": "retrieval_ai",
+      "answered": true,
+      "answer": "已收录资料说明：禁带电热毯、取暖器、电饭锅、电热水壶、冰箱、火源危险品及酒类等。 因健康原因需要使用相关物品时，先向行政支援室询问。",
+      "evidence": [
+        {
+          "item_id": "PROHIBITED_ITEMS",
+          "document": "한림생활관 입/퇴사 안내（翰林生活馆入住/退宿说明）",
+          "clause": "4) 반입금지 물품 (1)–(5)",
+          "source_id": "HANLIM_MOVEIN",
+          "quote": "반입금지 물품",
+          "url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075"
+        },
+        {
+          "item_id": "HEALTH_ITEM_INQUIRY",
+          "document": "한림생활관 입/퇴사 안내（翰林生活馆入住/退宿说明）",
+          "clause": "4) 반입금지 물품 最后注释",
+          "source_id": "HANLIM_MOVEIN",
+          "quote": "사전 문의",
+          "url": "https://hanlim.donga.ac.kr/hanlim/CMS/Contents/Contents.do?mCode=MN075"
+        }
+      ],
+      "failure_stage": null,
+      "notice": "答案采用已核对的条目文字；请按链接核对原文。"
+    }
+  }
+]

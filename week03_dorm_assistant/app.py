@@ -5,9 +5,15 @@ import argparse
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
 from pathlib import Path
+import sys
 from urllib.parse import urlsplit
 
 import core
+# This file is also loaded directly by the HTTP integration tests.
+APP_DIR = Path(__file__).resolve().parent
+if str(APP_DIR) not in sys.path:
+    sys.path.insert(0, str(APP_DIR))
+import conversation
 
 STATIC = Path(__file__).resolve().parent / "static"
 ASSETS = {"/": ("index.html", "text/html; charset=utf-8"),
@@ -66,7 +72,8 @@ class Handler(BaseHTTPRequestHandler):
             return self.json(403, {"error": "invalid_origin", "message": "请求来源不匹配。"})
         if self.headers.get("Content-Type", "").split(";")[0].strip() != "application/json":
             return self.json(415, {"error": "content_type", "message": "请发送 JSON。"})
-        routes = {"/api/check": core.check, "/api/interpret": core.interpret, "/api/ask": core.ask}
+        routes = {"/api/check": core.check, "/api/interpret": core.interpret,
+                  "/api/ask": core.ask, "/api/conversation": conversation.answer}
         operation = routes.get(urlsplit(self.path).path)
         if not operation:
             return self.json(404, {"error": "not_found", "message": "接口不存在。"})
