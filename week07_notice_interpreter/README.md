@@ -8,6 +8,8 @@
 
 初次未参与提示词调整的 `blind_sample.txt` 是新的 QR 登记情境。首次真实模型调用提取了东馆对象、截止时刻和西馆例外，却漏掉“已经登记者无需再次申请”。原始记录保存在 `blind_initial_2026-10-20.json`。因此我们增加保守的韩文例外关键词检查：若可能的例外句没有出现在任何模型证据片段，页面会单独警示并显示该原句。最终复测 `blind_guarded_2026-10-20.json` 中，模型仍漏掉该句，但程序确实将它单独警示。模型若将“无需重复”返回为一条事项，程序会将其标作“例外说明，非新增待办”。这只是两份合成文本的工程检查，**没有证明对任意通知准确**；关键词检查也可能遗漏其他措辞。
 
+第七周演示视频：[`evidence/Week07_AI_Live_Browser_Demo_20261022.mp4`](evidence/Week07_AI_Live_Browser_Demo_20261022.mp4)（89.16 秒，H.264 MP4，英文步骤字幕、无口头旁白）。它由真实浏览器操作录屏组成，展示教学用虚构通知的实际 Qwen 解读、中韩界面切换、第二份 QR 通知的遗漏例外提示。片头、片尾与一段 4 秒的“VIDEO NOTE”定格说明是后期加入；未剪入预存模型结果冒充实时调用。原始连续录屏为 [`evidence/Week07_AI_Live_Browser_Raw_20261022.webm`](evidence/Week07_AI_Live_Browser_Raw_20261022.webm)，三次调用的结果计数见 [`evidence/Week07_AI_Video_Capture_Summary_20261022.json`](evidence/Week07_AI_Video_Capture_Summary_20261022.json)。视频展示的是开发者演示而非真实住校生测试，也不证明对任意通知的准确性。
+
 真实 Qwen 演示可在仓库根目录运行：
 
 ```powershell

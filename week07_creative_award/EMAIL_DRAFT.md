@@ -1,4 +1,4 @@
-# 第七周初稿邮件草稿（请本人核对后发送）
+# 第七周初稿邮件草稿（历史准备稿）
 
 收件人：boracles@snu.ac.kr
 主题：WANGHAOBIN — Week 7 Creative Award Draft
@@ -12,4 +12,4 @@ Thank you for your guidance. I look forward to your feedback.
 Best regards,
 WANGHAOBIN
 
-附件：`WANGHAOBIN_Week07_CreativeAward_Draft.docx`。邮件尚未发送；作者单位及邮箱字段先由本人确认。
+此页是发送前准备的历史草稿，并非实际发送正文。2026-10-22 已从本人 Gmail 发送 DOCX 和 MP4 两份附件，实际邮件、时间和课程卡状态见[第 7 周提交记录](../docs/submission/2026-10-22/TEAM_WEEK07_SUBMISSION.md)。

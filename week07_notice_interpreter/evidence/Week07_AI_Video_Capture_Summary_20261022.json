@@ -1,0 +1,27 @@
+{
+  "kind": "real_browser_capture_synthetic_notices",
+  "recorded_at": "2026-10-22T05:29:53.024Z",
+  "calls": [
+    {
+      "label": "sample_zh",
+      "elapsed_seconds": 13,
+      "cards": 2,
+      "warning": 0,
+      "error": null
+    },
+    {
+      "label": "sample_ko",
+      "elapsed_seconds": 10,
+      "cards": 3,
+      "warning": 0,
+      "error": null
+    },
+    {
+      "label": "blind_zh",
+      "elapsed_seconds": 6,
+      "cards": 1,
+      "warning": 1,
+      "error": null
+    }
+  ]
+}
